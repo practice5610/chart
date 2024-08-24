@@ -58359,37 +58359,7 @@ webpackJsonp(
                                 displayMode: s,
                               })
                             ),
-                          1 === I &&
-                            (e.Compare || e.Indicators) &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "study" },
-                              r.createElement(
-                                "div",
-                                { className: _.subGroup },
-                                e.Indicators &&
-                                  r.createElement(e.Indicators, {
-                                    id: L
-                                      ? void 0
-                                      : f.HeaderToolbarComponentIds.Indicators,
-                                    className: _.button,
-                                    studyMarket: g,
-                                    displayMode: s,
-                                  }),
-                                e.Templates &&
-                                  r.createElement(e.Templates, {
-                                    id: L
-                                      ? void 0
-                                      : f.HeaderToolbarComponentIds
-                                          .StudyTemplates,
-                                    isShownQuicks: n.allowFavoriting,
-                                    isFavoritingAllowed: n.allowFavoriting,
-                                    displayMode: s,
-                                    stateSyncEmitter: y,
-                                    isFake: L,
-                                  })
-                              )
-                            ),
+
                           1 === I &&
                             e.Alert &&
                             r.createElement(
