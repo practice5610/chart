@@ -9241,7 +9241,6 @@ html.theme-dark .pane-legend .pane-legend-minbtn .expand {
 }
 .pane-legend-line {
   display: none;
-  
 }
 .pane-legend-line.pane-legend-wrap.main {
   padding-top: 4px;
@@ -10296,13 +10295,7 @@ html.theme-dark .published-charts-tooltip.right:after {
   background-position: -167px -441px;
 }
 .chart-controls-bar {
-  position: absolute;
-  height: 22px;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  background-color: #e5e5e8;
-  overflow: hidden;
+  display: none;
 }
 html.theme-dark .chart-controls-bar {
   background-color: #171b29;
