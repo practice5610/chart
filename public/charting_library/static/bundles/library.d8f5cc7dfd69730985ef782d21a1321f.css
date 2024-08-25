@@ -8881,13 +8881,8 @@ html.theme-dark .layout-widget .layout-button.active svg {
   padding: 0 0 0 4px;
 }
 .context-menu-wrapper {
-  position: absolute;
-  z-index: 500;
-  overflow: auto;
-  border: 1px solid;
-  border-color: #b5b7b9;
-  background-color: #fff;
-  white-space: nowrap;
+  display: none;
+  
 }
 html.theme-dark .context-menu-wrapper {
   background-color: #1c2030;
