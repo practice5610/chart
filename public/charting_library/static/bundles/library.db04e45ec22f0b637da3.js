@@ -59278,69 +59278,6 @@ webpackJsonp(
                             isGrayed: this._grayedTools["Font Icons"],
                             toolName: "LineToolIcon",
                           })
-                      ),
-                    !a &&
-                      n.createElement(
-                        "div",
-                        { className: I.group, style: h },
-                        n.createElement(T.ToolButtonTool, {
-                          toolName: "measure",
-                        }),
-                        n.createElement(T.ToolButtonTool, { toolName: "zoom" }),
-                        n.createElement(C.ToolButtonZoomOut, {
-                          chartWidgetCollection: r,
-                        })
-                      ),
-                    !a &&
-                      n.createElement(
-                        "div",
-                        { className: I.group, style: h },
-                        n.createElement(w.ToolButtonProperty, {
-                          property: c.properties().magnet,
-                          saveDefaultOnChange: !0,
-                          toolName: "magnet",
-                        }),
-                        this._features.tools &&
-                          n.createElement(w.ToolButtonProperty, {
-                            property: c.properties().stayInDrawingMode,
-                            saveDefaultOnChange: !0,
-                            toolName: "drawginmode",
-                          }),
-                        this._features.tools &&
-                          n.createElement(w.ToolButtonProperty, {
-                            property: c.lockDrawings(),
-                            toolName: "lockAllDrawings",
-                          }),
-                        this._features.tools &&
-                          n.createElement(w.ToolButtonProperty, {
-                            property: c.hideAllDrawings(),
-                            toolName: "hideAllDrawings",
-                          }),
-                        this._features.tools &&
-                          this._features.multicharts &&
-                          n.createElement(w.ToolButtonProperty, {
-                            property: c.drawOnAllCharts(),
-                            saveDefaultOnChange: !0,
-                            toolName: "SyncDrawing",
-                          })
-                      ),
-                    !a &&
-                      this._features.tools &&
-                      n.createElement(
-                        "div",
-                        { className: I.group, style: h },
-                        n.createElement(b.ToolButtonAction, {
-                          action: function () {
-                            return e
-                              ._activeChartWidget()
-                              .showSourceProperties();
-                          },
-                          toolName: "showObjectsTree",
-                        }),
-                        n.createElement(P.ToolDropdownRemove, {
-                          chartWidgetCollection: r,
-                          toolName: "removeAllDrawingTools",
-                        })
                       )
                   )
                 ),
