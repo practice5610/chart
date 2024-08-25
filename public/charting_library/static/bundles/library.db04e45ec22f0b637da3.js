@@ -58310,27 +58310,6 @@ webpackJsonp(
                     !v &&
                       r.Children.toArray(
                         [
-                          e.DateRange &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "range" },
-                              r.createElement(e.DateRange, null)
-                            ),
-                          e.Intervals &&
-                            1 === I &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "intervals" },
-                              r.createElement(e.Intervals, {
-                                id: L
-                                  ? void 0
-                                  : f.HeaderToolbarComponentIds.Intervals,
-                                isShownQuicks: n.allowFavoriting,
-                                isFavoritingAllowed: n.allowFavoriting,
-                                displayMode: s,
-                                isFake: L,
-                              })
-                            ),
                           e.Bars &&
                             1 === I &&
                             r.createElement(
@@ -58346,88 +58325,8 @@ webpackJsonp(
                                 isFake: L,
                               })
                             ),
-                          e.Compare &&
-                            1 === I &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "compare" },
-                              r.createElement(e.Compare, {
-                                id: L
-                                  ? void 0
-                                  : f.HeaderToolbarComponentIds.Compare,
-                                className: _.button,
-                                displayMode: s,
-                              })
-                            ),
 
-                          1 === I &&
-                            e.Alert &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "alert" },
-                              r.createElement(e.Alert, {
-                                id: L
-                                  ? void 0
-                                  : f.HeaderToolbarComponentIds.Alerts,
-                                className: _.button,
-                                displayMode: s,
-                              })
-                            ),
-                          1 === I &&
-                            e.AlertReferral &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "alert-referral" },
-                              r.createElement(e.AlertReferral, {
-                                className: _.button,
-                                displayMode: s,
-                              })
-                            ),
-                          1 === I &&
-                            n.showIdeasButton &&
-                            e.Ideas &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "charts" },
-                              r.createElement(e.Ideas, {
-                                isShownSettings:
-                                  !l.enabled("widget") && !!window.user,
-                                displayMode: s,
-                              })
-                            ),
-                          e.Replay &&
-                            1 === I &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "replay" },
-                              r.createElement(e.Replay, {
-                                className: _.button,
-                                displayMode: s,
-                              })
-                            ),
-                          e.UndoRedo &&
-                            1 === I &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "undo-redo" },
-                              r.createElement(e.UndoRedo, {
-                                id: L
-                                  ? void 0
-                                  : f.HeaderToolbarComponentIds.UndoRedo,
-                              })
-                            ),
-                          e.ScalePercentage &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "percentage" },
-                              r.createElement(e.ScalePercentage, null)
-                            ),
-                          e.ScaleLogarithm &&
-                            r.createElement(
-                              c.ToolWidgetGroupWrap,
-                              { key: "logarithm" },
-                              r.createElement(e.ScaleLogarithm, null)
-                            ),
+                         
                         ].concat(k)
                       ),
                     1 === I
@@ -58458,39 +58357,7 @@ webpackJsonp(
                                       : f.HeaderToolbarComponentIds.Layouts,
                                   })
                                 ),
-                              e.Screenshot &&
-                                !n.accentScreenshotButton &&
-                                r.createElement(
-                                  c.ToolWidgetGroupWrap,
-                                  { key: "screenshot" },
-                                  r.createElement(e.Screenshot, {
-                                    className: _.iconButton,
-                                  })
-                                ),
-                              e.SaveLoad &&
-                                r.createElement(
-                                  c.ToolWidgetGroupWrap,
-                                  { key: "save-load-right" },
-                                  r.createElement(e.SaveLoad, {
-                                    id: L
-                                      ? void 0
-                                      : f.HeaderToolbarComponentIds.SaveLoad,
-                                    chartSaver: m,
-                                    isReadOnly: v,
-                                    displayMode: s,
-                                    isFake: L,
-                                    stateSyncEmitter: b,
-                                  })
-                                ),
-                              e.SaveLoadReferral &&
-                                r.createElement(
-                                  c.ToolWidgetGroupWrap,
-                                  { key: "save-load-referral" },
-                                  r.createElement(e.SaveLoadReferral, {
-                                    isReadOnly: v,
-                                    displayMode: s,
-                                  })
-                                ),
+
                               n.showLaunchInPopupButton &&
                                 e.OpenPopup &&
                                 r.createElement(
