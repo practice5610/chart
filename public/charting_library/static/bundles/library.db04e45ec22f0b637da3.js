@@ -58325,8 +58325,6 @@ webpackJsonp(
                                 isFake: L,
                               })
                             ),
-
-                         
                         ].concat(k)
                       ),
                     1 === I
@@ -88754,7 +88752,7 @@ webpackJsonp(
         (b = i(915)),
         (S = p.enabled("adaptive_logo")),
         (w = 500),
-        (T = "TradingView"),
+        (T = "test"),
         (C = "Ch{0}ar{1}t{2}by{3}{4}".format("", "", " ", " ", T)),
         (x = "po{0}wer{1}ed{2}by{3}{4}".format("", "", " ", " ", T)),
         (P = "site_branding"),
@@ -88834,8 +88832,7 @@ webpackJsonp(
                 value: function () {
                   this._checkLayout(),
                     this.show &&
-                      (this._loadImage(b, "tvLogo"),
-                      this._updateStrokeColor(),
+                      (this._updateStrokeColor(),
                       this._model
                         .properties()
                         .paneProperties.background.subscribe(
@@ -88856,12 +88853,12 @@ webpackJsonp(
                   (this._strokeCanv = null),
                     (this._fillCanv = null),
                     t > B
-                      ? ((this._brandCircleShadowopacity = 0.09),
-                        (this._strokeOpacity = 0.8),
-                        (this._circleOpacity = 1))
-                      : ((this._brandCircleShadowopacity = 0.16),
-                        (this._strokeOpacity = 0.1),
-                        (this._circleOpacity = 0.1));
+                      ? ((this._brandCircleShadowopacity = 0.0),
+                        (this._strokeOpacity = 0.0),
+                        (this._circleOpacity = 0))
+                      : ((this._brandCircleShadowopacity = 0.0),
+                        (this._strokeOpacity = 0.0),
+                        (this._circleOpacity = 0.0));
                 },
               },
               {
