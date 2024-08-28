@@ -1,4 +1,5 @@
 import pairs from "./pairs";
+import { Data } from "./data";
 var rp = require("request-promise").defaults({ json: true });
 const api_root = "https://min-api.cryptocompare.com";
 const history = {};
@@ -34,7 +35,7 @@ export default {
       }
       if (data.Data.length) {
         // console.log(`Actually returned: ${new Date(data.TimeFrom * 1000).toISOString()} - ${new Date(data.TimeTo * 1000).toISOString()}`)
-        var bars = data.Data.map((el) => {
+        var bars = Data.map((el) => {
           return {
             time: el.time * 1000, //TradingView requires bar time in ms
             low: el.low,
