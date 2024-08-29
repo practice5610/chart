@@ -1089,66 +1089,6 @@ webpackJsonp([3], {
                     "Change Show Countdown"
                   )
                 )),
-              (Fe = $('<input type="checkbox">')),
-              (Ie = this.addLabeledRow(ke, $.t("Symbol Last Value"), Fe)),
-              $("<td>").append(Fe).prependTo(Ie),
-              this.bindControl(
-                new c(
-                  Fe,
-                  this._property.scalesProperties.showSeriesLastValue,
-                  !0,
-                  this.model(),
-                  "Change Symbol Last Value Visibility"
-                )
-              ),
-              (De = $('<input type="checkbox">')),
-              (Ae = this.addLabeledRow(ke, $.t("Indicator Last Value"), De)),
-              $("<td>").append(De).prependTo(Ae),
-              this.bindControl(
-                new c(
-                  De,
-                  this._property.scalesProperties.showStudyLastValue,
-                  !0,
-                  this.model(),
-                  "Change Indicator Last Value Visibility"
-                )
-              ),
-              (We = $('<input type="checkbox">')),
-              (Ve = this.addLabeledRow(ke, $.t("Symbol Labels"), We)),
-              $("<td>").append(We).prependTo(Ve),
-              this.bindControl(
-                new c(
-                  We,
-                  this._property.scalesProperties.showSymbolLabels,
-                  !0,
-                  this.model(),
-                  "Show Symbol Labels"
-                )
-              ),
-              (Oe = $('<input type="checkbox">')),
-              (ze = this.addLabeledRow(ke, $.t("Indicator Labels"), Oe)),
-              $("<td>").append(Oe).prependTo(ze),
-              this.bindControl(
-                new c(
-                  Oe,
-                  this._property.scalesProperties.showStudyPlotLabels,
-                  !0,
-                  this.model(),
-                  "Show Study Plots Labels"
-                )
-              ),
-              (Me = $("<input type='checkbox' />")),
-              (je = this.addLabeledRow(ke, $.t("No Overlapping Labels"), Me)),
-              $("<td>").append(Me).prependTo(je),
-              this.bindControl(
-                new c(
-                  Me,
-                  this._scaleProperty.alignLabels,
-                  !0,
-                  this.model(),
-                  "No Overlapping Labels"
-                )
-              ),
               (He = $('<div class="property-page-column-2">')
                 .append(N)
                 .append(se)),
@@ -1357,18 +1297,6 @@ webpackJsonp([3], {
               ($t = $(
                 '<table class="property-page" cellspacing="0" cellpadding="2">'
               )),
-              (Tt = $('<input type="checkbox">')),
-              (wt = this.addLabeledRow($t, $.t("Symbol Description"), Tt)),
-              $("<td>").append(Tt).prependTo(wt),
-              this.bindControl(
-                new c(
-                  Tt,
-                  this._property.paneProperties.legendProperties.showSeriesTitle,
-                  !0,
-                  this.model(),
-                  "Change Symbol Description Visibility"
-                )
-              ),
               (_t = $('<input type="checkbox">')),
               (mt = this.addLabeledRow($t, $.t("OHLC Values"), _t)),
               $("<td>").append(_t).prependTo(mt),
@@ -1379,51 +1307,6 @@ webpackJsonp([3], {
                   !0,
                   this.model(),
                   "Change OHLC Values Visibility"
-                )
-              ),
-              (ft = $('<input type="checkbox">')),
-              (Lt = this.addLabeledRow($t, $.t("Indicator Titles"), ft)),
-              $("<td>").append(ft).prependTo(Lt),
-              this.bindControl(
-                new c(
-                  ft,
-                  this._property.paneProperties.legendProperties.showStudyTitles,
-                  !0,
-                  this.model(),
-                  "Change Indicator Titles Visibility"
-                )
-              ),
-              (vt = $('<input type="checkbox">')),
-              (kt = this.addLabeledRow($t, $.t("Indicator Arguments"), vt)),
-              (St = function (e) {
-                vt.prop("disabled", !e.value());
-              }),
-              $("<td>").append(vt).prependTo(kt),
-              this.bindControl(
-                new c(
-                  vt,
-                  this._property.paneProperties.legendProperties.showStudyArguments,
-                  !0,
-                  this.model(),
-                  "Change Indicator Arguments Visibility"
-                )
-              ),
-              this._property.paneProperties.legendProperties.showStudyTitles
-                .listeners()
-                .subscribe(this, St),
-              St(
-                this._property.paneProperties.legendProperties.showStudyTitles
-              ),
-              (Pt = $('<input type="checkbox">')),
-              (xt = this.addLabeledRow($t, $.t("Indicator Values"), Pt)),
-              $("<td>").append(Pt).prependTo(xt),
-              this.bindControl(
-                new c(
-                  Pt,
-                  this._property.paneProperties.legendProperties.showStudyValues,
-                  !0,
-                  this.model(),
-                  "Change Indicator Values Visibility"
                 )
               ),
               (Bt = $('<div class="property-page-column-2">').append(Ke)),
@@ -9442,7 +9325,7 @@ webpackJsonp([3], {
         (i.prototype.i18nCache = [
           window.t("Style"),
           window.t("Box size assignment method"),
-          window.t("Color bars based on previous close"),
+
           window.t("Candles"),
           window.t("Borders"),
           window.t("Wick"),
