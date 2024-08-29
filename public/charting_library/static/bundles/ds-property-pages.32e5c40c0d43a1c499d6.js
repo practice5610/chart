@@ -9410,7 +9410,6 @@ webpackJsonp([3], {
           (e.scales = "Scales"),
           (e.sourceCode = "Source Code"),
           (e.style = "Style"),
-          (e.timezoneSessions = "Timezone/Sessions"),
           (e.trading = "Trading"),
           (e.visibility = "Visibility");
       })(t.TabNames || (t.TabNames = {})),
