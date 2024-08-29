@@ -9590,32 +9590,10 @@ webpackJsonp([3], {
                 "</option>"
             ).appendTo(a),
             $(
-              "<option value=" +
-                C.STYLE_HOLLOW_CANDLES +
-                ">" +
-                $.t("Hollow Candles") +
-                "</option>"
-            ).appendTo(a),
-            this._isJapaneseChartsAvailable() &&
-              $(
-                "<option value=" +
-                  C.STYLE_HEIKEN_ASHI +
-                  ">" +
-                  $.t("Heikin Ashi") +
-                  "</option>"
-              ).appendTo(a),
-            $(
               "<option value=" + C.STYLE_LINE + ">" + $.t("Line") + "</option>"
             ).appendTo(a),
             $(
               "<option value=" + C.STYLE_AREA + ">" + $.t("Area") + "</option>"
-            ).appendTo(a),
-            $(
-              "<option value=" +
-                C.STYLE_BASELINE +
-                ">" +
-                $.t("Baseline") +
-                "</option>"
             ).appendTo(a),
             a.css("width", "100px").appendTo(nt),
             this.switchStyle(),

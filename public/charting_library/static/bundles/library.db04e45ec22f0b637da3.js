@@ -8776,12 +8776,10 @@ webpackJsonp(
         (e.STYLE_PNF = 6),
         (e.STYLE_PB = 7),
         (e.STYLE_HEIKEN_ASHI = 8),
-        (e.STYLE_HOLLOW_CANDLES = 9),
         (e.STYLE_BASELINE = 10),
         (e.STYLE_SHORT_NAMES = {}),
         (e.STYLE_SHORT_NAMES[e.STYLE_BARS] = "bar"),
         (e.STYLE_SHORT_NAMES[e.STYLE_CANDLES] = "candle"),
-        (e.STYLE_SHORT_NAMES[e.STYLE_HOLLOW_CANDLES] = "hollowCandle"),
         (e.STYLE_SHORT_NAMES[e.STYLE_LINE] = "line"),
         (e.STYLE_SHORT_NAMES[e.STYLE_AREA] = "area"),
         (e.STYLE_SHORT_NAMES[e.STYLE_RENKO] = "renko"),
@@ -12956,9 +12954,7 @@ webpackJsonp(
               case l.STYLE_HEIKEN_ASHI:
                 this._paneView = new b(this, this.m_model);
                 break;
-              case l.STYLE_HOLLOW_CANDLES:
-                this._paneView = new g(this, this.m_model);
-                break;
+
               case l.STYLE_BASELINE:
                 (this._paneView = new S(this, this.m_model)),
                   (this._baseLineView = new w(this, this.m_model));
@@ -14077,14 +14073,7 @@ webpackJsonp(
               (void 0 === t && (t = this.properties().style.value()),
               this._prevChartStyle !== t)
             ) {
-              var e = [
-                l.STYLE_BARS,
-                l.STYLE_CANDLES,
-                l.STYLE_HOLLOW_CANDLES,
-                l.STYLE_LINE,
-                l.STYLE_AREA,
-                l.STYLE_BASELINE,
-              ];
+              var e = [l.STYLE_BARS, l.STYLE_CANDLES, l.STYLE_LINE];
               if (!(e.indexOf(this._prevChartStyle) > -1 && e.indexOf(t) > -1))
                 return !0;
             }
@@ -45156,14 +45145,7 @@ webpackJsonp(
         (l = i(49)),
         (c = a.enabled("countdown")),
         (h = a.enabled("price_scale_always_last_bar_value")),
-        (u = [
-          l.STYLE_BARS,
-          l.STYLE_CANDLES,
-          l.STYLE_LINE,
-          l.STYLE_AREA,
-          l.STYLE_HOLLOW_CANDLES,
-          l.STYLE_HEIKEN_ASHI,
-        ]),
+        (u = [l.STYLE_BARS, l.STYLE_CANDLES, l.STYLE_LINE]),
         (d = (function (t) {
           function e(e, i) {
             var o = t.call(this) || this;
@@ -46750,13 +46732,9 @@ webpackJsonp(
         u = i(892),
         d =
           ((o = {}),
-          (o[n.STYLE_AREA] = r),
           (o[n.STYLE_BARS] = s),
           (o[n.STYLE_CANDLES] = a),
-          (o[n.STYLE_HEIKEN_ASHI] = l),
-          (o[n.STYLE_HOLLOW_CANDLES] = c),
           (o[n.STYLE_LINE] = h),
-          (o[n.STYLE_BASELINE] = u),
           o);
       t.exports = d;
     },
@@ -106030,15 +106008,7 @@ webpackJsonp(
               (l.state = {
                 activeStyle: r,
                 favorites: a,
-                styles: [
-                  s.STYLE_BARS,
-                  s.STYLE_CANDLES,
-                  s.STYLE_HOLLOW_CANDLES,
-                  s.STYLE_HEIKEN_ASHI,
-                  s.STYLE_LINE,
-                  s.STYLE_AREA,
-                  s.STYLE_BASELINE,
-                ],
+                styles: [s.STYLE_BARS, s.STYLE_CANDLES, s.STYLE_LINE],
               }),
               l
             );
