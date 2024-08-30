@@ -88646,7 +88646,7 @@ webpackJsonp(
         (b = i(915)),
         (S = p.enabled("adaptive_logo")),
         (w = 500),
-        (T = "test"),
+        (T = "asssii"),
         (C = "Ch{0}ar{1}t{2}by{3}{4}".format("", "", " ", " ", T)),
         (x = "po{0}wer{1}ed{2}by{3}{4}".format("", "", " ", " ", T)),
         (P = "site_branding"),
@@ -89198,28 +89198,8 @@ webpackJsonp(
               {
                 key: "tvUrl",
                 value: function () {
-                  var t,
-                    e = "https://www.tradingview.com/";
-                  if (this._customLogoLink) return this._customLogoLink;
-                  if (this._layout === V || this._layout === O) {
-                    switch (((t = void 0), !0)) {
-                      case p.enabled("charting_library"):
-                        t = "library";
-                        break;
-                      case p.enabled("trading_terminal"):
-                      case p.enabled("amp_terminal"):
-                      case p.enabled("cqg_terminal"):
-                        t = "trading-terminal";
-                    }
-                    return (
-                      (e += "/" === e[e.length - 1] ? "?" : "&"),
-                      (e +=
-                        "utm_source=" +
-                        window.location.origin +
-                        "&utm_medium=library" +
-                        (t ? "&utm_campaign=" + t : ""))
-                    );
-                  }
+                  e = "http://localhost:3000/";
+
                   return e;
                 },
               },
@@ -89257,8 +89237,8 @@ webpackJsonp(
                 key: "renderer",
                 value: function (t, e) {
                   return (
-                    (this._paneHeight = this._pane.height()),
-                    (this._canvasWidth = e),
+                    (this._paneHeight = 0),
+                    (this._canvasWidth = 0),
                     { draw: this.draw.bind(this) }
                   );
                 },
