@@ -1,4 +1,4 @@
-import historyProvider from "./historyProvider";
+import { Data } from "./data";
 
 import { data } from "./pairs";
 
@@ -85,8 +85,22 @@ export default {
     // console.log('=====getBars running')
     // console.log('function args',arguments)
     // console.log(`Requesting bars between ${new Date(from * 1000).toISOString()} and ${new Date(to * 1000).toISOString()}`)
-    historyProvider
-      .getBars(symbolInfo, resolution, from, to, firstDataRequest)
+    const bars = Data.map((el) => {
+      return {
+        time: el.time * 1000, //TradingView requires bar time in ms
+        low: el.low,
+        high: el.high,
+        open: el.open,
+        close: el.close,
+      };
+    });
+    const getBarsPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(bars);
+      }, 1000); // 1 second delay
+    });
+
+    getBarsPromise
       .then((bars) => {
         if (bars.length) {
           onHistoryCallback(bars, { noData: false });
@@ -95,7 +109,6 @@ export default {
         }
       })
       .catch((err) => {
-        // console.log({err})
         onErrorCallback(err);
       });
   },
