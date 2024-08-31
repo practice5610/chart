@@ -1457,7 +1457,7 @@ webpackJsonp([2], {
       (function (e) {
         function t(e, t) {
           return TradingChart.isCmeWidget
-            ? t + " from cmegroup.com via @tradingview $" + e
+            ? t + " from cmegroup.com via @tradingchart $" + e
             : "$" + e + " chart " + t + " via https://www.test.com";
         }
         function n(e) {
