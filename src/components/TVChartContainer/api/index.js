@@ -63,9 +63,6 @@ export default {
       data_status: "streaming",
     };
 
-    if (split_data[1].match(/USD|EUR|JPY|AUD|GBP|KRW|CNY/)) {
-      symbol_stub.pricescale = 100;
-    }
     setTimeout(function () {
       onSymbolResolvedCallback(symbol_stub);
       // console.log('Resolving that symbol....', symbol_stub)
