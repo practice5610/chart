@@ -581,7 +581,7 @@ webpackJsonp(
                 this.properties().intervalsVisibilities.months.setValue(!0);
           }),
           (n.prototype.getType = function () {
-            return TradingView.className(this.constructor);
+            return TradingChart.className(this.constructor);
           }),
           (n.prototype.getConstructor = function () {
             return this._constructor || null;
@@ -788,7 +788,7 @@ webpackJsonp(
             return !1;
           }),
           (n.prototype.state = function (t) {
-            var e = TradingView.className(this.constructor),
+            var e = TradingChart.className(this.constructor),
               i = {
                 type: e,
                 id: this.id(),
@@ -841,8 +841,8 @@ webpackJsonp(
           (n.prototype.stop = function () {
             this.clearServerPoints(),
               this.hasAlert.value() &&
-                TradingView.alertsDispatcher &&
-                TradingView.alertsDispatcher.deleteAlert(this._alertId);
+                TradingChart.alertsDispatcher &&
+                TradingChart.alertsDispatcher.deleteAlert(this._alertId);
           }),
           (n.prototype.isStarted = function () {
             return null !== this._currentPointsetId;
@@ -1442,8 +1442,8 @@ webpackJsonp(
           }),
           (n.prototype.version = 1),
           (n.isLineTool = function (t) {
-            var e = TradingView[t];
-            return !!e && TradingView.isInherited(e, n);
+            var e = TradingChart[t];
+            return !!e && TradingChart.isInherited(e, n);
           }),
           (n.prototype.alertId = function () {
             return this._alertId;
@@ -1497,8 +1497,8 @@ webpackJsonp(
             return (
               (t = t || {}),
               (e = $.Deferred()),
-              TradingView.alertsDispatcher
-                ? TradingView.alertsDispatcher.requestAlert(i._alertId, {
+              TradingChart.alertsDispatcher
+                ? TradingChart.alertsDispatcher.requestAlert(i._alertId, {
                     success: e.resolve.bind(e),
                     error: e.reject.bind(e),
                     fromCache: t.fromCache,
@@ -1535,7 +1535,7 @@ webpackJsonp(
                     (e.localAndServerAlersMismatch = !0);
                 }
                 function n(t) {
-                  TradingView.alertsDispatcher.restartAlert(t, {
+                  TradingChart.alertsDispatcher.restartAlert(t, {
                     success: function () {
                       e.localAndServerAlersMismatch = !1;
                     },
@@ -1844,8 +1844,8 @@ webpackJsonp(
         var n;
         i
           ? (n = e)
-          : ((n = TradingView.clone(defaults(t))),
-            e && TradingView.merge(n, e)),
+          : ((n = TradingChart.clone(defaults(t))),
+            e && TradingChart.merge(n, e)),
           r.call(this, n),
           (this._defaultName = t),
           this.listeners().subscribe(this, o.prototype.onPropertyChanged),
@@ -1864,13 +1864,13 @@ webpackJsonp(
           var t,
             e = {};
           this._defaultName.startsWith("study_") &&
-            (e = TradingView.clone(TradingView.factoryDefaults("study"))),
+            (e = TradingChart.clone(TradingChart.factoryDefaults("study"))),
             this._defaultName.startsWith("linetool") &&
-              (e = TradingView.clone(
-                TradingView.factoryDefaults("linetoolvisibilities")
+              (e = TradingChart.clone(
+                TradingChart.factoryDefaults("linetoolvisibilities")
               )),
-            (t = TradingView.clone(
-              TradingView.factoryDefaults(this._defaultName)
+            (t = TradingChart.clone(
+              TradingChart.factoryDefaults(this._defaultName)
             )),
             this._defaultName.startsWith("study_") &&
               t.inputs &&
@@ -1895,10 +1895,10 @@ webpackJsonp(
             this._exclusions.forEach(function (e) {
               delete t[e];
             }),
-            TradingView.merge(e, t),
+            TradingChart.merge(e, t),
             this.merge(e),
             this._defaultName.startsWith("study_") ||
-              TradingView.saveDefaults(
+              TradingChart.saveDefaults(
                 this._defaultName,
                 this.state(this._exclusions)
               ),
@@ -1906,7 +1906,7 @@ webpackJsonp(
         }),
         (o.prototype.cleanupFactoryDefaults = function () {
           var t = {};
-          TradingView.saveDefaults(this._defaultName, t),
+          TradingChart.saveDefaults(this._defaultName, t),
             this.listeners().fire(this);
         }),
         (o.prototype.onPropertyChanged = function () {
@@ -1915,13 +1915,13 @@ webpackJsonp(
             this.saveDefaults();
         }),
         (o.prototype.saveDefaults = function () {
-          TradingView.saveDefaults(
+          TradingChart.saveDefaults(
             this._defaultName,
             this.state(this._exclusions)
           );
         }),
         (o.prototype.restoreDefaults = function () {
-          var t = TradingView.clone(defaults(this._defaultName));
+          var t = TradingChart.clone(defaults(this._defaultName));
           this.merge(t), this.listeners().fire(this);
         }),
         (o.prototype.clone = function (t) {
@@ -2071,7 +2071,7 @@ webpackJsonp(
         try {
           localStorage.getItem(""), (p = !0);
         } catch (t) {}
-        (_ = "undefined" != typeof TradingView ? TradingView : {}),
+        (_ = "undefined" != typeof TradingChart ? TradingChart : {}),
           (function (t) {
             (t[(t.ERROR = 1)] = "ERROR"),
               (t[(t.WARNING = 2)] = "WARNING"),
@@ -2394,12 +2394,12 @@ webpackJsonp(
             );
           };
         "undefined" != typeof window
-          ? ((l = window.TradingView = window.TradingView || {}),
+          ? ((l = window.TradingChart = window.TradingChart || {}),
             (window.isNumber = e),
             (window.isFunction = o),
             (window.inherit = r),
             (window.isArray = c))
-          : (l = this.TradingView = this.TradingView || {}),
+          : (l = this.TradingChart = this.TradingChart || {}),
           (l.isNaN = function (t) {
             return !(t <= 0 || t > 0);
           }),
@@ -3207,7 +3207,7 @@ webpackJsonp(
             });
           }),
           (o.prototype.saveDefaults = function () {
-            TradingView.saveDefaults(
+            TradingChart.saveDefaults(
               this._defaultName,
               this.state(this._exclusions, !0)
             );
@@ -3521,7 +3521,7 @@ webpackJsonp(
               }
               function x() {
                 var t, e, i, o;
-                if (TradingView.onWidget() && a.includes(window.location.host))
+                if (TradingChart.onWidget() && a.includes(window.location.host))
                   for (t = "tradingview.", e = s.length; e--; )
                     (i = s.key(e)),
                       0 === i.indexOf(t) &&
@@ -3557,7 +3557,7 @@ webpackJsonp(
                 H = null;
               try {
                 N =
-                  !TradingView.onWidget() &&
+                  !TradingChart.onWidget() &&
                   parent &&
                   parent !== window &&
                   !!parent.IS_DEMO_PAGE;
@@ -3599,7 +3599,7 @@ webpackJsonp(
                 : ((M = 12e4),
                   (E = 10),
                   "local" === window.environment && (M = 5e3),
-                  (D = TradingView.onWidget()
+                  (D = TradingChart.onWidget()
                     ? "tradingview-widget"
                     : "tradingview"),
                   (V = {}),
@@ -3698,8 +3698,8 @@ webpackJsonp(
           (i.prototype.isPrimitiveType = function (t) {
             return (
               !!isNumber(t) ||
-              !!new TradingView.TypeValidator(String).check(t) ||
-              TradingView.isBoolean(t)
+              !!new TradingChart.TypeValidator(String).check(t) ||
+              TradingChart.isBoolean(t)
             );
           }),
           (i.prototype.value = function () {
@@ -4329,16 +4329,16 @@ webpackJsonp(
       "use strict";
       (function (t, e) {
         function o(t) {
-          TradingView.merge(this, {
+          TradingChart.merge(this, {
             palettes: {},
             inputs: [],
             plots: [],
             graphics: {},
             defaults: {},
           }),
-            TradingView.merge(this, t);
+            TradingChart.merge(this, t);
           var e = t.fullId || t.id;
-          TradingView.merge(this, o.parseIdString(e)), (this.name = this.id);
+          TradingChart.merge(this, o.parseIdString(e)), (this.name = this.id);
         }
         var n = i(9).assert,
           r = i(7).getLogger("Chart.Study.MetaInfo"),
@@ -4487,7 +4487,7 @@ webpackJsonp(
             t.state && e(t.state.inputs), (t.state.isChildStudy = !0);
           }),
           (o.prototype.parseValue = function (t, e) {
-            return "bool" === t ? TradingView.parseBool(e) : e;
+            return "bool" === t ? TradingChart.parseBool(e) : e;
           }),
           (o.prototype.defaultInputs = function () {
             var t,
@@ -4610,7 +4610,7 @@ webpackJsonp(
             return (
               t.push(l),
               l.defaults &&
-                ((s = TradingView.clone(l.defaults)),
+                ((s = TradingChart.clone(l.defaults)),
                 (s.precision = "default"),
                 (a = o.getStudyPropertyRootName(l)),
                 defaults.create(a, s)),
@@ -4621,7 +4621,7 @@ webpackJsonp(
             null !== a &&
               0 !== t.length &&
               s(a, t, function (t) {
-                return TradingView.defaultProperties["study_" + t] || null;
+                return TradingChart.defaultProperties["study_" + t] || null;
               });
           }),
           (o.setDefaultsOverrides = function (t) {
@@ -4631,7 +4631,7 @@ webpackJsonp(
             var i, o, r;
             return (
               n(
-                TradingView.isExistent(t.scriptIdPart),
+                TradingChart.isExistent(t.scriptIdPart),
                 "scriptIdPart is missing, study: " + JSON.stringify(t)
               ),
               (i =
@@ -4649,7 +4649,7 @@ webpackJsonp(
                 version: e,
               }),
               (r.pine = {}),
-              (r.pine.version = TradingView.isExistent(t.version)
+              (r.pine.version = TradingChart.isExistent(t.version)
                 ? t.version
                 : -1),
               (r.pine.access = TVScript.Access.MAP_ID_TO_NAME[t.access]),
@@ -4721,7 +4721,7 @@ webpackJsonp(
             }
             return !1;
           }),
-          (TradingView.StudyMetaInfo = o),
+          (TradingChart.StudyMetaInfo = o),
           void 0 !== e && e && e.exports && (e.exports = o);
       }).call(e, i(25), i(42)(t));
     },
@@ -4889,8 +4889,8 @@ webpackJsonp(
             o.isTVScriptStrategy
               ? (n = "StudyStrategy")
               : ((r = "study_" + (o.classId || o.shortId)),
-                (n = r in TradingView ? r : "Study")),
-            new TradingView[n](t, e, i, o)
+                (n = r in TradingChart ? r : "Study")),
+            new TradingChart[n](t, e, i, o)
           );
         }
         function c(t, e, i, o, n) {
@@ -4960,21 +4960,21 @@ webpackJsonp(
               "This function cannot work with metainfo of the old format version. Required format version >= 1"
             );
           return (
-            (s = TradingView.clone(defaults("study"))),
+            (s = TradingChart.clone(defaults("study"))),
             f(s, t),
             (a = st.getStudyPropertyRootName(t)),
-            (l = TradingView.clone(defaults(a, r))),
+            (l = TradingChart.clone(defaults(a, r))),
             t.isTVScript &&
               t.TVScriptSourceCode !== l.TVScriptSourceCode &&
-              (l = TradingView.clone(TradingView.factoryDefaults(a, r))),
-            TradingView.merge(s, l),
+              (l = TradingChart.clone(TradingChart.factoryDefaults(a, r))),
+            TradingChart.merge(s, l),
             o &&
               (S(
                 !(o instanceof e),
                 "propsState should not be an instance of Property"
               ),
-              TradingView.merge(s, o)),
-            (c = TradingView.clone(t)),
+              TradingChart.merge(s, o)),
+            (c = TradingChart.clone(t)),
             (h = {}),
             _.mergeInputsObjPart(h, c.defaults.inputs),
             _.mergeInputsObjPart(h, s.inputs),
@@ -4982,17 +4982,20 @@ webpackJsonp(
             delete c.inputs,
             delete c.defaults.inputs,
             (u = {}),
-            TradingView.merge(u, c.defaults),
-            TradingView.merge(u, TradingView.factoryDefaults("study_" + c.id)),
-            TradingView.merge(u, s),
-            TradingView.merge(u, c),
+            TradingChart.merge(u, c.defaults),
+            TradingChart.merge(
+              u,
+              TradingChart.factoryDefaults("study_" + c.id)
+            ),
+            TradingChart.merge(u, s),
+            TradingChart.merge(u, c),
             delete u.defaults,
             (s = u),
             (d =
               null !== n ? n.model().getStudyShiftColorStartOffset() : void 0),
             (p = m(n, t)),
-            TradingView.merge(s, g(s, p, d)),
-            o && TradingView.merge(s.styles, o.styles),
+            TradingChart.merge(s, g(s, p, d)),
+            o && TradingChart.merge(s.styles, o.styles),
             s
           );
         }
@@ -5014,12 +5017,15 @@ webpackJsonp(
                   " is not equal to the saved state version " +
                   o.version
               ),
-            (s = TradingView.clone(defaults("study"))),
-            TradingView.merge(s, TradingView.factoryDefaults("study_" + t.id)),
+            (s = TradingChart.clone(defaults("study"))),
+            TradingChart.merge(
+              s,
+              TradingChart.factoryDefaults("study_" + t.id)
+            ),
             f(s, t),
-            TradingView.merge(s, o),
+            TradingChart.merge(s, o),
             (s = r.updateStudyState(s, t, e)),
-            (a = TradingView.clone(e || t)),
+            (a = TradingChart.clone(e || t)),
             a &&
               st.versionOf(a) >= 1 &&
               ((l = {}),
@@ -5029,19 +5035,19 @@ webpackJsonp(
               delete a.inputs,
               delete a.defaults.inputs,
               (c = {}),
-              TradingView.merge(c, a.defaults),
-              TradingView.merge(
+              TradingChart.merge(c, a.defaults),
+              TradingChart.merge(
                 c,
-                TradingView.factoryDefaults("study_" + a.id)
+                TradingChart.factoryDefaults("study_" + a.id)
               ),
-              TradingView.merge(c, s),
+              TradingChart.merge(c, s),
               delete a.defaults,
-              TradingView.merge(c, a),
+              TradingChart.merge(c, a),
               (s = c)),
             (h =
               null !== n ? n.model().getStudyShiftColorStartOffset() : void 0),
             (u = m(n, a)),
-            TradingView.merge(s, g(s, u, h)),
+            TradingChart.merge(s, g(s, u, h)),
             s
           );
         }
@@ -5057,7 +5063,7 @@ webpackJsonp(
                   (r.title = o),
                   t.styles &&
                     o in t.styles &&
-                    TradingView.merge(r, t.styles[o]),
+                    TradingChart.merge(r, t.styles[o]),
                   (t.styles[o] = r));
         }
         function m(t, e) {
@@ -5112,7 +5118,7 @@ webpackJsonp(
               this._model = t,
               this._chartApi = t._chartApi,
               this._series =
-                r instanceof TradingView.Series ? r : this._model.mainSeries(),
+                r instanceof TradingChart.Series ? r : this._model.mainSeries(),
               r instanceof v &&
                 ((this._source = r),
                 (this._isChildStudy = !0),
@@ -5199,7 +5205,7 @@ webpackJsonp(
                 .listeners()
                 .subscribe(
                   t.mainSeries(),
-                  TradingView.Series.prototype.invalidateBarStylesCache
+                  TradingChart.Series.prototype.invalidateBarStylesCache
                 ),
             (this.onStart = new o()),
             (this._childStudyByRebind = new o());
@@ -5281,7 +5287,7 @@ webpackJsonp(
             );
           }),
           inherit(v, W),
-          (TradingView.Study = v),
+          (TradingChart.Study = v),
           i(918),
           (v.prototype.lastValueData = function (t, e, i) {
             var o,
@@ -5407,7 +5413,7 @@ webpackJsonp(
               i,
               o,
               n,
-              r = TradingView.className(this.constructor),
+              r = TradingChart.className(this.constructor),
               s = {
                 type: r,
                 id: this.id(),
@@ -5416,8 +5422,8 @@ webpackJsonp(
               };
             for (
               this.metaInfo() instanceof st
-                ? (s.metaInfo = TradingView.clone(this.metaInfo().state()))
-                : ((s.metaInfo = TradingView.clone(this.metaInfo())),
+                ? (s.metaInfo = TradingChart.clone(this.metaInfo().state()))
+                : ((s.metaInfo = TradingChart.clone(this.metaInfo())),
                   (s.metaInfo.id = st.parseIdString(
                     s.metaInfo.id +
                       (s.metaInfo.version ? "-" + s.metaInfo.version : "")
@@ -5534,9 +5540,9 @@ webpackJsonp(
                       case "symbol_error":
                         if ("permission denied" === i.params[1] && i.params[2])
                           switch (i.params[2]) {
-                            case TradingView.Series.PD_REASON_EXTENDED_HOURS:
+                            case TradingChart.Series.PD_REASON_EXTENDED_HOURS:
                               break;
-                            case TradingView.Series.PD_REASON_SYMBOL:
+                            case TradingChart.Series.PD_REASON_SYMBOL:
                               if (i.params[3]) return void e(i.params[3], o);
                               break;
                             default:
@@ -5773,7 +5779,7 @@ webpackJsonp(
             return (
               this._series.bars().size() >= t &&
                 ((e = w(this._series.bars().lastIndex()) - t),
-                w(this._series.bars().valueAt(e))[TradingView.TIME_PLOT]),
+                w(this._series.bars().valueAt(e))[TradingChart.TIME_PLOT]),
               null
             );
           }),
@@ -5804,7 +5810,7 @@ webpackJsonp(
               skipFakeInputs: !1,
               asObject: !0,
             };
-            return TradingView.merge(e, t), this._buildInputs(e);
+            return TradingChart.merge(e, t), this._buildInputs(e);
           }),
           (v.prototype._buildInputs = function (t) {
             var e, i;
@@ -5840,7 +5846,7 @@ webpackJsonp(
                     t.skipHiddenInputs &&
                     n.enabled("dont_show_boolean_study_arguments")) ||
                   ((r = this._prepareInput(o, t)),
-                  (e[o.id] = TradingView.clone(r)));
+                  (e[o.id] = TradingChart.clone(r)));
             return e;
           }),
           (v.prototype._prepareInput = function (t, e) {
@@ -5967,7 +5973,7 @@ webpackJsonp(
                 !l)
               )
                 return a && t.stop(), !1;
-              (this._metaInfo = TradingView.clone(this._metaInfo)),
+              (this._metaInfo = TradingChart.clone(this._metaInfo)),
                 (this._isChildStudy = !0),
                 (this._ownerSource = t),
                 (this._source = t),
@@ -6037,7 +6043,7 @@ webpackJsonp(
             c && (this._studyModified = c);
           }),
           (v.prototype._changeInputs = function (t) {
-            var e = TradingView.clone(this._inputs);
+            var e = TradingChart.clone(this._inputs);
             this._studyId && this._chartApi.connected()
               ? ((this._turnaround = "st" + ++this._turnaroundCounter),
                 this._allInputsAreValid()
@@ -6119,12 +6125,12 @@ webpackJsonp(
             );
           }),
           (v.prototype.visibleChanged = function () {
-            this._series instanceof TradingView.Series &&
+            this._series instanceof TradingChart.Series &&
               this._series.invalidateBarColorerCache();
           }),
           (v.prototype.invalidateBarStylesCache = function () {
             this.m_data.each(function (t, e) {
-              e[TradingView.STYLE_PLOT] = null;
+              e[TradingChart.STYLE_PLOT] = null;
             });
           }),
           (v.prototype.processHibernate = function () {
@@ -6248,13 +6254,13 @@ webpackJsonp(
               (c = a[l]),
                 (h = "_paneView" + c),
                 (u = "StudyPaneView_" + c),
-                TradingView.Study[u] &&
-                  ((this[h] = new TradingView.Study[u](this, this._model)),
+                TradingChart.Study[u] &&
+                  ((this[h] = new TradingChart.Study[u](this, this._model)),
                   this._paneViews.push(this[h])),
                 this._dataWindowView ||
                   "hhists" !== c ||
                   (this._dataWindowView =
-                    new TradingView.StudyHHistsDataWindowView(
+                    new TradingChart.StudyHHistsDataWindowView(
                       this,
                       this._model
                     ));
@@ -6599,9 +6605,9 @@ webpackJsonp(
           }),
           (v.prototype.priceRange = function (t, e) {
             var i, o, n, s, a, l, c, h, u, d, p, _, f, m, g, v, y, b, S, w;
-            if (!TradingView.isInteger(t))
+            if (!TradingChart.isInteger(t))
               return void ct.logDebug("priceRange: incorrect startBar");
-            if (!TradingView.isInteger(e))
+            if (!TradingChart.isInteger(e))
               return void ct.logDebug("priceRange: incorrect endBar");
             if (0 === this.m_data.size()) return null;
             if (
@@ -6661,8 +6667,8 @@ webpackJsonp(
               ((v = o.m_data.minMaxOnRange2(t, e, a)),
               s &&
                 ((a = [
-                  { index: TradingView.LOW_PLOT, offset: 0 },
-                  { index: TradingView.HIGH_PLOT, offset: 0 },
+                  { index: TradingChart.LOW_PLOT, offset: 0 },
+                  { index: TradingChart.HIGH_PLOT, offset: 0 },
                 ]),
                 (y = o.series().data().bars().minMaxOnRange2(t, e, a)),
                 (v = rt(v, y))),
@@ -6836,14 +6842,14 @@ webpackJsonp(
             return this._formatter;
           }),
           (v.prototype.nearestIndex = function (t, e) {
-            if (!TradingView.isInteger(t))
+            if (!TradingChart.isInteger(t))
               return void ct.logDebug("nearestIndex: incorrect logicalPoint");
             var i = this._series.data().bars().search(t, e);
             return null !== i ? i.index : void 0;
           }),
           (v.prototype._lastNonEmptyPlotRow = function (t) {
             var e, i;
-            return TradingView.isInteger(t)
+            return TradingChart.isInteger(t)
               ? void 0 !== this._lastNonEmptyPlotRowCache[t]
                 ? this._lastNonEmptyPlotRowCache[t]
                 : ((e = 1e3),
@@ -6954,7 +6960,7 @@ webpackJsonp(
           }),
           (v.isStudyLineTool = function (t) {
             var e = i(128).StudyLineDataSource,
-              o = TradingView[t];
+              o = TradingChart[t];
             return "function" == typeof o && o.prototype instanceof e;
           }),
           (v.prototype.onExtendedHoursChanged = function () {
@@ -7076,8 +7082,8 @@ webpackJsonp(
           /(Chart Style) (.*)/,
         ]),
         (e.trackEvent = n),
-        (window.TradingView = window.TradingView || {}),
-        (window.TradingView.trackEvent = n);
+        (window.TradingChart = window.TradingChart || {}),
+        (window.TradingChart.trackEvent = n);
     },
     ,
     ,
@@ -7367,7 +7373,7 @@ webpackJsonp(
               null === (o = this._model.mainSeries().bars().valueAt(i)))
             )
               return null;
-            t.push(1e3 * o[TradingView.TIME_PLOT]);
+            t.push(1e3 * o[TradingChart.TIME_PLOT]);
           }
           return t;
         }),
@@ -9331,7 +9337,7 @@ webpackJsonp(
             }
           return null;
         }),
-        (e.PaneRendererAbstractShape = TradingView.PaneRendererAbstractShape =
+        (e.PaneRendererAbstractShape = TradingChart.PaneRendererAbstractShape =
           o);
     },
     function (t, e, i) {
@@ -9429,7 +9435,7 @@ webpackJsonp(
         r--;
 
       )
-        TradingView[n[r]] = o[n[r]];
+        TradingChart[n[r]] = o[n[r]];
       t.exports = o;
     },
     function (t, e, i) {
@@ -9980,7 +9986,7 @@ webpackJsonp(
         function i() {
           return /on-features-page=1/i.test(window.location.search);
         }
-        var o = (window.TradingView = window.TradingView || {});
+        var o = (window.TradingChart = window.TradingChart || {});
         (o.className = function (t) {
           for (var e in this) if (o[e] === t) return e;
           return null;
@@ -10679,7 +10685,7 @@ webpackJsonp(
                 ((s = a.displayedExchangesFilter(s)),
                 (s = a.sortExchangesListByFlagIfNeeded(s)),
                 (o = TVSettings.getValue("symboledit.exchangefilter")),
-                "bovespa" !== TradingView.widgetCustomer)
+                "bovespa" !== TradingChart.widgetCustomer)
               )
                 return (
                   !s.some(function (t) {
@@ -10761,7 +10767,7 @@ webpackJsonp(
                 (a = p.outerHeight()),
                 (l = $(window).scrollTop()),
                 (c = i.height()),
-                (h = TradingView.isMobile.any()
+                (h = TradingChart.isMobile.any()
                   ? parseInt(window.screen.height, 10)
                   : parseInt($(window).height(), 10)),
                 (u = h - (n.top - l) - c / 2),
@@ -11383,7 +11389,7 @@ webpackJsonp(
                 TVSettings.getBool("symboledit.show_quandl_notification", !0) &&
                   ((t =
                     $.t(
-                      "Quandl is a huge financial database that we have connected to TradingView. Most of its data is EOD and is not updated in real-time, however the information may be extremely useful for fundamental analysis."
+                      "Quandl is a huge financial database that we have connected to TradingChart. Most of its data is EOD and is not updated in real-time, however the information may be extremely useful for fundamental analysis."
                     ) +
                     ' <a target="_blank" href="' +
                     ("ru" === window.locale
@@ -11679,7 +11685,7 @@ webpackJsonp(
                   })),
                   (C = !1),
                   (x = !0),
-                  TradingView.isMobile.iOS() &&
+                  TradingChart.isMobile.iOS() &&
                     $("body").css("cursor", "pointer"),
                   i.on("focus", function (t, e) {
                     (C = !0),
@@ -11712,8 +11718,8 @@ webpackJsonp(
                           i.focus();
                         }, 0)
                       );
-                    TradingView.isMobile.iOS() && x && ((x = !1), (C = !0)),
-                      TradingView.isMobile.iOS() &&
+                    TradingChart.isMobile.iOS() && x && ((x = !1), (C = !0)),
+                      TradingChart.isMobile.iOS() &&
                       C &&
                       null === t.relatedTarget
                         ? ((s = function (t) {
@@ -11986,8 +11992,8 @@ webpackJsonp(
               (t.canShowSpreadActions = function () {
                 return (
                   "undefined" != typeof SymbolSearchInputParserMixin &&
-                  "cme" !== TradingView.widgetCustomer &&
-                  "bovespa" !== TradingView.widgetCustomer
+                  "cme" !== TradingChart.widgetCustomer &&
+                  "bovespa" !== TradingChart.widgetCustomer
                 );
               }),
               t
@@ -12428,9 +12434,9 @@ webpackJsonp(
             t
           );
         })()),
-        (window.TradingView = window.TradingView || {}),
-        (window.TradingView.Linking = new n()),
-        (t.exports = window.TradingView.Linking);
+        (window.TradingChart = window.TradingChart || {}),
+        (window.TradingChart.Linking = new n()),
+        (t.exports = window.TradingChart.Linking);
     },
     function (t, e, i) {
       "use strict";
@@ -12443,7 +12449,7 @@ webpackJsonp(
             (this._lineRenderer = new L());
         }
         function a() {
-          return { count: TradingView.DEFAULT_BAR_COUNT };
+          return { count: TradingChart.DEFAULT_BAR_COUNT };
         }
         function l(t, n, r) {
           var c,
@@ -12613,14 +12619,14 @@ webpackJsonp(
           X,
           J,
           Q;
-        (TradingView.DEFAULT_BAR_COUNT = 300),
-          (TradingView.TIME_PLOT = 0),
-          (TradingView.OPEN_PLOT = 1),
-          (TradingView.HIGH_PLOT = 2),
-          (TradingView.LOW_PLOT = 3),
-          (TradingView.CLOSE_PLOT = 4),
-          (TradingView.ADT_PLOT = 6),
-          (TradingView.STYLE_PLOT = 7),
+        (TradingChart.DEFAULT_BAR_COUNT = 300),
+          (TradingChart.TIME_PLOT = 0),
+          (TradingChart.OPEN_PLOT = 1),
+          (TradingChart.HIGH_PLOT = 2),
+          (TradingChart.LOW_PLOT = 3),
+          (TradingChart.CLOSE_PLOT = 4),
+          (TradingChart.ADT_PLOT = 6),
+          (TradingChart.STYLE_PLOT = 7),
           (c = i(9).ensureNotNull),
           (h = i(877)),
           (u = i(880).ProjectionSeriesPriceAxisView),
@@ -12822,7 +12828,7 @@ webpackJsonp(
                       this._requestOptions.count,
                     ]
                 : ["from_to", this._requestOptions.startDate]
-              : this._requestOptions.count || TradingView.DEFAULT_BAR_COUNT;
+              : this._requestOptions.count || TradingChart.DEFAULT_BAR_COUNT;
           }),
           (l.prototype._nextSymbolId = 1),
           (l.prototype._nextSeriesId = 1),
@@ -12969,7 +12975,7 @@ webpackJsonp(
               ((i = e || c(t.firstIndex())),
               (o = c(t.lastIndex()) + 1),
               t.range(i, o).each(function (t, e) {
-                e[TradingView.STYLE_PLOT] = null;
+                e[TradingChart.STYLE_PLOT] = null;
               }));
           }),
           (l.prototype.invalidateBarStylesCache = function (t) {
@@ -12990,7 +12996,7 @@ webpackJsonp(
             )
               (i = this.m_model.dataSources()[e]),
                 i.metaInfo &&
-                  TradingView.isInherited(i.constructor, TradingView.Study) &&
+                  TradingChart.isInherited(i.constructor, TradingChart.Study) &&
                   i.hasBarColorer() &&
                   i.properties().visible.value() &&
                   ((o = i.barColorer()),
@@ -13022,7 +13028,7 @@ webpackJsonp(
             var e =
                 this === this.m_model.mainSeries()
                   ? "MainSeries"
-                  : TradingView.className(this.constructor),
+                  : TradingChart.className(this.constructor),
               i = {
                 type: e,
                 id: this.id(),
@@ -13151,7 +13157,7 @@ webpackJsonp(
                   this.m_model.updateSource(this),
                   this._symbolResolved.fire(this._symbolInfo),
                   this.m_model.realignLineTools(),
-                  TradingView.onWidget() ||
+                  TradingChart.onWidget() ||
                     U("Symbol", t.params[1].listed_exchange, t.params[1].name),
                   (e = this.symbolInfo().minmov / this.symbolInfo().pricescale),
                   (i = this.properties()),
@@ -13301,9 +13307,9 @@ webpackJsonp(
                   this.m_data.size() &&
                     this._tickmarksRangeChanged.fire({
                       start: c(this.data().first()).value[
-                        TradingView.TIME_PLOT
+                        TradingChart.TIME_PLOT
                       ],
-                      end: c(this.data().last()).value[TradingView.TIME_PLOT],
+                      end: c(this.data().last()).value[TradingChart.TIME_PLOT],
                     }),
                   this.model().recalcVisibleRangeStudy(
                     this.model().dataSources(),
@@ -13431,7 +13437,7 @@ webpackJsonp(
               a = this;
             return new Promise(function (c) {
               t.d && "" !== t.d
-                ? TradingView.Study.prototype._makeJSONForNSData
+                ? TradingChart.Study.prototype._makeJSONForNSData
                     .call(a, { params: { nonseries: t } })
                     .then(function (a) {
                       var h,
@@ -13708,16 +13714,16 @@ webpackJsonp(
             return this.m_data.m_nsBars;
           }),
           (l.prototype.open = function (t) {
-            return this.m_data.valueAt(t)[TradingView.OPEN_PLOT];
+            return this.m_data.valueAt(t)[TradingChart.OPEN_PLOT];
           }),
           (l.prototype.high = function (t) {
-            return this.m_data.valueAt(t)[TradingView.HIGH_PLOT];
+            return this.m_data.valueAt(t)[TradingChart.HIGH_PLOT];
           }),
           (l.prototype.low = function (t) {
-            return this.m_data.valueAt(t)[TradingView.LOW_PLOT];
+            return this.m_data.valueAt(t)[TradingChart.LOW_PLOT];
           }),
           (l.prototype.close = function (t) {
-            return this.m_data.valueAt(t)[TradingView.CLOSE_PLOT];
+            return this.m_data.valueAt(t)[TradingChart.CLOSE_PLOT];
           }),
           (l.prototype.hl2 = function (t) {
             return (this.high(t) + this.low(t)) / 2;
@@ -13732,8 +13738,8 @@ webpackJsonp(
           }),
           (l.prototype.priceRange = function (t, e) {
             var i, o, n, s, a, l, c, h;
-            return TradingView.isInteger(t)
-              ? TradingView.isInteger(e)
+            return TradingChart.isInteger(t)
+              ? TradingChart.isInteger(e)
                 ? this.data().isEmpty()
                   ? null
                   : this.m_priceScale.isLockScale() &&
@@ -13743,25 +13749,25 @@ webpackJsonp(
                       (this.model().timeScale().barSpacing() / i)),
                     (n = this.data().search(e, N.NearestLeft)),
                     (s =
-                      (n.value[TradingView.HIGH_PLOT] +
-                        n.value[TradingView.LOW_PLOT]) /
+                      (n.value[TradingChart.HIGH_PLOT] +
+                        n.value[TradingChart.LOW_PLOT]) /
                       2),
                     (a = new r(s - 0.5 * o, s + 0.5 * o)),
                     (l = this.data().search(t, N.NearestRight)),
                     this.priceScale().isPercentage()
-                      ? a.convertToPercents(l.value[TradingView.CLOSE_PLOT])
+                      ? a.convertToPercents(l.value[TradingChart.CLOSE_PLOT])
                       : a)
                   : ((c = this.data()
                       .bars()
                       .minMaxOnRange2(t, e, [
-                        { index: TradingView.LOW_PLOT, offset: 0 },
-                        { index: TradingView.HIGH_PLOT, offset: 0 },
+                        { index: TradingChart.LOW_PLOT, offset: 0 },
+                        { index: TradingChart.HIGH_PLOT, offset: 0 },
                       ])),
                     (h = this.data()
                       .nsBars()
                       .minMaxOnRange(t, e, [
-                        { index: TradingView.LOW_PLOT, offset: 0 },
-                        { index: TradingView.HIGH_PLOT, offset: 0 },
+                        { index: TradingChart.LOW_PLOT, offset: 0 },
+                        { index: TradingChart.HIGH_PLOT, offset: 0 },
                       ])),
                     (c = W(c, h)),
                     (a =
@@ -13775,7 +13781,7 @@ webpackJsonp(
                         null === l
                           ? null
                           : a.convertToPercents(
-                              l.value[TradingView.CLOSE_PLOT]
+                              l.value[TradingChart.CLOSE_PLOT]
                             ))
                       : this.priceScale().isLog()
                       ? new r(
@@ -13787,7 +13793,7 @@ webpackJsonp(
               : (Y.logDebug("Series.priceRange: incorrect startBar"), null);
           }),
           (l.prototype.nearestData = function (t, e) {
-            if (!TradingView.isInteger(t))
+            if (!TradingChart.isInteger(t))
               return void Y.logDebug(
                 "Series.nearestData: incorrect logicalPoint"
               );
@@ -14188,7 +14194,7 @@ webpackJsonp(
               i++
             )
               if (
-                (o = e[i]) instanceof TradingView.Study &&
+                (o = e[i]) instanceof TradingChart.Study &&
                 "Sessions" === o.metaInfo().shortId
               )
                 return (this._sessionsStudy = o), this._sessionsStudy;
@@ -14298,7 +14304,7 @@ webpackJsonp(
           (l.prototype.destroy = function () {
             this._unsubscribeQuoteSession();
           }),
-          (TradingView.Series = l),
+          (TradingChart.Series = l),
           (t.exports = l);
       }).call(e, i(10), i(17), i(25), i(73));
     },
@@ -14376,7 +14382,7 @@ webpackJsonp(
             e = i[o];
             break;
           }
-        return TradingView.clone(e);
+        return TradingChart.clone(e);
       }),
         (o.prototype.updateMetaInfoAsync = function (t, e) {
           var i,
@@ -14403,7 +14409,7 @@ webpackJsonp(
                 n = r[s];
                 break;
               }
-            n ? a.resolve(TradingView.clone(n)) : a.resolve(null);
+            n ? a.resolve(TradingChart.clone(n)) : a.resolve(null);
           }
           return c;
         }),
@@ -14414,7 +14420,7 @@ webpackJsonp(
             h,
             u,
             d,
-            p = TradingView.clone(o);
+            p = TradingChart.clone(o);
           if (
             (t in this._migrations &&
               ((a = r.parse(e)),
@@ -14447,7 +14453,7 @@ webpackJsonp(
           var o, n, r, a, c, h, u, d, p, _, f, m, g, v;
           if (null == t || null == e || null == i) return t;
           for (
-            t = TradingView.clone(t),
+            t = TradingChart.clone(t),
               o = e.isTVScript || !!e.pine,
               o ||
                 e.version === i.version ||
@@ -14493,7 +14499,7 @@ webpackJsonp(
         (o.prototype.patchPointsBasedStudyData = function (t, e) {
           if (!a.isProd()) return e;
           if (!t || !e) return e;
-          var i = TradingView.clone(e);
+          var i = TradingChart.clone(e);
           return (
             "VbPFixed@tv-volumebyprice" === t.id &&
               t.version &&
@@ -14506,9 +14512,9 @@ webpackJsonp(
           var r, s, c, h, u, d, p;
           if (!a.isProd()) return { data: e, nsData: i, indexes: n };
           if (
-            ((r = TradingView.clone(e)),
-            (s = TradingView.clone(i)),
-            (c = TradingView.clone(n)),
+            ((r = TradingChart.clone(e)),
+            (s = TradingChart.clone(i)),
+            (c = TradingChart.clone(n)),
             "VbPVisible@tv-volumebyprice" === t.id &&
               t.version &&
               t.version <= 4 &&
@@ -14540,7 +14546,7 @@ webpackJsonp(
             c = o.splitInputs(t.inputs),
             h = c.arr,
             u = c.obj,
-            d = TradingView.merge({}, u);
+            d = TradingChart.merge({}, u);
           for (i = 0; i < a.length; ++i)
             (n = a[i]),
               null !== (r = o.findInputKeyById(h, n)) &&
@@ -14567,7 +14573,7 @@ webpackJsonp(
         }),
         (o._fixInputsMaxValue = function (t, e) {
           var i, n, r, s, a, l;
-          if (!TradingView.isAbsent(e)) {
+          if (!TradingChart.isAbsent(e)) {
             if (((i = o.INPUT_MAX_VALUE), e.inputs))
               for (n = 0; n < e.inputs.length; n++)
                 (r = e.inputs[n]),
@@ -14577,7 +14583,7 @@ webpackJsonp(
               for (l in a)
                 (r = a[l]),
                   "integer" === r.type && r.max && r.max > i && (r.max = i);
-              t.inputs = TradingView.merge(s.obj, s.arr);
+              t.inputs = TradingChart.merge(s.obj, s.arr);
             }
           }
         }),
@@ -14715,9 +14721,9 @@ webpackJsonp(
                   name: e.name.replace(e.shortId, p),
                   shortId: p,
                 }),
-                TradingView.merge(e, _),
-                TradingView.merge(t, _)),
-              (f = TradingView.StudyMetaInfo.cutScriptIdPart(e.fullId)),
+                TradingChart.merge(e, _),
+                TradingChart.merge(t, _)),
+              (f = TradingChart.StudyMetaInfo.cutScriptIdPart(e.fullId)),
               (m = f.match(/^(USER)(_\d+)(;)(.*)$/)) &&
                 ((g = m[0]),
                 (v = m[1] + m[3] + m[2] + m[4]),
@@ -14728,8 +14734,8 @@ webpackJsonp(
                   name: e.name.replace(g, v),
                   shortId: e.shortId.replace(g, v),
                 }),
-                TradingView.merge(e, _),
-                TradingView.merge(t, _))),
+                TradingChart.merge(e, _),
+                TradingChart.merge(t, _))),
             "MA" === e.id)
           ) {
             switch (
@@ -14871,12 +14877,12 @@ webpackJsonp(
           for (i in r.arr)
             (n = o.findInputKeyById(t, r.arr[i].id)),
               n
-                ? TradingView.merge(t[n], r.arr[i])
+                ? TradingChart.merge(t[n], r.arr[i])
                 : o.appendInputInfoToArr(t, r.arr[i]);
         }),
         (o.mergeInputsObjPart = function (t, e) {
           var i = o.splitInputs(e);
-          TradingView.merge(t, i.obj);
+          TradingChart.merge(t, i.obj);
         }),
         (o.appendInputInfoToArr = function (t, e) {
           var i,
@@ -15288,13 +15294,13 @@ webpackJsonp(
         )
           n[r].target === this.m_plotName &&
             (this.m_study.isOHLCOpenPlot(r) &&
-              (this._ohlcPlotIndexes[TradingView.OPEN_PLOT] = r),
+              (this._ohlcPlotIndexes[TradingChart.OPEN_PLOT] = r),
             this.m_study.isOHLCHighPlot(r) &&
-              (this._ohlcPlotIndexes[TradingView.HIGH_PLOT] = r),
+              (this._ohlcPlotIndexes[TradingChart.HIGH_PLOT] = r),
             this.m_study.isOHLCLowPlot(r) &&
-              (this._ohlcPlotIndexes[TradingView.LOW_PLOT] = r),
+              (this._ohlcPlotIndexes[TradingChart.LOW_PLOT] = r),
             this.m_study.isOHLCClosePlot(r) &&
-              (this._ohlcPlotIndexes[TradingView.CLOSE_PLOT] = r),
+              (this._ohlcPlotIndexes[TradingChart.CLOSE_PLOT] = r),
             this.m_study.isOHLCColorerPlot(r) &&
               ((this._colorer = r),
               (this._palette = this.m_study.metaInfo().palettes[n[r].palette]),
@@ -15593,7 +15599,7 @@ webpackJsonp(
               case W.PlotType.Cross:
                 e.append(new A(t)),
                   i &&
-                    ((o = TradingView.merge({}, t)),
+                    ((o = TradingChart.merge({}, t)),
                     (o.lineWidth = 1),
                     (o.forceLineWidth = !0),
                     e.append(new L(o)));
@@ -15601,7 +15607,7 @@ webpackJsonp(
               case W.PlotType.Circles:
                 e.append(new M(t)),
                   i &&
-                    ((o = TradingView.merge({}, t)),
+                    ((o = TradingChart.merge({}, t)),
                     (o.lineWidth = 1),
                     (o.ignorePaletteLineWidth = !0),
                     e.append(new L(o)));
@@ -15740,9 +15746,9 @@ webpackJsonp(
                     : null),
                   (_ = this.m_series.properties().style.value()),
                   (f =
-                    _ === TradingView.Series.STYLE_LINE
+                    _ === TradingChart.Series.STYLE_LINE
                       ? "lineStyle"
-                      : _ === TradingView.Series.STYLE_AREA
+                      : _ === TradingChart.Series.STYLE_AREA
                       ? "areaStyle"
                       : null),
                   f
@@ -15967,7 +15973,7 @@ webpackJsonp(
                 .styles[this.m_plotName].plottype.value()),
               (l = W.plotShapesData[a]),
               (c = new z()),
-              l && c.append(new TradingView[l.paneRendererClass](e)),
+              l && c.append(new TradingChart[l.paneRendererClass](e)),
               this.m_study === this.m_model.selectedSource() &&
                 this._isMarkersEnabled &&
                 null !== this.m_selectionData &&
@@ -16028,7 +16034,7 @@ webpackJsonp(
               void 0 !== p &&
                 "" !== p.trim() &&
                 ((_ = p.trim().replace(/\\n/gm, "\n")),
-                (_ = TradingView.cleanButAmpersand(_, !0)),
+                (_ = TradingChart.cleanButAmpersand(_, !0)),
                 (f = !1),
                 (m = !1),
                 (g = "Arial"),
@@ -16036,7 +16042,7 @@ webpackJsonp(
                 (e.textCache = new B(_, f, m, g, v)),
                 (y = b.textColor ? b.textColor.value() : void 0),
                 (e.textColor = y ? H.generateColor(y, i) : a)),
-              null != u && d.append(new TradingView[u.paneRendererClass](e)),
+              null != u && d.append(new TradingChart[u.paneRendererClass](e)),
               this.m_study === this.m_model.selectedSource() &&
                 this._isMarkersEnabled &&
                 null !== this.m_selectionData &&
@@ -16090,7 +16096,7 @@ webpackJsonp(
               void 0 !== h &&
                 "" !== h.trim() &&
                 ((u = h.trim().replace(/\\n/gm, "\n")),
-                (u = TradingView.cleanButAmpersand(u, !0)),
+                (u = TradingChart.cleanButAmpersand(u, !0)),
                 (d = !1),
                 (p = !1),
                 (_ = "Arial"),
@@ -16254,8 +16260,8 @@ webpackJsonp(
                       t = Math.floor(t),
                         i = !0,
                         o = {},
-                        n = TradingView.OPEN_PLOT;
-                      n <= TradingView.CLOSE_PLOT;
+                        n = TradingChart.OPEN_PLOT;
+                      n <= TradingChart.CLOSE_PLOT;
                       ++n
                     ) {
                       if (
@@ -16269,18 +16275,18 @@ webpackJsonp(
                     }
                     return (
                       !!i &&
-                      ((a = o[TradingView.OPEN_PLOT]),
-                      (u = o[TradingView.CLOSE_PLOT]),
+                      ((a = o[TradingChart.OPEN_PLOT]),
+                      (u = o[TradingChart.CLOSE_PLOT]),
                       (p = Math.max(
                         a,
-                        o[TradingView.HIGH_PLOT],
-                        o[TradingView.LOW_PLOT],
+                        o[TradingChart.HIGH_PLOT],
+                        o[TradingChart.LOW_PLOT],
                         u
                       )),
                       (_ = Math.min(
                         a,
-                        o[TradingView.HIGH_PLOT],
-                        o[TradingView.LOW_PLOT],
+                        o[TradingChart.HIGH_PLOT],
+                        o[TradingChart.LOW_PLOT],
                         u
                       )),
                       (y = {}),
@@ -16564,7 +16570,7 @@ webpackJsonp(
             i >= this._actualCapacity &&
               (this._actualCapacity++,
               (e = this.canvas()),
-              TradingView.resizeCanvas(
+              TradingChart.resizeCanvas(
                 e,
                 this._actualWidth,
                 o.ROW_HEIGHT * this._actualCapacity
@@ -16662,7 +16668,7 @@ webpackJsonp(
               r
                 ? ((this._sourcesToRow[t.id()].effectiveState = n),
                   r.totalWidth > this._actualWidth &&
-                    (TradingView.resizeCanvas(
+                    (TradingChart.resizeCanvas(
                       this.canvas(),
                       r.totalWidth,
                       o.ROW_HEIGHT * this._actualCapacity
@@ -16718,7 +16724,7 @@ webpackJsonp(
         (n = o.greaterThan),
         (r = o.lessThan),
         (s = window.CanvasEx = i(240)),
-        (TradingView.resizeCanvas = function (t, e, i) {
+        (TradingChart.resizeCanvas = function (t, e, i) {
           var o,
             n,
             r,
@@ -17540,9 +17546,9 @@ webpackJsonp(
         d = i(33);
       inherit(o, r),
         (o.prototype.series = function () {
-          return TradingView.isInherited(
+          return TradingChart.isInherited(
             this._ownerSource.constructor,
-            TradingView.Series
+            TradingChart.Series
           )
             ? this._ownerSource
             : this._ownerSource.series();
@@ -17830,10 +17836,10 @@ webpackJsonp(
             switch (t) {
               default:
               case "up":
-                i = e[TradingView.HIGH_PLOT];
+                i = e[TradingChart.HIGH_PLOT];
                 break;
               case "down":
-                i = e[TradingView.LOW_PLOT];
+                i = e[TradingChart.LOW_PLOT];
             }
             return (
               this.priceScale().isPercent() &&
@@ -17883,7 +17889,7 @@ webpackJsonp(
                     (c = 0),
                     h in i || (i[h] = { up: 0, down: 0 }),
                     (c = i[h][n]++),
-                    TradingView.merge(
+                    TradingChart.merge(
                       {
                         id: t.id,
                         x: a,
@@ -18407,7 +18413,7 @@ webpackJsonp(
             ? null
             : this._data.floatPoints && this._data.floatPoints.length < 2
             ? null
-            : ((e = TradingView.isMobile.any() ? 24 : 3),
+            : ((e = TradingChart.isMobile.any() ? 24 : 3),
               (i = this._data.floatPoints || this._data.points),
               (o = i[0]),
               (n = i[1]),
@@ -18863,7 +18869,7 @@ webpackJsonp(
                 (u =
                   this._source.m_data.m_series &&
                   this._source.m_data.m_series.properties().style.value() ===
-                    TradingView.Series.STYLE_HEIKEN_ASHI),
+                    TradingChart.Series.STYLE_HEIKEN_ASHI),
                 this._source.lastPriceLabelFixedCoordinate &&
                   !u &&
                   "showSymbolLabels" === !this._propertyName &&
@@ -19183,7 +19189,7 @@ webpackJsonp(
               }
           } else
             (t = n.splitInputs(this.properties().inputs.state())),
-              (this._inputs = TradingView.clone(t.obj)),
+              (this._inputs = TradingChart.clone(t.obj)),
               this._requestStudy(),
               this._properties.lastUpdateTime.setValue(new Date().valueOf());
         }),
@@ -19547,10 +19553,10 @@ webpackJsonp(
           function e(t) {
             return (
               void 0 === t.x ||
-              TradingView.isNaN(t.x) ||
+              TradingChart.isNaN(t.x) ||
               null === t.x ||
               void 0 === t.y ||
-              TradingView.isNaN(t.y) ||
+              TradingChart.isNaN(t.y) ||
               null === t.y
             );
           }
@@ -19584,7 +19590,7 @@ webpackJsonp(
               return new s(this._data.hittestResult, i.data);
           return null;
         }),
-        (n.OUTER_RADIUS = TradingView.isMobile.any() ? 16 : 8),
+        (n.OUTER_RADIUS = TradingChart.isMobile.any() ? 16 : 8),
         (n.prototype.tolerance = 2),
         (n.prototype.draw = function (t) {
           var e,
@@ -19602,7 +19608,7 @@ webpackJsonp(
             (i = this._data.points[e]),
               (o = i.subtract(h).length()),
               (n =
-                TradingView.isInteger(i.data) &&
+                TradingChart.isInteger(i.data) &&
                 this._data.linePointBeingEdited === i.data),
               (r = this.radius),
               (s = this._data.strokeWidth || 2),
@@ -20070,7 +20076,7 @@ webpackJsonp(
                         )),
                     e.html
                       ? g.html(e.html)
-                      : g.text(TradingView.clean(e.title, !0) || ""),
+                      : g.text(TradingChart.clean(e.title, !0) || ""),
                     (y = $('<span class="shortcut"></span>').appendTo(d)),
                     e.shortcut && y.text(e.shortcut.keys),
                     "function" == typeof e.deleteAction &&
@@ -20741,7 +20747,7 @@ webpackJsonp(
       "use strict";
       var o = i(199).TVLocalStorage;
       i(64),
-        (TradingView.FeatureToggle = {
+        (TradingChart.FeatureToggle = {
           force_prefix: "forcefeaturetoggle.",
           enableFeature: function (t) {
             o.setItem(this.force_prefix + t, "true");
@@ -20753,7 +20759,7 @@ webpackJsonp(
             o.removeItem(this.force_prefix + t);
           },
         }),
-        (TradingView.isFeatureEnabled = (function (t) {
+        (TradingChart.isFeatureEnabled = (function (t) {
           function e(e) {
             var i = Math.random() <= t[e];
             return o.setItem(n + e, i), i;
@@ -20783,22 +20789,24 @@ webpackJsonp(
               ((!t[r] || -1 !== t[r]) &&
                 (!!(
                   "true" ===
-                    o.getItem(TradingView.FeatureToggle.force_prefix + r) ||
+                    o.getItem(TradingChart.FeatureToggle.force_prefix + r) ||
                   (window.is_authenticated &&
                     "undefined" != typeof user &&
                     user.settings &&
                     "true" ===
-                      user.settings[TradingView.FeatureToggle.force_prefix + r])
+                      user.settings[
+                        TradingChart.FeatureToggle.force_prefix + r
+                      ])
                 ) ||
                   (!(
                     "false" ===
-                      o.getItem(TradingView.FeatureToggle.force_prefix + r) ||
+                      o.getItem(TradingChart.FeatureToggle.force_prefix + r) ||
                     (window.is_authenticated &&
                       "undefined" != typeof user &&
                       user.settings &&
                       "false" ===
                         user.settings[
-                          TradingView.FeatureToggle.force_prefix + r
+                          TradingChart.FeatureToggle.force_prefix + r
                         ])
                   ) &&
                     !!t[r] &&
@@ -20808,8 +20816,8 @@ webpackJsonp(
             );
           };
         })(window.featureToggleState || {})),
-        (e.FeatureToggle = TradingView.FeatureToggle),
-        (e.isFeatureEnabled = TradingView.isFeatureEnabled);
+        (e.FeatureToggle = TradingChart.FeatureToggle),
+        (e.isFeatureEnabled = TradingChart.isFeatureEnabled);
     },
     function (t, e) {
       t.exports = {
@@ -21217,10 +21225,10 @@ webpackJsonp(
               (t.chartProperties.timezone = t.timezone),
             t.chartProperties &&
               ((n =
-                TradingView.factoryDefaults(
+                TradingChart.factoryDefaults(
                   "chartproperties"
                 ).scalesProperties),
-              TradingView.merge(n, t.chartProperties.scalesProperties),
+              TradingChart.merge(n, t.chartProperties.scalesProperties),
               !("showLastValue" in n) ||
                 "showSeriesLastValue" in n ||
                 "showStudyLastValue" in n ||
@@ -21231,12 +21239,12 @@ webpackJsonp(
               "showStudyLastValue" in n && (i.showStudyLastValueProperty = !0),
               (t.chartProperties.paneProperties.vertGridProperties =
                 t.chartProperties.paneProperties.vertGridProperties ||
-                TradingView.clone(
+                TradingChart.clone(
                   t.chartProperties.paneProperties.gridProperties
                 )),
               (t.chartProperties.paneProperties.horzGridProperties =
                 t.chartProperties.paneProperties.horzGridProperties ||
-                TradingView.clone(
+                TradingChart.clone(
                   t.chartProperties.paneProperties.gridProperties
                 )),
               this._properties.paneProperties.merge(
@@ -21278,7 +21286,7 @@ webpackJsonp(
             s++
           )
             (_ = u[s]),
-              TradingView.isInherited(_.constructor, p) &&
+              TradingChart.isInherited(_.constructor, p) &&
                 (d++, _.calcIsActualSymbol());
           return (
             (this._version = t.version),
@@ -21418,10 +21426,10 @@ webpackJsonp(
                     ? this._restoreMainSeries(u, e, r, o)
                     : d.toLowerCase().startsWith("study")
                     ? this._restoreStudy(u, e, o)
-                    : TradingView.isInherited(TradingView[d], p)
+                    : TradingChart.isInherited(TradingChart[d], p)
                     ? this._restoreLineTool(u, e)
-                    : TradingView[d] &&
-                      TradingView[d].createFromState &&
+                    : TradingChart[d] &&
+                      TradingChart[d].createFromState &&
                       this._restoreSpecialSource(u, e)),
                 (a = Math.min(a, u.zorder)),
                 (l = Math.max(l, u.zorder));
@@ -21429,7 +21437,7 @@ webpackJsonp(
             this.m_leftPriceScale.dataSources().splice(0, 1 / 0),
               this.m_leftPriceScale._hasSeries = !1,
               m = defaults("chartproperties").paneProperties.leftAxisProperties,
-              TradingView.merge(m, t.leftAxisState),
+              TradingChart.merge(m, t.leftAxisState),
               this.m_leftPriceScale.restoreState(m),
               void 0 !== t.leftPriceScaleRatio &&
                 (this._lastLeftPriceScaleRatio = t.leftPriceScaleRatio),
@@ -21452,7 +21460,7 @@ webpackJsonp(
               this.m_rightPriceScale._hasSeries = !1,
               m =
                 defaults("chartproperties").paneProperties.rightAxisProperties,
-              TradingView.merge(m, t.rightAxisState),
+              TradingChart.merge(m, t.rightAxisState),
               this.m_rightPriceScale.restoreState(m),
               void 0 !== t.rightPriceScaleRatio &&
                 (this._lastRightPriceScaleRatio = t.rightPriceScaleRatio),
@@ -21503,14 +21511,14 @@ webpackJsonp(
             for (c = 0; c < this.m_dataSources.length; c++)
               if (
                 ((g = this.m_dataSources[c]),
-                TradingView.isInherited(g.constructor, D))
+                TradingChart.isInherited(g.constructor, D))
               ) {
                 this.m_mainDataSource = g;
                 break;
               }
           for (c = 0; c < this.m_dataSources.length; c++)
             (g = this.m_dataSources[c]),
-              TradingView.isInherited(g.constructor, p)
+              TradingChart.isInherited(g.constructor, p)
                 ? (g.ownerSource() || g.setOwnerSource(this.mainDataSource()),
                   g.isFixed() && g.restoreFixedPoints(),
                   1 === i &&
@@ -21518,7 +21526,7 @@ webpackJsonp(
                     !g.isFixed() &&
                     g.correctPricesToPercents(),
                   g.fixAfterRestorePriceAxis && g.fixAfterRestorePriceAxis())
-                : TradingView.isInherited(g.constructor, y) &&
+                : TradingChart.isInherited(g.constructor, y) &&
                   ((S = g.properties()),
                   S.linkedToSeries &&
                     S.linkedToSeries.value() &&
@@ -21673,7 +21681,7 @@ webpackJsonp(
               (r = t.state),
               (s = t.zorder),
               (a = t.ownerSource),
-              (l = TradingView.clone(t.metaInfo)),
+              (l = TradingChart.clone(t.metaInfo)),
               $.extend(l, P.parseIdString(l.id)),
               this.isStudyToSkip(l) && !e
                 ? void I.logNormal("Skipping study " + l.id)
@@ -21755,9 +21763,9 @@ webpackJsonp(
               r = t.id,
               s = t.state,
               a = i ? t.zorder : this._newZOrderForLineTool(),
-              l = TradingView[o],
+              l = TradingChart[o],
               n(
-                TradingView.isInherited(l, p),
+                TradingChart.isInherited(l, p),
                 "invalid data source type:" +
                   o +
                   " (expected to be a Line Tool)"
@@ -21775,13 +21783,13 @@ webpackJsonp(
           if (!h) {
             if (
               ((y = null),
-              (S = TradingView.factoryDefaults("linetool")),
-              TradingView.isInherited(l, _))
+              (S = TradingChart.factoryDefaults("linetool")),
+              TradingChart.isInherited(l, _))
             ) {
               if (
                 ((y = this._model.studyVersioning()),
                 (t = y.patchPointsBasedStudyState(t)),
-                TradingView.merge(S, s),
+                TradingChart.merge(S, s),
                 (C = t.metaInfo),
                 $.extend(C, P.parseIdString(C.fullId)),
                 !e && ((I = C.productId), !pro.hasPackage(I)))
@@ -21798,17 +21806,17 @@ webpackJsonp(
                 (O = V || C),
                 (S = b(O, C, S, null, y)),
                 e
-                  ? TradingView.merge(S, { fixedSize: !1 })
-                  : TradingView.merge(S, { fixedSize: !0 }),
+                  ? TradingChart.merge(S, { fixedSize: !1 })
+                  : TradingChart.merge(S, { fixedSize: !0 }),
                 (T = new x("study_" + O.id, S, !0)),
                 (w = d.create(o, this._model, T, O, this.mainDataSource()));
             } else
               (R = o.toLowerCase()),
-                TradingView.merge(S, TradingView.factoryDefaults(R)),
-                (T = TradingView[o].prototype.createPropertiesObject(R, S)),
+                TradingChart.merge(S, TradingChart.factoryDefaults(R)),
+                (T = TradingChart[o].prototype.createPropertiesObject(R, S)),
                 T.merge(s),
                 e ? T.merge({ fixedSize: !1 }) : T.merge({ fixedSize: !0 }),
-                (w = new TradingView[o](this._model, T, !0));
+                (w = new TradingChart[o](this._model, T, !0));
             return (
               w.setId(r),
               (w.linkKey = t.linkKey),
@@ -21858,7 +21866,7 @@ webpackJsonp(
         }),
         (V.prototype._restoreSpecialSource = function (t, e) {
           var i,
-            o = TradingView[t.type];
+            o = TradingChart[t.type];
           o &&
             o.createFromState &&
             (i = o.createFromState(t, e, this._model)) &&
@@ -21916,7 +21924,7 @@ webpackJsonp(
           for (e in o)
             t.mainSourceProperties[e + "Style"] ||
               ((i = t.mainSourceProperties[o[e].related + "Style"]),
-              (t.mainSourceProperties[e + "Style"] = TradingView.clone(i)));
+              (t.mainSourceProperties[e + "Style"] = TradingChart.clone(i)));
           this._undoModel.chartLoadTheme(this, t);
         }),
         (o = (function () {
@@ -22030,7 +22038,7 @@ webpackJsonp(
             (this._rowsToSources[e] = t),
             e >= this._actualCapacity &&
               (this._actualCapacity++,
-              TradingView.resizeCanvas(
+              TradingChart.resizeCanvas(
                 this._canvas,
                 this._currentWidth,
                 this._rowHeight * this._actualCapacity
@@ -22565,7 +22573,7 @@ webpackJsonp(
                 statName: "ResetScale",
               })),
               this.actions.reset.callbacks().subscribe(this, o.prototype.reset),
-              this.priceScale().mainSource() instanceof TradingView.Series &&
+              this.priceScale().mainSource() instanceof TradingChart.Series &&
                 ((i = function (t) {
                   this._undoModel.setLockScaleProperty(
                     this._property,
@@ -22667,20 +22675,20 @@ webpackJsonp(
           }),
           (o.prototype._updateScalesActions = function () {
             var t = this.priceScale(),
-              e = t.mainSource() instanceof TradingView.Series,
+              e = t.mainSource() instanceof TradingChart.Series,
               i = t.mainSource().properties();
             this.actions.setPercentage.setEnabled(
               !(
                 t.isLog() ||
                 (e && t.isLockScale()) ||
-                (e && i.style.value() === TradingView.Series.STYLE_PNF)
+                (e && i.style.value() === TradingChart.Series.STYLE_PNF)
               )
             ),
               this.actions.setLog.setEnabled(
                 !(
                   t.isPercent() ||
                   (e && t.isLockScale()) ||
-                  (e && i.style.value() === TradingView.Series.STYLE_PNF)
+                  (e && i.style.value() === TradingChart.Series.STYLE_PNF)
                 )
               ),
               this.actions.setAutoScale.setChecked(
@@ -22731,7 +22739,7 @@ webpackJsonp(
               i.push(t.showStudyPlotNamesAction, t.showStudyLastValue),
               e.enabled("countdown") && i.push(t.showCountdown),
               i.push(this.actions.alignLabels),
-              !TradingView.onWidget() &&
+              !TradingChart.onWidget() &&
                 e.enabled("show_chart_property_page") &&
                 e.enabled("chart_property_page_scales") &&
                 t.scalesProperties &&
@@ -24562,7 +24570,7 @@ webpackJsonp(
               return this.hittest ? this.hittest : new a(a.REGULAR);
           return null;
         }),
-        (e.PaneRendererLine = TradingView.PaneRendererLine = o);
+        (e.PaneRendererLine = TradingChart.PaneRendererLine = o);
     },
     function (t, e, i) {
       "use strict";
@@ -24775,13 +24783,13 @@ webpackJsonp(
                           "px"
                       )
                       .data("wasScroll", !0)),
-                  !TradingView.isMobile.any() && d.isMobileSafari
+                  !TradingChart.isMobile.any() && d.isMobileSafari
                     ? c.addClass("i-no-scroll-safari")
                     : c.css("top", -h.scrollTop()).addClass("i-no-scroll"))
                 : !t &&
                   u > 0 &&
                   0 == --u &&
-                  (!TradingView.isMobile.any() && d.isMobileSafari
+                  (!TradingChart.isMobile.any() && d.isMobileSafari
                     ? c.removeClass("i-no-scroll-safari")
                     : ((e = -parseInt(c.css("top").replace("px", ""))),
                       c.removeClass("i-no-scroll").css("top", ""),
@@ -25085,7 +25093,7 @@ webpackJsonp(
                 arguments.length > 1 && void 0 !== arguments[1]
                   ? arguments[1]
                   : {};
-              return new h(TradingView.mergeObj(e, { $checkbox: t }));
+              return new h(TradingChart.mergeObj(e, { $checkbox: t }));
             }
           )),
           (e.default = h),
@@ -25095,7 +25103,7 @@ webpackJsonp(
     function (t, e, i) {
       "use strict";
       i(102);
-      t.exports = TradingView.templates = {
+      t.exports = TradingChart.templates = {
         dialogs: {},
         lists: {},
         onChartMessage:
@@ -25981,13 +25989,13 @@ webpackJsonp(
             (n = this._series.properties()),
             n.style.value())
           ) {
-            case TradingView.Series.STYLE_LINE:
+            case TradingChart.Series.STYLE_LINE:
               i.barColor = n.lineStyle.color.value();
               break;
-            case TradingView.Series.STYLE_AREA:
+            case TradingChart.Series.STYLE_AREA:
               i.barColor = n.areaStyle.linecolor.value();
               break;
-            case TradingView.Series.STYLE_BARS:
+            case TradingChart.Series.STYLE_BARS:
               (r = n.barStyle.upColor.value()),
                 (s = n.barStyle.downColor.value()),
                 (a = r),
@@ -25996,23 +26004,23 @@ webpackJsonp(
                 n.barStyle.barColorsOnPrevClose.value()
                   ? ((h = this.findPrevBar(t, !1, o)),
                     (i.barColor =
-                      h[TradingView.CLOSE_PLOT] <= c[TradingView.CLOSE_PLOT]
+                      h[TradingChart.CLOSE_PLOT] <= c[TradingChart.CLOSE_PLOT]
                         ? r
                         : s),
                     (i.barBorderColor =
-                      h[TradingView.CLOSE_PLOT] <= c[TradingView.CLOSE_PLOT]
+                      h[TradingChart.CLOSE_PLOT] <= c[TradingChart.CLOSE_PLOT]
                         ? a
                         : l))
                   : ((i.barColor =
-                      c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]
+                      c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]
                         ? r
                         : s),
                     (i.barBorderColor =
-                      c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]
+                      c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]
                         ? a
                         : l));
               break;
-            case TradingView.Series.STYLE_CANDLES:
+            case TradingChart.Series.STYLE_CANDLES:
               (r = n.candleStyle.upColor.value()),
                 (s = n.candleStyle.downColor.value()),
                 (a = n.candleStyle.borderUpColor
@@ -26031,13 +26039,14 @@ webpackJsonp(
                 n.candleStyle.barColorsOnPrevClose.value()
                   ? ((h = this.findPrevBar(t, !1, o)),
                     (p =
-                      h[TradingView.CLOSE_PLOT] <= c[TradingView.CLOSE_PLOT]))
-                  : (p = c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]),
+                      h[TradingChart.CLOSE_PLOT] <= c[TradingChart.CLOSE_PLOT]))
+                  : (p =
+                      c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]),
                 (i.barColor = p ? r : s),
                 (i.barBorderColor = p ? a : l),
                 (i.barWickColor = p ? u : d);
               break;
-            case TradingView.Series.STYLE_HOLLOW_CANDLES:
+            case TradingChart.Series.STYLE_HOLLOW_CANDLES:
               (r = n.hollowCandleStyle.upColor.value()),
                 (s = n.hollowCandleStyle.downColor.value()),
                 (a = n.hollowCandleStyle.borderUpColor
@@ -26054,18 +26063,18 @@ webpackJsonp(
                   : n.hollowCandleStyle.wickColor.value()),
                 (c = this.findBar(t, !1, o)),
                 (h = this.findPrevBar(t, !1, o)),
-                h[TradingView.CLOSE_PLOT] <= c[TradingView.CLOSE_PLOT]
+                h[TradingChart.CLOSE_PLOT] <= c[TradingChart.CLOSE_PLOT]
                   ? ((i.barColor = r),
                     (i.barBorderColor = a),
                     (i.barWickColor = u))
                   : ((i.barColor = s),
                     (i.barBorderColor = l),
                     (i.barWickColor = d)),
-                c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]
+                c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]
                   ? (i.isBarHollow = !0)
                   : (i.isBarHollow = !1);
               break;
-            case TradingView.Series.STYLE_HEIKEN_ASHI:
+            case TradingChart.Series.STYLE_HEIKEN_ASHI:
               (r = n.haStyle.upColor.value()),
                 (s = n.haStyle.downColor.value()),
                 (a = n.haStyle.borderUpColor.value()),
@@ -26076,15 +26085,16 @@ webpackJsonp(
                 n.haStyle.barColorsOnPrevClose.value()
                   ? ((h = this.findPrevBar(t, e, o)),
                     (p =
-                      h[TradingView.CLOSE_PLOT] <= c[TradingView.CLOSE_PLOT]))
-                  : (p = c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]),
+                      h[TradingChart.CLOSE_PLOT] <= c[TradingChart.CLOSE_PLOT]))
+                  : (p =
+                      c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]),
                 (i.barColor = p ? r : s),
                 (i.barBorderColor = p ? a : l),
                 (i.barWickColor = p ? u : d);
               break;
-            case TradingView.Series.STYLE_RENKO:
+            case TradingChart.Series.STYLE_RENKO:
               (c = this.findBar(t, e, o)),
-                (p = c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]),
+                (p = c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]),
                 (r = e
                   ? n.renkoStyle.upColorProjection.value()
                   : n.renkoStyle.upColor.value()),
@@ -26104,9 +26114,9 @@ webpackJsonp(
                 (i.barWickColor = p ? u : d),
                 (i.isBarUp = p);
               break;
-            case TradingView.Series.STYLE_PB:
+            case TradingChart.Series.STYLE_PB:
               (c = this.findBar(t, e, o)),
-                (p = c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]),
+                (p = c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]),
                 (r = e
                   ? n.pbStyle.upColorProjection.value()
                   : n.pbStyle.upColor.value()),
@@ -26123,7 +26133,7 @@ webpackJsonp(
                 (i.barBorderColor = p ? a : l),
                 (i.isBarUp = p);
               break;
-            case TradingView.Series.STYLE_KAGI:
+            case TradingChart.Series.STYLE_KAGI:
               (i.upColor = e
                 ? n.kagiStyle.upColorProjection.value()
                 : n.kagiStyle.upColor.value()),
@@ -26132,23 +26142,24 @@ webpackJsonp(
                   : n.kagiStyle.downColor.value()),
                 (_ = null),
                 (c = this.findBar(t, e, o)),
-                c[TradingView.LOW_PLOT] < c[TradingView.ADT_PLOT] &&
-                c[TradingView.ADT_PLOT] < c[TradingView.HIGH_PLOT]
+                c[TradingChart.LOW_PLOT] < c[TradingChart.ADT_PLOT] &&
+                c[TradingChart.ADT_PLOT] < c[TradingChart.HIGH_PLOT]
                   ? ((_ =
-                      c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]),
+                      c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]),
                     (i.isTwoColorBar = !0))
                   : ((_ =
-                      c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]
-                        ? c[TradingView.OPEN_PLOT] === c[TradingView.ADT_PLOT]
-                        : c[TradingView.OPEN_PLOT] !== c[TradingView.ADT_PLOT]),
+                      c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]
+                        ? c[TradingChart.OPEN_PLOT] === c[TradingChart.ADT_PLOT]
+                        : c[TradingChart.OPEN_PLOT] !==
+                          c[TradingChart.ADT_PLOT]),
                     (i.isTwoColorBar = !1)),
                 (i.barColor = _ ? i.upColor : i.downColor),
                 (i.isBarUp =
-                  c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]);
+                  c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]);
               break;
-            case TradingView.Series.STYLE_PNF:
+            case TradingChart.Series.STYLE_PNF:
               (c = this.findBar(t, e, o)),
-                (p = c[TradingView.ADT_PLOT] > 0),
+                (p = c[TradingChart.ADT_PLOT] > 0),
                 (r = e
                   ? n.pnfStyle.upColorProjection.value()
                   : n.pnfStyle.upColor.value()),
@@ -26158,7 +26169,7 @@ webpackJsonp(
                 (i.isBarUp = p),
                 (i.barColor = p ? r : s);
               break;
-            case TradingView.Series.STYLE_BASELINE:
+            case TradingChart.Series.STYLE_BASELINE:
               (c = this.findBar(t, e, o)),
                 (f = n.baselineStyle),
                 (m = this._series.priceScale()),
@@ -26167,7 +26178,7 @@ webpackJsonp(
                     (Math.abs(100 - f.baseLevelPercentage.value()) / 100)
                 )),
                 (v = m.coordinateToPrice(g)),
-                c[TradingView.CLOSE_PLOT] > v
+                c[TradingChart.CLOSE_PLOT] > v
                   ? (i.barColor = n.baselineStyle.topLineColor.value())
                   : (i.barColor = n.baselineStyle.bottomLineColor.value());
           }
@@ -26327,10 +26338,10 @@ webpackJsonp(
               (i = this.items[e]) &&
               void 0 !== i.x &&
               null !== i.x &&
-              !TradingView.isNaN(i.x) &&
+              !TradingChart.isNaN(i.x) &&
               void 0 !== i.y &&
               null !== i.y &&
-              !TradingView.isNaN(i.y) &&
+              !TradingChart.isNaN(i.y) &&
               ((o = Math.abs(i.height)),
               (n = i.isUp ? -1 : 1),
               (r = o + d),
@@ -26346,9 +26357,10 @@ webpackJsonp(
           return null;
         }),
         inherit(n, r),
-        (e.PaneRendererArrowsUpDown = TradingView.PaneRendererArrowsUpDown = o),
+        (e.PaneRendererArrowsUpDown = TradingChart.PaneRendererArrowsUpDown =
+          o),
         (e.PaneRendererArrowsUpDownItem =
-          TradingView.PaneRendererArrowsUpDownItem =
+          TradingChart.PaneRendererArrowsUpDownItem =
             n);
     },
     function (t, e, i) {
@@ -26996,7 +27008,7 @@ webpackJsonp(
                       ? null
                       : ((o = Math.min(a, i.index)),
                         (n = s(this._model.mainSeries().bars().valueAt(o))),
-                        { closePrice: n[TradingView.CLOSE_PLOT], index: o })));
+                        { closePrice: n[TradingChart.CLOSE_PLOT], index: o })));
           }),
           (o.prototype.migrateVersion = function (t, e, i) {
             var o, n, r, s;
@@ -27238,7 +27250,7 @@ webpackJsonp(
             for (i = a; i <= Math.min(c, e.index); i++)
               if (
                 ((o = s(n.valueAt(i))),
-                o[TradingView.HIGH_PLOT] >= l && o[TradingView.LOW_PLOT] <= l)
+                o[TradingChart.HIGH_PLOT] >= l && o[TradingChart.LOW_PLOT] <= l)
               )
                 return { index: i, price: l };
             return null;
@@ -27323,9 +27335,9 @@ webpackJsonp(
           (n.prototype.checkStopPrice = function (t) {
             var e = this.stopPrice(),
               i = this.profitPrice();
-            return t[TradingView.HIGH_PLOT] >= e
+            return t[TradingChart.HIGH_PLOT] >= e
               ? this.stopPrice()
-              : t[TradingView.LOW_PLOT] <= i
+              : t[TradingChart.LOW_PLOT] <= i
               ? this.profitPrice()
               : null;
           }),
@@ -27385,9 +27397,9 @@ webpackJsonp(
           (r.prototype.checkStopPrice = function (t) {
             var e = this.stopPrice(),
               i = this.profitPrice();
-            return t[TradingView.LOW_PLOT] <= e
+            return t[TradingChart.LOW_PLOT] <= e
               ? this.stopPrice()
-              : t[TradingView.HIGH_PLOT] >= i
+              : t[TradingChart.HIGH_PLOT] >= i
               ? this.profitPrice()
               : null;
           }),
@@ -27460,7 +27472,7 @@ webpackJsonp(
                 ? null
                 : [
                     this.properties().inputs.displayZoneLabels.value(),
-                    1e3 * e[TradingView.TIME_PLOT],
+                    1e3 * e[TradingChart.TIME_PLOT],
                   ]);
         }),
         inherit(n, o),
@@ -27665,7 +27677,7 @@ webpackJsonp(
               t < this.m_dataSources.length;
               t++
             )
-              (e = this.m_dataSources[t]) instanceof TradingView.Study &&
+              (e = this.m_dataSources[t]) instanceof TradingChart.Study &&
                 this.isOverlay(e) &&
                 "Volume" !== e.metaInfo().shortId &&
                 e.priceScale() &&
@@ -27727,7 +27739,7 @@ webpackJsonp(
               for (e = 0; e < this.m_dataSources.length; e++)
                 if (
                   ((i = this.m_dataSources[e]),
-                  TradingView.isInherited(i.constructor, a) &&
+                  TradingChart.isInherited(i.constructor, a) &&
                     !this.isOverlay(i) &&
                     (!i.properties().linkedToSeries ||
                       !i.properties().linkedToSeries.value()))
@@ -27738,7 +27750,7 @@ webpackJsonp(
             if (this.m_mainDataSource && t) {
               for (n = [], e = 0; e < this.m_dataSources.length; e++)
                 (i = this.m_dataSources[e]),
-                  TradingView.isInherited(i.constructor, r) && n.push(i);
+                  TradingChart.isInherited(i.constructor, r) && n.push(i);
               for (n = o.sortSources(n), e = 0; e < n.length; e++)
                 this.move(n[e], this.m_mainDataSource.priceScale(), !0);
             } else if (
@@ -27749,7 +27761,7 @@ webpackJsonp(
               for (e = 0; e < this.m_dataSources.length; e++)
                 if (
                   ((i = this.m_dataSources[e]),
-                  TradingView.isInherited(i.constructor, a) &&
+                  TradingChart.isInherited(i.constructor, a) &&
                     this.isOverlay(i) &&
                     i.showInObjectTree())
                 ) {
@@ -27839,7 +27851,7 @@ webpackJsonp(
               t.setZorder(i),
               n && this._processMainSourceChange(),
               this._tagsChanged.fire(),
-              TradingView.isInherited(t.constructor, a) &&
+              TradingChart.isInherited(t.constructor, a) &&
                 this.recalculatePriceScale(e),
               this.invalidateSourcesCache();
           }),
@@ -27864,11 +27876,11 @@ webpackJsonp(
                 t
                   .onTagsChanged()
                   .unsubscribe(this, o.prototype.onSourceTagsChanged),
-              TradingView.isInherited(t.constructor, a) &&
+              TradingChart.isInherited(t.constructor, a) &&
                 this._processMainSourceChange(),
               this._tagsChanged.fire(),
               i &&
-                TradingView.isInherited(t.constructor, a) &&
+                TradingChart.isInherited(t.constructor, a) &&
                 this.recalculatePriceScale(i),
               this.invalidateSourcesCache();
           }),
@@ -27916,14 +27928,17 @@ webpackJsonp(
             var e = t.mainSource();
             return (
               !!e &&
-              (!!TradingView.isInherited(e.constructor, TradingView.Series) ||
-                (!!TradingView.isInherited(e.constructor, TradingView.Study) &&
+              (!!TradingChart.isInherited(e.constructor, TradingChart.Series) ||
+                (!!TradingChart.isInherited(
+                  e.constructor,
+                  TradingChart.Study
+                ) &&
                   e.metaInfo().is_price_study))
             );
           }),
           (o.prototype.findSuitableScale = function (t) {
             if (
-              TradingView.isInherited(t.constructor, TradingView.Study) &&
+              TradingChart.isInherited(t.constructor, TradingChart.Study) &&
               "Volume@tv-basicstudies" === t.metaInfo().id
             )
               return this.m_rightPriceScale.mainSource() ||
@@ -27932,10 +27947,12 @@ webpackJsonp(
                 : this.m_rightPriceScale;
             var e = !1;
             if (
-              (TradingView.isInherited(t.constructor, TradingView.Study)
+              (TradingChart.isInherited(t.constructor, TradingChart.Study)
                 ? (e = t.metaInfo().is_price_study)
-                : TradingView.isInherited(t.constructor, TradingView.Series) &&
-                  (e = !0),
+                : TradingChart.isInherited(
+                    t.constructor,
+                    TradingChart.Series
+                  ) && (e = !0),
               e)
             ) {
               if (this._priceScaleIsPrice(this.m_rightPriceScale))
@@ -28044,7 +28061,7 @@ webpackJsonp(
               o++
             )
               (n = t[o]),
-                TradingView.isInherited(n.constructor, r)
+                TradingChart.isInherited(n.constructor, r)
                   ? e.push(n)
                   : i.push(n);
             return (
@@ -28057,7 +28074,7 @@ webpackJsonp(
             if (this._cachedOrderedSoruces) return this._cachedOrderedSoruces;
             for (t = [], e = 0, i = this.m_dataSources.length; e < i; e++)
               (n = this.m_dataSources[e]),
-                (TradingView.isInherited(n.constructor, r) &&
+                (TradingChart.isInherited(n.constructor, r) &&
                   !n.isActualSymbol()) ||
                   t.push(n);
             return (t = o.sortSources(t)), (this._cachedOrderedSoruces = t), t;
@@ -28173,9 +28190,9 @@ webpackJsonp(
           }),
           (o.prototype.clearSeries = function () {
             for (var t = this.m_dataSources.length - 1; t >= 0; t--)
-              TradingView.isInherited(
+              TradingChart.isInherited(
                 this.m_dataSources[t].constructor,
-                TradingView.Series
+                TradingChart.Series
               ) && this.m_dataSources.splice(t, 1);
           }),
           (o.prototype.nonOverlayPricesSourcesCount = function () {
@@ -28183,7 +28200,7 @@ webpackJsonp(
               return (
                 (!t.properties().linkedToSeries ||
                   !t.properties().linkedToSeries.value()) &&
-                TradingView.isInherited(t.constructor, a) &&
+                TradingChart.isInherited(t.constructor, a) &&
                 t.showInObjectTree() &&
                 !t.isNoScale()
               );
@@ -28195,7 +28212,7 @@ webpackJsonp(
           (o.prototype.actionNoScaleIsEnabled = function (t) {
             return (
               !(
-                !this.isOverlay(t) && TradingView.isInherited(t.constructor, a)
+                !this.isOverlay(t) && TradingChart.isInherited(t.constructor, a)
               ) || this.canHaveMoreNoScaleSources()
             );
           }),
@@ -28525,7 +28542,7 @@ webpackJsonp(
                       .mainSource()
                       .data()
                       .search(e.firstBar(), _.NearestRight).value[
-                      TradingView.CLOSE_PLOT
+                      TradingChart.CLOSE_PLOT
                     ]),
                     null != t &&
                       void 0 !== i &&
@@ -28853,7 +28870,7 @@ webpackJsonp(
                 (c = e(t[l])), i(t[l], this.priceToLogical(c));
             for (l = 0; l < t.length; l++)
               (c = e(t[l])),
-                TradingView.isNaN(c) ||
+                TradingChart.isNaN(c) ||
                   void 0 === c ||
                   null === c ||
                   ((h = o + a * (c - n)),
@@ -28875,7 +28892,7 @@ webpackJsonp(
                 t[s].y = this.priceToLogical(t[s].y);
             for (s = 0; s < t.length; s++)
               (a = t[s].y),
-                TradingView.isNaN(a) ||
+                TradingChart.isNaN(a) ||
                   void 0 === a ||
                   null === a ||
                   ((l = e + r * (a - i)),
@@ -28989,7 +29006,7 @@ webpackJsonp(
           (a.prototype.addDataSource = function (t, e) {
             var i, o;
             (e || -1 === this.m_dataSources.indexOf(t)) &&
-              (TradingView.isInherited(t.constructor, p) &&
+              (TradingChart.isInherited(t.constructor, p) &&
                 ((i = t.properties()),
                 !0 !== this._hasSeries &&
                   (i.lockScale &&
@@ -29031,7 +29048,7 @@ webpackJsonp(
             var e = this.m_dataSources.indexOf(t);
             if (-1 === e) throw Error("source is not attached to scale");
             this.m_dataSources.splice(e, 1),
-              TradingView.isInherited(t.constructor, p) &&
+              TradingChart.isInherited(t.constructor, p) &&
                 (this._hasSeries = !1),
               this.mainSource() || this.setAutoScale(!0),
               (this._mainSource = void 0),
@@ -29162,13 +29179,16 @@ webpackJsonp(
             if (void 0 !== this._mainSource) return this._mainSource;
             for (t = void 0, e = 0; e < this.m_dataSources.length; e++) {
               if (
-                TradingView.isInherited(this.m_dataSources[e].constructor, p)
+                TradingChart.isInherited(this.m_dataSources[e].constructor, p)
               ) {
                 t = this.m_dataSources[e];
                 break;
               }
               !t &&
-                TradingView.isInherited(this.m_dataSources[e].constructor, d) &&
+                TradingChart.isInherited(
+                  this.m_dataSources[e].constructor,
+                  d
+                ) &&
                 (t = this.m_dataSources[e]);
             }
             return (this._mainSource = t), this._mainSource || null;
@@ -29199,8 +29219,8 @@ webpackJsonp(
                 return (
                   !!(e.properties().visible.value() || e instanceof p) &&
                   (t
-                    ? TradingView.isInherited(e.constructor, p)
-                    : TradingView.isInherited(e.constructor, d))
+                    ? TradingChart.isInherited(e.constructor, p)
+                    : TradingChart.isInherited(e.constructor, d))
                 );
               }),
               (this._sourcesForAutoscale = this.m_dataSources.filter(e));
@@ -29275,7 +29295,7 @@ webpackJsonp(
                 t++
               )
                 (e = this.m_dataSources[t]),
-                  (TradingView.isInherited(e.constructor, u) &&
+                  (TradingChart.isInherited(e.constructor, u) &&
                     !e.isActualSymbol()) ||
                     this._sourcesToUpdateViews.push(e);
             return this._sourcesToUpdateViews;
@@ -29294,7 +29314,7 @@ webpackJsonp(
                 (e = this.mainSource()
                   .data()
                   .search(t.firstBar(), _.NearestRight).value[
-                  TradingView.CLOSE_PLOT
+                  TradingChart.CLOSE_PLOT
                 ]),
                 (i = this.priceRange().convertFromPercents(e)),
                 { from: i.minValue(), to: i.maxValue() })
@@ -29362,7 +29382,7 @@ webpackJsonp(
               t.y +
               { up: -1, down: 1 }[t.direction] *
                 (e * (t.order + 0.6) + 0.25 * e),
-            o = TradingView.clone(t.overridedTheme || this.themes[t.theme]);
+            o = TradingChart.clone(t.overridedTheme || this.themes[t.theme]);
           return (
             (o.dotBorderWidth = t.hovered || t.highlightByAuthor ? 4 : 2),
             {
@@ -37593,7 +37613,7 @@ webpackJsonp(
           (o.prototype.createFontEditor = function (t) {
             var e =
               t ||
-              TradingView.factoryDefaults("chartproperties.editorFontsList");
+              TradingChart.factoryDefaults("chartproperties.editorFontsList");
             return this.createCombo(e);
           }),
           (o.prototype.createFontSizeEditor = function (t) {
@@ -37842,7 +37862,7 @@ webpackJsonp(
                     this._mainSeries
                       .bars()
                       .valueAt(A(this._mainSeries.bars().lastIndex()) - e)
-                  )[TradingView.TIME_PLOT]);
+                  )[TradingChart.TIME_PLOT]);
           }),
           (m.prototype.setValue = function (t) {
             var e, i, o;
@@ -37856,7 +37876,7 @@ webpackJsonp(
                   .data()
                   .plotValueToTimePointIndex(
                     t / 1e3,
-                    TradingView.TIME_PLOT,
+                    TradingChart.TIME_PLOT,
                     R.FromRight
                   ))
               ? void (this._disabled = !0)
@@ -39245,7 +39265,7 @@ webpackJsonp(
               : null
           );
         }),
-        (e.PaneRendererCandles = TradingView.PaneRendererCandles = o);
+        (e.PaneRendererCandles = TradingChart.PaneRendererCandles = o);
     },
     function (t, e, i) {
       "use strict";
@@ -39508,17 +39528,17 @@ webpackJsonp(
     },
     function (t, e, i) {
       (function (t) {
-        (TradingView.cleanButAmpersand = function (t, e) {
+        (TradingChart.cleanButAmpersand = function (t, e) {
           var i = e ? ["&amp;"] : ["&"];
-          return TradingView.clean(t, e, i);
+          return TradingChart.clean(t, e, i);
         }),
-          (TradingView.strip_tags = function (t) {
+          (TradingChart.strip_tags = function (t) {
             return t && t.replace ? t.replace(/(<([^>]+)>)/gi, "") : t;
           }),
-          (TradingView.encodeSpread = function (t) {
+          (TradingChart.encodeSpread = function (t) {
             return encodeURIComponent(t);
           }),
-          (TradingView.clean = function (t, e, i) {
+          (TradingChart.clean = function (t, e, i) {
             var o,
               n,
               r,
@@ -39545,9 +39565,9 @@ webpackJsonp(
             t &&
             t.exports &&
             (t.exports = {
-              clean: TradingView.clean,
-              cleanButAmpersand: TradingView.cleanButAmpersand,
-              stripTags: TradingView.strip_tags,
+              clean: TradingChart.clean,
+              cleanButAmpersand: TradingChart.cleanButAmpersand,
+              stripTags: TradingChart.strip_tags,
             });
       }).call(e, i(42)(t));
     },
@@ -39590,8 +39610,8 @@ webpackJsonp(
       }
       function r() {
         var t = /^linetool.+/;
-        Object.keys(TradingView.defaultProperties).forEach(function (e) {
-          t.test(e) && n(TradingView.defaultProperties[e], null, !1, e);
+        Object.keys(TradingChart.defaultProperties).forEach(function (e) {
+          t.test(e) && n(TradingChart.defaultProperties[e], null, !1, e);
         });
       }
       function s(t, e) {
@@ -39602,8 +39622,8 @@ webpackJsonp(
           i = m(t);
         return (
           window._UNIT_TESTS ||
-            ((e = TradingView.clone(TVSettings.getJSON(t, null))) &&
-              TradingView.merge(i, e)),
+            ((e = TradingChart.clone(TVSettings.getJSON(t, null))) &&
+              TradingChart.merge(i, e)),
           i
         );
       }
@@ -39613,12 +39633,12 @@ webpackJsonp(
           n = m(t);
         return (
           window._UNIT_TESTS ||
-            ((i = TradingView.clone(TVSettings.getJSON(t, null))),
+            ((i = TradingChart.clone(TVSettings.getJSON(t, null))),
             t.startsWith("study_") &&
               i &&
               d.isVersionHead(i.version) &&
               ((o = e.updateStudyState(i, i)), (i = o)),
-            TradingView.merge(n, i)),
+            TradingChart.merge(n, i)),
           n
         );
       }
@@ -39671,7 +39691,7 @@ webpackJsonp(
                 };
               },
             };
-          if (void 0 === TradingView.defaultProperties) {
+          if (void 0 === TradingChart.defaultProperties) {
             switch (window.locale) {
               case "ar_AE":
                 e = "Asia/Dubai";
@@ -39735,7 +39755,7 @@ webpackJsonp(
               default:
                 e = "Etc/UTC";
             }
-            (TradingView.defaultProperties = {
+            (TradingChart.defaultProperties = {
               chartproperties: {
                 timezone: e,
                 dataWindowProperties: {
@@ -41801,13 +41821,13 @@ webpackJsonp(
                 },
               },
             }),
-              n(TradingView.defaultProperties.chartproperties),
+              n(TradingChart.defaultProperties.chartproperties),
               r();
           }
           for (
             void 0 ===
-              TradingView.defaultProperties["study_MA@tv-basicstudies"] &&
-              (TradingView.defaultProperties["study_MA@tv-basicstudies"] = {
+              TradingChart.defaultProperties["study_MA@tv-basicstudies"] &&
+              (TradingChart.defaultProperties["study_MA@tv-basicstudies"] = {
                 description: "Moving Average",
                 shortDescription: "MA",
                 inputs: { length: 9, source: "close" },
@@ -41824,10 +41844,10 @@ webpackJsonp(
                 },
               }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_ErrorOnUpdate@tv-basicstudies"
                 ] &&
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_ErrorOnUpdate@tv-basicstudies"
                 ] = {
                   description: "Error On Update",
@@ -41843,10 +41863,10 @@ webpackJsonp(
                   },
                 }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_ErrorOnCreate@tv-basicstudies"
                 ] &&
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_ErrorOnCreate@tv-basicstudies"
                 ] = {
                   description: "Error On Create",
@@ -41862,10 +41882,10 @@ webpackJsonp(
                   },
                 }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_ErrorOnNewBar@tv-basicstudies"
                 ] &&
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_ErrorOnNewBar@tv-basicstudies"
                 ] = {
                   description: "Error On New Bar",
@@ -41881,10 +41901,10 @@ webpackJsonp(
                   },
                 }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_PivotPointsHighLow@tv-basicstudies"
                 ] &&
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_PivotPointsHighLow@tv-basicstudies"
                 ] = {
                   font: "Arial",
@@ -41894,13 +41914,13 @@ webpackJsonp(
                   textColor: "rgba( 0, 0, 0, 1)",
                 }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_PivotPointsStandard@tv-basicstudies"
                 ] &&
                 ((i = "rgba( 212, 121, 40, 1)"),
                 (o = !0),
                 (s = 1),
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_PivotPointsStandard@tv-basicstudies"
                 ] = {
                   _hardCodedDefaultsVersion: 1,
@@ -41935,14 +41955,17 @@ webpackJsonp(
                   },
                 })),
               void 0 ===
-                TradingView.defaultProperties["study_ZigZag@tv-basicstudies"] &&
-                (TradingView.defaultProperties["study_ZigZag@tv-basicstudies"] =
-                  { color: "rgba( 86, 135, 29, 1)", linewidth: 2 }),
+                TradingChart.defaultProperties[
+                  "study_ZigZag@tv-basicstudies"
+                ] &&
+                (TradingChart.defaultProperties[
+                  "study_ZigZag@tv-basicstudies"
+                ] = { color: "rgba( 86, 135, 29, 1)", linewidth: 2 }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_ElliottWave@tv-basicstudies"
                 ] &&
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_ElliottWave@tv-basicstudies"
                 ] = {
                   inputs: {},
@@ -41957,10 +41980,10 @@ webpackJsonp(
                   level8: m.a("rgba( 255, 0, 255, 1)", !0),
                 }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_LinearRegression@tv-basicstudies"
                 ] &&
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_LinearRegression@tv-basicstudies"
                 ] = {
                   styles: {
@@ -41989,10 +42012,10 @@ webpackJsonp(
                   },
                 }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_RegressionTrend@tv-basicstudies"
                 ] &&
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_RegressionTrend@tv-basicstudies"
                 ] = {
                   linewidth: 1,
@@ -42022,18 +42045,18 @@ webpackJsonp(
                   },
                 }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_Compare@tv-basicstudies"
                 ] &&
-                (TradingView.defaultProperties[
+                (TradingChart.defaultProperties[
                   "study_Compare@tv-basicstudies"
                 ] = { minTick: "default" }),
               void 0 ===
-                TradingView.defaultProperties[
+                TradingChart.defaultProperties[
                   "study_Overlay@tv-basicstudies"
                 ] &&
                 ((a = "study_Overlay@tv-basicstudies"),
-                (TradingView.defaultProperties[a] = {
+                (TradingChart.defaultProperties[a] = {
                   style: c.STYLE_BARS,
                   showPriceLine: !1,
                   minTick: "default",
@@ -42135,27 +42158,27 @@ webpackJsonp(
                   },
                 })),
               l = t.split("."),
-              d = TradingView.defaultProperties,
+              d = TradingChart.defaultProperties,
               f = 0;
             f < l.length;
             f++
           )
             d && (d = d[l[f]]);
-          return d ? TradingView.clone(d) : {};
+          return d ? TradingChart.clone(d) : {};
         };
       (s.create = function (t, e) {
         if (e) {
           var i = m(t);
-          TradingView.defaultProperties[t] = $.extend(e, i);
+          TradingChart.defaultProperties[t] = $.extend(e, i);
         }
       }),
         (s.remove = function (t) {
-          TradingView.defaultProperties[t] = void 0;
+          TradingChart.defaultProperties[t] = void 0;
         }),
-        (TradingView.saveDefaults = function (t, e) {
+        (TradingChart.saveDefaults = function (t, e) {
           TVSettings.setJSON(t, e);
         }),
-        (TradingView.factoryDefaults = m),
+        (TradingChart.factoryDefaults = m),
         (window.applyDefaultOverridesToLinetools = r),
         (window.applyDefaultsOverrides = n),
         (window.applyPropertiesOverrides = o),
@@ -42165,7 +42188,7 @@ webpackJsonp(
         (e.applyPropertiesOverrides = o),
         (e.defaults = s),
         (e.factoryDefaults = m),
-        (e.saveDefaults = TradingView.saveDefaults);
+        (e.saveDefaults = TradingChart.saveDefaults);
     },
     function (t, e, i) {
       "use strict";
@@ -42282,7 +42305,7 @@ webpackJsonp(
           var o, n, s;
           if (!i) return i;
           for (
-            o = TradingView.clone(i), n = t;
+            o = TradingChart.clone(i), n = t;
             n.isLess(e) && null != (s = this._findMigration(n));
 
           ) {
@@ -43815,7 +43838,7 @@ webpackJsonp(
             e && e.high - s <= t.y && t.y <= e.low + s ? new r(r.REGULAR) : null
           );
         }),
-        (e.PaneRendererBars = TradingView.PaneRendererBars = o);
+        (e.PaneRendererBars = TradingChart.PaneRendererBars = o);
     },
     function (t, e, i) {
       "use strict";
@@ -43885,7 +43908,7 @@ webpackJsonp(
             }
           }
         }),
-        (e.PaneRendererArea = TradingView.PaneRendererArea = o);
+        (e.PaneRendererArea = TradingChart.PaneRendererArea = o);
     },
     function (t, e, i) {
       "use strict";
@@ -44010,7 +44033,7 @@ webpackJsonp(
       }
       function n() {}
       var r = i(15).declareClassAsPureInterface;
-      (TradingView.WEB_SOCKET_WAS_CONNECTED = !1),
+      (TradingChart.WEB_SOCKET_WAS_CONNECTED = !1),
         (n.REBIND_STUDY_STANDALONE_TO_CHILD = 1),
         (n.REBIND_STUDY_CHILD_TO_STANDALONE = 2),
         (n.prototype.defaultWatchlistSymbols = function () {}),
@@ -44361,8 +44384,8 @@ webpackJsonp(
                 null !== (n = v.bars().search(i, c.NearestLeft)) &&
                   ((i = n.index),
                   (s = g
-                    ? n.value[TradingView.LOW_PLOT]
-                    : n.value[TradingView.HIGH_PLOT]),
+                    ? n.value[TradingChart.LOW_PLOT]
+                    : n.value[TradingChart.HIGH_PLOT]),
                   (a = v.priceScale()),
                   a.isPercent() &&
                     ((l = v.firstValue()),
@@ -44414,7 +44437,7 @@ webpackJsonp(
               n = o - Math.abs(t);
             return (
               this._line.startMoving(this._line.points()[0]),
-              (e = TradingView.merge({}, this._line.points()[0])),
+              (e = TradingChart.merge({}, this._line.points()[0])),
               (e.index = n),
               this._line.move(e),
               this._line.endMoving(),
@@ -44582,7 +44605,7 @@ webpackJsonp(
               .tradingProperties.showExecutions.value();
           }),
           (r.prototype.paneViews = function (e) {
-            return TradingView.printing &&
+            return TradingChart.printing &&
               !t.enabled("snapshot_trading_drawings")
               ? null
               : this._model
@@ -45339,27 +45362,27 @@ webpackJsonp(
               (a = {}),
               t.each(function (t, e) {
                 var i, n;
-                void 0 !== e[TradingView.OPEN_PLOT] &&
-                  void 0 !== e[TradingView.HIGH_PLOT] &&
-                  void 0 !== e[TradingView.LOW_PLOT] &&
-                  void 0 !== e[TradingView.CLOSE_PLOT] &&
-                  (void 0 === o && (o = e[TradingView.CLOSE_PLOT]),
+                void 0 !== e[TradingChart.OPEN_PLOT] &&
+                  void 0 !== e[TradingChart.HIGH_PLOT] &&
+                  void 0 !== e[TradingChart.LOW_PLOT] &&
+                  void 0 !== e[TradingChart.CLOSE_PLOT] &&
+                  (void 0 === o && (o = e[TradingChart.CLOSE_PLOT]),
                   (i = {}),
                   (i.time = Math.round(t)),
                   r
-                    ? ((i.open = (100 * (e[TradingView.OPEN_PLOT] - o)) / o),
-                      (i.high = (100 * (e[TradingView.HIGH_PLOT] - o)) / o),
-                      (i.low = (100 * (e[TradingView.LOW_PLOT] - o)) / o),
-                      (i.close = (100 * (e[TradingView.CLOSE_PLOT] - o)) / o))
-                    : ((i.open = e[TradingView.OPEN_PLOT]),
-                      (i.high = e[TradingView.HIGH_PLOT]),
-                      (i.low = e[TradingView.LOW_PLOT]),
-                      (i.close = e[TradingView.CLOSE_PLOT])),
+                    ? ((i.open = (100 * (e[TradingChart.OPEN_PLOT] - o)) / o),
+                      (i.high = (100 * (e[TradingChart.HIGH_PLOT] - o)) / o),
+                      (i.low = (100 * (e[TradingChart.LOW_PLOT] - o)) / o),
+                      (i.close = (100 * (e[TradingChart.CLOSE_PLOT] - o)) / o))
+                    : ((i.open = e[TradingChart.OPEN_PLOT]),
+                      (i.high = e[TradingChart.HIGH_PLOT]),
+                      (i.low = e[TradingChart.LOW_PLOT]),
+                      (i.close = e[TradingChart.CLOSE_PLOT])),
                   (a.value = e),
-                  (n = e[TradingView.STYLE_PLOT]
-                    ? e[TradingView.STYLE_PLOT]
+                  (n = e[TradingChart.STYLE_PLOT]
+                    ? e[TradingChart.STYLE_PLOT]
                     : s.barStyle(t, !1, a)),
-                  (e[TradingView.STYLE_PLOT] = n),
+                  (e[TradingChart.STYLE_PLOT] = n),
                   (a.previousValue = e),
                   (i.color = n.barColor),
                   (i.borderColor = n.barBorderColor),
@@ -45383,7 +45406,7 @@ webpackJsonp(
                   null !== (u = this.m_series.bars().valueAt(h)) &&
                     ((d =
                       0.5 *
-                      (u[TradingView.OPEN_PLOT] + u[TradingView.CLOSE_PLOT])),
+                      (u[TradingChart.OPEN_PLOT] + u[TradingChart.CLOSE_PLOT])),
                     n.isPercentage() && (d = (100 * (d - o)) / o),
                     (_ = this.m_model.timeScale().indexToCoordinate(h)),
                     (m = this.m_series.priceScale().priceToCoordinate(d)),
@@ -45569,9 +45592,10 @@ webpackJsonp(
               lineStyle: t.linestyle.value(),
               withMarkers:
                 t.styleType.value() ===
-                TradingView.Series.STYLE_LINE_TYPE_MARKERS,
+                TradingChart.Series.STYLE_LINE_TYPE_MARKERS,
               withSteps:
-                t.styleType.value() === TradingView.Series.STYLE_LINE_TYPE_STEP,
+                t.styleType.value() ===
+                TradingChart.Series.STYLE_LINE_TYPE_STEP,
               lineWidth: t.linewidth.value(),
               simpleMode: !0,
             }),
@@ -48361,7 +48385,7 @@ webpackJsonp(
       "use strict";
       function o(t) {
         return (
-          "number" != typeof t && (t = TradingView.STUDY_COUNT_LIMIT),
+          "number" != typeof t && (t = TradingChart.STUDY_COUNT_LIMIT),
           (0, n.createNoticeDialog)({
             title: $.t("Warning"),
             content: $.t(
@@ -49698,7 +49722,7 @@ webpackJsonp(
               if (Math.floor(r / l[a].divisor) !== Math.floor(s / l[a].divisor))
                 return l[a].span;
           }),
-          (TradingView.ChartapiMessagerInstances = []),
+          (TradingChart.ChartapiMessagerInstances = []),
           (t.exports = a);
       }).call(e, i(50));
     },
@@ -50560,7 +50584,7 @@ webpackJsonp(
           )
             return null;
           for (
-            e = TradingView.isMobile.any() ? 24 : 3, i = 1;
+            e = TradingChart.isMobile.any() ? 24 : 3, i = 1;
             i < this._points.length;
             i++
           )
@@ -51396,7 +51420,7 @@ webpackJsonp(
               s = this;
             t &&
               e &&
-              ((t = TradingView.clean(t)),
+              ((t = TradingChart.clean(t)),
               (i = -1 !== $.inArray(t, s._list)),
               (o = function () {
                 var o = { name: t, tool: s._toolName, content: e },
@@ -52993,7 +53017,7 @@ webpackJsonp(
               return new s(s.REGULAR);
           return null;
         }),
-        (e.PaneRendererUnicodeChar = TradingView.PaneRendererUnicodeChar = o);
+        (e.PaneRendererUnicodeChar = TradingChart.PaneRendererUnicodeChar = o);
     },
     ,
     ,
@@ -54130,7 +54154,7 @@ webpackJsonp(
           (window.applyOverrides = function (t) {
             $.extend(!0, window.__defaultsOverrides, t),
               window.applyDefaultsOverrides(
-                TradingView.defaultProperties.chartproperties
+                TradingChart.defaultProperties.chartproperties
               ),
               window.applyDefaultOverridesToLinetools(),
               window.chartWidgetCollection.applyOverrides(t);
@@ -54147,8 +54171,8 @@ webpackJsonp(
           }),
           (window.is_authenticated = !1),
           window.parent[urlParams.uid].brokerFactory,
-          window.t("charts by TradingView"),
-          window.t("powered by TradingView"),
+          window.t("charts by TradingChart"),
+          window.t("powered by TradingChart"),
           (U = function (e) {
             var o, n, r, s, d, p, _, b, k, A, M, B, N, W, U;
             if (!Modernizr.canvas || !Modernizr.canvastext)
@@ -54258,7 +54282,7 @@ webpackJsonp(
               }),
               (window.saver = new f(A)),
               (window.chartWidget = A.activeChartWidget.value()),
-              (window.pro = new TradingView.Pro()),
+              (window.pro = new TradingChart.Pro()),
               (M = JSON.parse(urlParams.favorites)),
               (M.intervals = M.intervals.map(function (t) {
                 var e = "" + t;
@@ -54314,12 +54338,12 @@ webpackJsonp(
                       " !important}"
                   )
                   .appendTo($("head")),
-              TradingView.isNaN(urlParams.studyCountLimit) ||
-                (TradingView.STUDY_COUNT_LIMIT = Math.max(
+              TradingChart.isNaN(urlParams.studyCountLimit) ||
+                (TradingChart.STUDY_COUNT_LIMIT = Math.max(
                   2,
                   +urlParams.studyCountLimit
                 )),
-              TradingView.isNaN(urlParams.ssreqdelay) ||
+              TradingChart.isNaN(urlParams.ssreqdelay) ||
                 F.setSearchRequestDelay(Math.max(0, +urlParams.ssreqdelay)),
               _ &&
                 ((U = E.allocate({ areaName: "left" })),
@@ -55024,7 +55048,7 @@ webpackJsonp(
       function o(t) {
         return t.keys().map(t);
       }
-      (window.TradingView = window.TradingView || {}),
+      (window.TradingChart = window.TradingChart || {}),
         (window.requireAll = o),
         i(575),
         i(576),
@@ -55325,7 +55349,7 @@ webpackJsonp(
             window.TVDialogs.signModal &&
             window.TVDialogs.signModal.close(),
             (user = $.extend(!0, {}, t)),
-            TradingView.changeLoginState(!0),
+            TradingChart.changeLoginState(!0),
             "function" == typeof e &&
             window.TVDialogs &&
             window.TVDialogs.signModal
@@ -55383,7 +55407,7 @@ webpackJsonp(
                   trackEvent("Conversion", "First login"),
                   user.prort_trial_started && delete user.prort_trial_started,
                   delete user.is_first_login),
-                TradingView.setTrialAvailiable(
+                TradingChart.setTrialAvailiable(
                   void 0 !== user.available_offers[OFFERS.trial]
                 ))
               : (Object.keys(available_offers).forEach(function (t) {
@@ -55452,7 +55476,7 @@ webpackJsonp(
                     for (o = 0; o < e[i].length; o++) e[i][o].fire(t[i]);
               });
           })(),
-          (TradingView.changeLoginState = function (t) {
+          (TradingChart.changeLoginState = function (t) {
             (window.is_authenticated = !!t),
               TVXWindowEvents.emit(
                 "loginStateChange",
@@ -55464,9 +55488,9 @@ webpackJsonp(
               loginStateChange.fire();
           }),
           (window.loginUser = loginUser),
-          (TradingView.signOut = function () {
+          (TradingChart.signOut = function () {
             var t = _.clone(window.user);
-            TradingView.changeLoginState(!1),
+            TradingChart.changeLoginState(!1),
               $.ajax({
                 type: "POST",
                 url: "/accounts/logout/",
@@ -55477,7 +55501,7 @@ webpackJsonp(
                     djangoLogoutFinished.fire();
                 })
                 .fail(function () {
-                  (window.user = t), TradingView.changeLoginState(!0);
+                  (window.user = t), TradingChart.changeLoginState(!0);
                 });
           }),
           (window.loginRequiredDelegate = new Delegate()),
@@ -55488,21 +55512,21 @@ webpackJsonp(
                 Featuresets.enabled("charting_library_base")) &&
                 t();
           }),
-          (TradingView.runOrGoPro = function (t, e, i) {
+          (TradingChart.runOrGoPro = function (t, e, i) {
             Featuresets.enabled(e) && t();
           }),
           (window.onLoginStateChange = onLoginStateChange),
-          (TradingView.isPro = function () {
+          (TradingChart.isPro = function () {
             return is_authenticated && user.is_pro;
           }),
-          (TradingView.setTrialAvailiable = function (t) {
+          (TradingChart.setTrialAvailiable = function (t) {
             TVLocalStorage.setItem("trial_availiable", t ? 1 : 0);
           }),
           ($.fn.reverse = [].reverse),
           $(window).load(function () {
             window.loaded = !0;
           }),
-          (TradingView.notificationsChanged = new Delegate());
+          (TradingChart.notificationsChanged = new Delegate());
       }).call(
         exports,
         __webpack_require__(10),
@@ -57773,50 +57797,50 @@ webpackJsonp(
     },
     function (t, e, i) {
       "use strict";
-      (TradingView.PublishedChartsTimeline = function () {}),
-        (TradingView.LinearRegressionPaneView = function () {}),
-        (TradingView.study_PivotPointsStandard = function () {}),
-        (TradingView.study_PivotPointsHighLow = function () {}),
-        (TradingView.study_ZigZag = function () {}),
-        (TradingView.study_LinearRegression = function () {}),
-        (TradingView.study_ElliottWave = function () {}),
-        (TradingView.ESDStudyBase = function () {}),
-        (TradingView.Pro = function () {
+      (TradingChart.PublishedChartsTimeline = function () {}),
+        (TradingChart.LinearRegressionPaneView = function () {}),
+        (TradingChart.study_PivotPointsStandard = function () {}),
+        (TradingChart.study_PivotPointsHighLow = function () {}),
+        (TradingChart.study_ZigZag = function () {}),
+        (TradingChart.study_LinearRegression = function () {}),
+        (TradingChart.study_ElliottWave = function () {}),
+        (TradingChart.ESDStudyBase = function () {}),
+        (TradingChart.Pro = function () {
           this.hasPackage = function () {
             return !1;
           };
         }),
         (window.user = { is_pro: !1, settings: {} }),
-        (TradingView.Pro.prototype.getStudies = function () {
+        (TradingChart.Pro.prototype.getStudies = function () {
           return [];
         }),
-        (TradingView.Pro.prototype.getProduct = function () {
+        (TradingChart.Pro.prototype.getProduct = function () {
           return {};
         }),
-        (TradingView.Pro.prototype.getStudiesOrder = function () {
+        (TradingChart.Pro.prototype.getStudiesOrder = function () {
           return [];
         }),
-        (TradingView.templates = i(205)),
-        (TradingView.templates.dialogs = {
+        (TradingChart.templates = i(205)),
+        (TradingChart.templates.dialogs = {
           symbolSearch:
             '<div class="symbol-block"><div class="spread-actions"></div><div class="symbol-block-inputspacer"><input maxlength="' +
-            TradingView.SYMBOL_SEARCH_MAX_LENGTH +
+            TradingChart.SYMBOL_SEARCH_MAX_LENGTH +
             '" /><div class="search-icon"></div></div></div><div class="filter"></div><div class="results"></div>',
         }),
-        (TradingView.AlertLabel = function () {}),
-        (TradingView.getDataVendorString = function () {}),
+        (TradingChart.AlertLabel = function () {}),
+        (TradingChart.getDataVendorString = function () {}),
         (window.Telemetry = { sendReport: function () {} }),
-        (TradingView.study_VbPVisible = function () {}),
-        (TradingView.study_VbPSessions = function () {}),
-        (TradingView.study_ESD$TV_DIVIDENDS = function () {}),
-        (TradingView.study_ESD$TV_SPLITS = function () {}),
-        (TradingView.study_ESD$TV_EARNINGS = function () {}),
-        (TradingView.MockupRequestedCache = function (t) {
+        (TradingChart.study_VbPVisible = function () {}),
+        (TradingChart.study_VbPSessions = function () {}),
+        (TradingChart.study_ESD$TV_DIVIDENDS = function () {}),
+        (TradingChart.study_ESD$TV_SPLITS = function () {}),
+        (TradingChart.study_ESD$TV_EARNINGS = function () {}),
+        (TradingChart.MockupRequestedCache = function (t) {
           t && t([]);
         }),
-        (TradingView.MockupRequestedCache.invalidate = function () {}),
-        (TradingView.StudyStrategy = function () {}),
-        (TradingView.LinetoolTemplatesList = function () {}),
+        (TradingChart.MockupRequestedCache.invalidate = function () {}),
+        (TradingChart.StudyStrategy = function () {}),
+        (TradingChart.LinetoolTemplatesList = function () {}),
         (window.PublishedScript = {
           suggest: function () {
             var t = $.Deferred();
@@ -62882,7 +62906,7 @@ webpackJsonp(
             for (i = 0; i < t.length; i++)
               (o = t[i]),
                 (n = d.createMetaInfoStub(o, "1")),
-                TradingView.merge(n, d.parseIdString(n.id)),
+                TradingChart.merge(n, d.parseIdString(n.id)),
                 e.push(n);
           }),
           (r.prototype.resetCustomScriptPage = function () {}),
@@ -63271,7 +63295,7 @@ webpackJsonp(
             var i, o;
             this.init(),
               (i = !1),
-              (o = (t instanceof TradingView.Study && t) || null),
+              (o = (t instanceof TradingChart.Study && t) || null),
               o !== this._parentSource &&
                 ((this._parentSource = o),
                 (this._dialogTitleText = this._parentSource
@@ -63309,7 +63333,7 @@ webpackJsonp(
                         !/^(input|textarea)$/i.test(t.target.tagName) &&
                         (t.preventDefault(),
                         !!(
-                          TradingView.onWidget() ||
+                          TradingChart.onWidget() ||
                           (this._options.minimized &&
                             !e.enabled("study_dialog_search_control"))
                         ) ||
@@ -63659,7 +63683,7 @@ webpackJsonp(
                       (_ = h[p].length), p % 2 && (O[u] = !0), (u += _);
                   else for (f = 0; f < h[0].length; f++) O[h.index + f] = !0;
             return (
-              (m = TradingView.clean(D, !0)),
+              (m = TradingChart.clean(D, !0)),
               (g = m.replace(/./g, function (t, e) {
                 if (
                   ("<" === t
@@ -63707,7 +63731,7 @@ webpackJsonp(
                 n.render(l, {
                   publishedOrUserScript: S || b,
                   title: g,
-                  titleTooltip: TradingView.strip_tags(m),
+                  titleTooltip: TradingChart.strip_tags(m),
                   isStrategy: d.isScriptStrategy(t),
                   isInviteOnly: C,
                   showAccessIcon: x,
@@ -64897,7 +64921,7 @@ webpackJsonp(
                 (this._waitingForSnapshot[t] = e),
                 e);
           }),
-          (TradingView.QuoteSessionMultiplexer = o),
+          (TradingChart.QuoteSessionMultiplexer = o),
           void 0 !== e && e && e.exports && (e.exports = o);
       }).call(e, i(10), i(42)(t));
     },
@@ -64958,7 +64982,7 @@ webpackJsonp(
           (e.prototype.quoteHibernateAll = function (t) {
             this._chartApi.quoteHibernateAll(this._sessionid);
           }),
-          (TradingView.QuoteSession = e),
+          (TradingChart.QuoteSession = e),
           void 0 !== t && t && t.exports && (t.exports = e);
       }).call(e, i(42)(t));
     },
@@ -66404,7 +66428,7 @@ webpackJsonp(
                 w._model &&
                   ((e = t),
                   w._model.model().setCurrentTool(e),
-                  TradingView.isMobile.any() &&
+                  TradingChart.isMobile.any() &&
                     ((i = w._paneWidgets[0]),
                     S.isLineTool(e) &&
                     "LineToolBrush" !== e &&
@@ -66417,7 +66441,7 @@ webpackJsonp(
                         i._updateTooltip(o, n))
                       : i._hideTooltip()),
                   w._model &&
-                    TradingView.isMobile.any() &&
+                    TradingChart.isMobile.any() &&
                     w._model.model().crossHairSource().updateAllViews());
               }),
               (n = function (t, e, i) {
@@ -66713,7 +66737,7 @@ webpackJsonp(
               style: y,
               extendedHours: m,
               lineStyle: {
-                styleType: TradingView.factoryDefaults(
+                styleType: TradingChart.factoryDefaults(
                   "chartproperties.mainSeriesProperties.lineStyle.styleType"
                 ),
               },
@@ -67011,7 +67035,7 @@ webpackJsonp(
                       function (t, e, i, o) {
                         var n, r, s, a, l;
                         if (
-                          (TradingView.onWidget() ||
+                          (TradingChart.onWidget() ||
                             !parent ||
                             parent === window ||
                             !parent.IS_DEMO_PAGE) &&
@@ -67189,8 +67213,8 @@ webpackJsonp(
               n = "study_Overlay@tv-basicstudies",
               r =
                 _.enabled("use_overrides_for_overlay") &&
-                TradingView.defaultProperties[n] &&
-                TradingView.defaultProperties[n].style,
+                TradingChart.defaultProperties[n] &&
+                TradingChart.defaultProperties[n].style,
               s =
                 r ||
                 (i.mainSeries().properties().style.value() === p.STYLE_CANDLES
@@ -67279,13 +67303,13 @@ webpackJsonp(
               u = !1;
             for (e = 0, i = c.length; e < i; e++)
               (o = c[e]),
-                TradingView.isInherited(o.constructor, S) &&
+                TradingChart.isInherited(o.constructor, S) &&
                   o.isUserDeletable() &&
                   (h = !0),
-                TradingView.isInherited(o.constructor, y) &&
+                TradingChart.isInherited(o.constructor, y) &&
                   o.removeByRemoveAllStudies() &&
                   (u = !0),
-                TradingView.isInherited(o.constructor, b) && (u = !0);
+                TradingChart.isInherited(o.constructor, b) && (u = !0);
             this._readOnly ||
               (l.paneRemoveAllStudies && l.paneRemoveAllStudies.setEnabled(u),
               l.paneRemoveAllDrawingTools &&
@@ -67658,7 +67682,7 @@ webpackJsonp(
                   },
                 }).show();
               }),
-              TradingView.onWidget() ||
+              TradingChart.onWidget() ||
                 (_.enabled("add_to_watchlist") &&
                   ((g = new T({
                     text: window.t("Add To Watchlist"),
@@ -67686,11 +67710,11 @@ webpackJsonp(
                     var t = this;
                     runOrSignIn(
                       function () {
-                        TradingView.bottomWidgetBar.toggleWidget(
+                        TradingChart.bottomWidgetBar.toggleWidget(
                           "text_notes",
                           !0
                         ),
-                          TradingView.bottomWidgetBar._widgets.text_notes.addNote(
+                          TradingChart.bottomWidgetBar._widgets.text_notes.addNote(
                             null,
                             t.getSymbol(!0),
                             t.getSymbol()
@@ -68013,7 +68037,7 @@ webpackJsonp(
                 window.t("Show Countdown")
               )),
               (dt = _.enabled("go_to_date")),
-              !TradingView.onWidget() &&
+              !TradingChart.onWidget() &&
                 dt &&
                 ((ut = new T({
                   text: window.t("Go to Date..."),
@@ -68077,11 +68101,11 @@ webpackJsonp(
               t && (this._actions.scalesProperties = t),
               e && (this._actions.tmzProperties = e),
               g && (this._actions.addToWatchlist = g),
-              !TradingView.onWidget() &&
+              !TradingChart.onWidget() &&
                 _.enabled("text_notes") &&
                 f("text_notes") &&
                 (this._actions.addToTextNotes = y),
-              !TradingView.onWidget() && dt && (this._actions.gotoDate = ut),
+              !TradingChart.onWidget() && dt && (this._actions.gotoDate = ut),
               _.enabled("charting_library_base") ||
                 (this._actions.scriptEditor = O),
               this.createSessionBreaksActions(),
@@ -68376,7 +68400,7 @@ webpackJsonp(
                       r &&
                         ((e = !r.has_no_volume),
                         !t.containsVolume() && e
-                          ? ((i = TradingView.factoryDefaults(
+                          ? ((i = TradingChart.factoryDefaults(
                               "chartproperties.volumePaneSize"
                             )),
                             (o = { paneSize: i }),
@@ -68859,7 +68883,7 @@ webpackJsonp(
           (o.prototype.insertStudy = function (t, e, i, o, n, r) {
             var a,
               l = W.findStudyMetaInfo(this._studiesMetaData, t);
-            (l = TradingView.clone(l)),
+            (l = TradingChart.clone(l)),
               s(
                 !l.isTVScriptStubToCompile,
                 "MetaInfo stub is unexpected here!"
@@ -69037,8 +69061,8 @@ webpackJsonp(
             });
           }),
           (o.prototype.showScriptEditor = function () {
-            TradingView.bottomWidgetBar &&
-              TradingView.bottomWidgetBar.activateScriptEditorTab();
+            TradingChart.bottomWidgetBar &&
+              TradingChart.bottomWidgetBar.activateScriptEditorTab();
           }),
           (o.prototype.showCompareOrAdd = function () {
             new M(this._chartWidgetCollection).show();
@@ -69274,7 +69298,7 @@ webpackJsonp(
             }
             var e, i, o, n, r, s, a;
             if (
-              ((TradingView.printing = !0),
+              ((TradingChart.printing = !0),
               (e = this._model.selectedSource()),
               this._model.setSelectedSource(null),
               (i = this),
@@ -69291,7 +69315,7 @@ webpackJsonp(
             return (
               this._timeAxisWidget.paint(A.LIGHT_UPDATE),
               (s = this._timeAxisWidget.image()),
-              (TradingView.printing = !1),
+              (TradingChart.printing = !1),
               this._model.setSelectedSource(e),
               this._model.invalidate(new A(A.LIGHT_UPDATE)),
               (a = this.mainSeriesQuotesAndMetainfo()),
@@ -70143,7 +70167,7 @@ webpackJsonp(
                 this.onMouseEnter(this));
           }),
           (o.prototype.isLineTool = function (t) {
-            var e = TradingView[t];
+            var e = TradingChart[t];
             return "function" == typeof e && e.prototype instanceof d;
           }),
           (o.prototype.hideInplaceEditor = function () {
@@ -70197,7 +70221,7 @@ webpackJsonp(
           (o.prototype.checkMovepoint = function (t) {
             return (
               t === P.MOVEPOINT ||
-              (t === P.MOVEPOINT_BACKGROUND && TradingView.isMobile.any())
+              (t === P.MOVEPOINT_BACKGROUND && TradingChart.isMobile.any())
             );
           }),
           (o.prototype.mouseDownEvent = function (t) {
@@ -70224,13 +70248,13 @@ webpackJsonp(
               (r = new o.EvironmentState(t)),
               i.mainSeries().setGotoDateResult(),
               this.hideInplaceEditor(),
-              TradingView.supportTouch() && (this._skipFirstMove = !0),
+              TradingChart.supportTouch() && (this._skipFirstMove = !0),
               (a = this._state.defaultPriceScale()),
               !a.isEmpty() && !i.timeScale().isEmpty())
             ) {
               if (
                 ((l = i.crossHairSource()),
-                (TradingView.supportTouch() &&
+                (TradingChart.supportTouch() &&
                   "LineToolBrush" !== x.tool.value()) ||
                   i.setAndSaveCurrentPosition(t.localX, t.localY, this._state),
                 (c = l.price),
@@ -70315,7 +70339,7 @@ webpackJsonp(
                       m ||
                       (p.hittest &&
                         p.hittest.result() === P.MOVEPOINT_BACKGROUND &&
-                        TradingView.isMobile.any())),
+                        TradingChart.isMobile.any())),
                     m
                       ? i.setSelectedSource(
                           p.source,
@@ -70325,8 +70349,8 @@ webpackJsonp(
                   p.source &&
                     "eraser" === x.tool.value() &&
                     !_.disableErasing &&
-                    (TradingView.isInherited(p.source.constructor, d) ||
-                      TradingView.isInherited(p.source.constructor, s)))
+                    (TradingChart.isInherited(p.source.constructor, d) ||
+                      TradingChart.isInherited(p.source.constructor, s)))
                 )
                   return (
                     (g = p.hittest.eraseMarker()),
@@ -70337,7 +70361,7 @@ webpackJsonp(
                 if (
                   ((v =
                     p.source &&
-                    TradingView.isInherited(p.source.constructor, d) &&
+                    TradingChart.isInherited(p.source.constructor, d) &&
                     p.source.isLocked()),
                   !(this._lockDrawingsProperty.value() || v))
                 ) {
@@ -70381,7 +70405,7 @@ webpackJsonp(
                 }
                 if (
                   p.source &&
-                  TradingView.isInherited(p.source.constructor, y) &&
+                  TradingChart.isInherited(p.source.constructor, y) &&
                   p.source.isDraggable()
                 )
                   return void (this._chart.draggingSource = p.source);
@@ -70435,7 +70459,7 @@ webpackJsonp(
             if (
               (x.hideAllDrawings().setValue(!1),
               x.lockDrawings().setValue(!1),
-              TradingView.supportTouch() &&
+              TradingChart.supportTouch() &&
                 this.isLineTool(w) &&
                 "LineToolBrush" !== w &&
                 !m.lineBeingCreated() &&
@@ -70444,11 +70468,11 @@ webpackJsonp(
                 (this._skipFirstMove = !0)),
               !m.lineBeingCreated() || m.lineBeingCreated() instanceof p)
             )
-              (TradingView.supportTouch() && "LineToolBrush" !== w) ||
+              (TradingChart.supportTouch() && "LineToolBrush" !== w) ||
                 ((f = { index: i, price: o }),
                 (v = m.createLineTool(this._state, f, w)),
                 m.lineBeingCreated() || (g = !0));
-            else if (TradingView.supportTouch()) {
+            else if (TradingChart.supportTouch()) {
               if (((this._skipFirstMove = !0), !this._startTouchPoint))
                 return (
                   (this._startTouchPoint = new n(y, b)),
@@ -70481,7 +70505,7 @@ webpackJsonp(
             m.setSelectedSource(v),
               g
                 ? this._finishTool(v)
-                : (TradingView.supportTouch() && "LineToolBrush" !== w) ||
+                : (TradingChart.supportTouch() && "LineToolBrush" !== w) ||
                   this._updateTooltip(t.localX, t.localY);
           }),
           (o.prototype._equalsCursorCache = function (t, e) {
@@ -70571,7 +70595,7 @@ webpackJsonp(
                       r.rect.w === n.rect.w &&
                       r.rect.h === n.rect.h) ||
                     ((this._lastCommonTooltipData = r),
-                    (i = TradingView.clone(r)),
+                    (i = TradingChart.clone(r)),
                     (o = this.jqPane.offset()),
                     (i.rect.x += o.left),
                     (i.rect.y += o.top),
@@ -70624,7 +70648,7 @@ webpackJsonp(
                       (c = a.hittest.result()),
                       !a.source ||
                       ("eraser" === s &&
-                        a.source.constructor === TradingView.Series)
+                        a.source.constructor === TradingChart.Series)
                         ? e.setHoveredSource(null)
                         : e.setHoveredSource(a.source, a.hittest.data()))
                     : e.setHoveredSource(null)),
@@ -70661,7 +70685,7 @@ webpackJsonp(
                   void e.setAndSaveCurrentPosition(i, n, _)
                 );
               (s = x.tool.value()),
-                (TradingView.supportTouch() && this.isLineTool(s)) ||
+                (TradingChart.supportTouch() && this.isLineTool(s)) ||
                   (e.setAndSaveCurrentPosition(i, n, this._state, r),
                   this._updateTooltip(i, n));
             }
@@ -70712,7 +70736,7 @@ webpackJsonp(
                 );
               if (
                 ((l = x.tool.value()),
-                TradingView.supportTouch() &&
+                TradingChart.supportTouch() &&
                   this._startTouchPoint &&
                   this.isLineTool(l) &&
                   "LineToolBrush" !== l &&
@@ -70730,7 +70754,7 @@ webpackJsonp(
                   void this._updateTooltip(_.x, _.y)
                 );
               if (
-                TradingView.supportTouch() &&
+                TradingChart.supportTouch() &&
                 r.lineBeingCreated() &&
                 !(r.lineBeingCreated() instanceof p)
               )
@@ -70824,7 +70848,7 @@ webpackJsonp(
                           0))
                   )
                     return;
-                  return TradingView.isInherited(M.constructor, d) &&
+                  return TradingChart.isInherited(M.constructor, d) &&
                     M.isFixed()
                     ? void r.moveSource(new n(s, a))
                     : void r.moveSource({ index: P, price: C }, i);
@@ -70924,7 +70948,7 @@ webpackJsonp(
               (o = this._touchMove),
               delete this._touchMove,
               (n = x.tool.value()),
-              TradingView.supportTouch() &&
+              TradingChart.supportTouch() &&
                 !o &&
                 "LineToolBrush" !== n &&
                 this.isLineTool(n) &&
@@ -70964,7 +70988,7 @@ webpackJsonp(
               );
             if (this._firstZoomPoint && this._firstZoomPoint.draggingMode)
               return void this._finishZoom(t);
-            if (0 === t.button || TradingView.supportTouch()) {
+            if (0 === t.button || TradingChart.supportTouch()) {
               if (
                 ((this._processing = !1),
                 (i = this._chart.model()),
@@ -71024,7 +71048,7 @@ webpackJsonp(
                       (e._isScrolling = !1),
                       e.setCursorForTool();
                   }),
-                  TradingView.supportTouch()
+                  TradingChart.supportTouch()
                     ? ((C = i.timeScale().m_scrollStartPoint),
                       (P = 0.05 * (t.localX - C)),
                       (L = null),
@@ -71080,7 +71104,7 @@ webpackJsonp(
           (o.prototype.mouseLeaveEvent = function (t) {
             var e = this._chart.model();
             e &&
-              (TradingView.isMobile.any() || e.model().clearCurrentPosition(),
+              (TradingChart.isMobile.any() || e.model().clearCurrentPosition(),
               e.setHoveredSource(null),
               this._updateCommonTooltip(null),
               "function" == typeof this.onMouseLeave &&
@@ -71124,7 +71148,7 @@ webpackJsonp(
               o = i && i.hittest && i.source;
             o &&
               i.hittest.result() <= P.MOVEPOINT_BACKGROUND &&
-              !TradingView.isMobile.any() &&
+              !TradingChart.isMobile.any() &&
               (o = null),
               o &&
                 o.customization &&
@@ -71137,7 +71161,7 @@ webpackJsonp(
               o
                 ? ((e = !1),
                   e
-                    ? TradingView.alertsDispatcher.openEditDialog(
+                    ? TradingChart.alertsDispatcher.openEditDialog(
                         i.source.alert()
                       )
                     : this.showEditDialogForSource(o))
@@ -71150,14 +71174,14 @@ webpackJsonp(
           (o.prototype.showContextMenuForSource = function (t, e) {
             t.hasContextMenu() &&
               (this._chart.model().setSelectedSource(t),
-              t.constructor === TradingView.Series
+              t.constructor === TradingChart.Series
                 ? this._seriesContextMenu(t).show(e)
-                : TradingView.isInherited(t.constructor, s)
+                : TradingChart.isInherited(t.constructor, s)
                 ? this._studyContextMenu(t).show(e)
-                : TradingView.isInherited(t.constructor, h) ||
-                  TradingView.isInherited(t.constructor, u)
+                : TradingChart.isInherited(t.constructor, h) ||
+                  TradingChart.isInherited(t.constructor, u)
                 ? this._tradingDrawingsContextMenu(t).show(e)
-                : TradingView.isInherited(t.constructor, d)
+                : TradingChart.isInherited(t.constructor, d)
                 ? this._lineContextMenu(t).then(function (t) {
                     t.show(e);
                   })
@@ -71181,7 +71205,7 @@ webpackJsonp(
                   !x.toolIsCursor(x.tool.value()) &&
                   !this._isSelectBarModeEnabled()
                 ) {
-                  if (TradingView.isMobile.any()) return;
+                  if (TradingChart.isMobile.any()) return;
                   return (
                     x.resetToCursor(!0),
                     this.setCursorForTool(),
@@ -71203,7 +71227,7 @@ webpackJsonp(
                   (s =
                     r >= P.REGULAR ||
                     (r >= P.MOVEPOINT_BACKGROUND &&
-                      TradingView.isMobile.any())),
+                      TradingChart.isMobile.any())),
                   this._chart.updateActions(),
                   null !== n && s
                     ? this.showContextMenuForSource(n, t)
@@ -72443,7 +72467,7 @@ webpackJsonp(
           }),
           (o.prototype.createActionLockScale = function (t) {
             var e, i, o;
-            return t instanceof TradingView.Series
+            return t instanceof TradingChart.Series
               ? ((e = c(
                   t.priceScale(),
                   this._chart.model().model().mainSeriesScaleRatio()
@@ -72697,15 +72721,15 @@ webpackJsonp(
           (o.prototype._updateTooltipImpl = function (t, e) {
             function i(i) {
               function n() {
-                return TradingView.isMobile.any()
+                return TradingChart.isMobile.any()
                   ? {
                       left: t - o._tooltipSelector.outerWidth() - 16,
                       top: e - o._tooltipSelector.outerHeight() - 16,
                     }
                   : { left: t + 16, top: e + 16 };
               }
-              TradingView[r].getTooltipText &&
-                (i = TradingView[r].getTooltipText(l) || i),
+              TradingChart[r].getTooltipText &&
+                (i = TradingChart[r].getTooltipText(l) || i),
                 o._tooltipSelector
                   .html(i)
                   .removeClass("tooltip-selector-hidden")
@@ -72725,9 +72749,9 @@ webpackJsonp(
               )
                 n[c]._hideTooltip();
               this._isSelectBarModeEnabled() ||
-                (s.isStudyLineTool(r) && !TradingView.isMobile.any()
+                (s.isStudyLineTool(r) && !TradingChart.isMobile.any()
                   ? i(window.t("Click to set a point"))
-                  : TradingView.isMobile.any() &&
+                  : TradingChart.isMobile.any() &&
                     "LineToolBrush" !== r &&
                     o.isLineTool(r) &&
                     !o._chart.model().lineBeingCreated()
@@ -72736,7 +72760,7 @@ webpackJsonp(
                         "1. Slide your finger to select location for first anchor<br>2. Tap anywhere to place the first anchor"
                       )
                     )
-                  : TradingView.isMobile.any() &&
+                  : TradingChart.isMobile.any() &&
                     "LineToolBrush" !== r &&
                     o.isLineTool(r) &&
                     i(
@@ -73050,7 +73074,7 @@ webpackJsonp(
               return new a(a.REGULAR);
           return null;
         }),
-        (e.PaneRendererHistogram = TradingView.PaneRendererHistogram = o);
+        (e.PaneRendererHistogram = TradingChart.PaneRendererHistogram = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73131,7 +73155,7 @@ webpackJsonp(
               return new n(n.REGULAR);
           return null;
         }),
-        (e.PaneRendererColumns = TradingView.PaneRendererColumns = o);
+        (e.PaneRendererColumns = TradingChart.PaneRendererColumns = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73160,8 +73184,8 @@ webpackJsonp(
           (n = this.items[o]),
             (r = n.x),
             (s = n.y),
-            TradingView.isNaN(r) ||
-              TradingView.isNaN(s) ||
+            TradingChart.isNaN(r) ||
+              TradingChart.isNaN(s) ||
               (null != n.style
                 ? ((a = n.style.color), (e = n.style.width))
                 : ((a = this.lineColor), (e = this.lineWidth)),
@@ -73193,7 +73217,7 @@ webpackJsonp(
               return new a(a.REGULAR);
           return null;
         }),
-        (e.PaneRendererCross = TradingView.PaneRendererCross = o);
+        (e.PaneRendererCross = TradingChart.PaneRendererCross = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73221,8 +73245,8 @@ webpackJsonp(
           (n = this.items[o]),
             (r = n.x),
             (s = n.y + this.vertOffset),
-            TradingView.isNaN(r) ||
-              TradingView.isNaN(s) ||
+            TradingChart.isNaN(r) ||
+              TradingChart.isNaN(s) ||
               (null != n.style
                 ? ((a = n.style.color), (e = n.style.width))
                 : ((a = this.lineColor), (e = this.radius)),
@@ -73249,7 +73273,7 @@ webpackJsonp(
               return new s(s.REGULAR);
           return null;
         }),
-        (e.PaneRendererCircles = TradingView.PaneRendererCircles = o);
+        (e.PaneRendererCircles = TradingChart.PaneRendererCircles = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73280,7 +73304,7 @@ webpackJsonp(
         (o.prototype.hitTest = function (t) {
           return null;
         }),
-        (e.PaneRendererBackground = TradingView.PaneRendererBackground = o);
+        (e.PaneRendererBackground = TradingChart.PaneRendererBackground = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73458,9 +73482,9 @@ webpackJsonp(
         }),
         inherit(n, o),
         inherit(r, o),
-        (e.PaneRendererArrowBase = TradingView.PaneRendererArrowBase = o),
-        (e.PaneRendererArrowUp = TradingView.PaneRendererArrowUp = n),
-        (e.PaneRendererArrowDown = TradingView.PaneRendererArrowDown = r);
+        (e.PaneRendererArrowBase = TradingChart.PaneRendererArrowBase = o),
+        (e.PaneRendererArrowUp = TradingChart.PaneRendererArrowUp = n),
+        (e.PaneRendererArrowDown = TradingChart.PaneRendererArrowDown = r);
     },
     function (t, e, i) {
       "use strict";
@@ -73500,7 +73524,7 @@ webpackJsonp(
               (d = !0);
           d && (t.fill(), t.stroke());
         }),
-        (e.PaneRendererCircleShape = TradingView.PaneRendererCircleShape = o);
+        (e.PaneRendererCircleShape = TradingChart.PaneRendererCircleShape = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73536,7 +73560,7 @@ webpackJsonp(
               (r = !0);
           r && t.stroke();
         }),
-        (e.PaneRendererCrossShape = TradingView.PaneRendererCrossShape = o);
+        (e.PaneRendererCrossShape = TradingChart.PaneRendererCrossShape = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73577,7 +73601,7 @@ webpackJsonp(
               (c = !0);
           c && (t.fill(), t.stroke());
         }),
-        (e.PaneRendererDiamond = TradingView.PaneRendererDiamond = o);
+        (e.PaneRendererDiamond = TradingChart.PaneRendererDiamond = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73633,7 +73657,7 @@ webpackJsonp(
               (f = !0);
           f && (t.fill(), t.stroke());
         }),
-        (e.PaneRendererFlagShape = TradingView.PaneRendererFlagShape = o);
+        (e.PaneRendererFlagShape = TradingChart.PaneRendererFlagShape = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73770,9 +73794,9 @@ webpackJsonp(
         }),
         inherit(n, o),
         inherit(r, o),
-        (e.PaneRendererLabelBase = TradingView.PaneRendererLabelBase = o),
-        (e.PaneRendererLabelUp = TradingView.PaneRendererLabelUp = n),
-        (e.PaneRendererLabelDown = TradingView.PaneRendererLabelDown = r);
+        (e.PaneRendererLabelBase = TradingChart.PaneRendererLabelBase = o),
+        (e.PaneRendererLabelUp = TradingChart.PaneRendererLabelUp = n),
+        (e.PaneRendererLabelDown = TradingChart.PaneRendererLabelDown = r);
     },
     function (t, e, i) {
       "use strict";
@@ -73809,7 +73833,7 @@ webpackJsonp(
               (c = !0);
           c && (t.fill(), t.stroke());
         }),
-        (e.PaneRendererSquare = TradingView.PaneRendererSquare = o);
+        (e.PaneRendererSquare = TradingChart.PaneRendererSquare = o);
     },
     function (t, e, i) {
       "use strict";
@@ -73921,13 +73945,14 @@ webpackJsonp(
               (u = !0);
           u && t.fill();
         }),
-        (e.PaneRendererTriangleApexUp = TradingView.PaneRendererTriangleApexUp =
-          o),
+        (e.PaneRendererTriangleApexUp =
+          TradingChart.PaneRendererTriangleApexUp =
+            o),
         (e.PaneRendererTriangleApexDown =
-          TradingView.PaneRendererTriangleApexDown =
+          TradingChart.PaneRendererTriangleApexDown =
             n),
         (e.PaneRendererTriangleApexLeft =
-          TradingView.PaneRendererTriangleApexLeft =
+          TradingChart.PaneRendererTriangleApexLeft =
             r);
     },
     function (t, e, i) {
@@ -73964,7 +73989,7 @@ webpackJsonp(
               (r = !0);
           r && t.stroke();
         }),
-        (e.PaneRendererXCross = TradingView.PaneRendererXCross = o);
+        (e.PaneRendererXCross = TradingChart.PaneRendererXCross = o);
     },
     function (t, e, i) {
       "use strict";
@@ -75938,7 +75963,7 @@ webpackJsonp(
           return t instanceof A;
         }
         function a(t) {
-          return TradingView.isInherited(t.constructor, g);
+          return TradingChart.isInherited(t.constructor, g);
         }
         function l(t) {
           return t.isNoScale() ? null : t.priceScale();
@@ -76481,12 +76506,12 @@ webpackJsonp(
                     first_visible_bar_time:
                       1e3 *
                       Math.floor(
-                        o && o.value ? o.value[TradingView.TIME_PLOT] : 0
+                        o && o.value ? o.value[TradingChart.TIME_PLOT] : 0
                       ),
                     last_visible_bar_time:
                       1e3 *
                       Math.floor(
-                        n && n.value ? n.value[TradingView.TIME_PLOT] : 0
+                        n && n.value ? n.value[TradingChart.TIME_PLOT] : 0
                       ),
                     subscribeRealtime: n && n.index === r,
                   },
@@ -76545,7 +76570,7 @@ webpackJsonp(
               var i = new I();
               this.m_selectedSource &&
                 (this.m_selectedSource.updateAllViews(),
-                TradingView.alertsDispatcher &&
+                TradingChart.alertsDispatcher &&
                   this.m_selectedSource.hasAlert.value() &&
                   this.m_selectedSource
                     .getAlert({ fromCache: !0 })
@@ -76556,7 +76581,7 @@ webpackJsonp(
                 this._selectedSourceChanged.fire(t),
                 t &&
                   (t.updateAllViews(),
-                  TradingView.alertsDispatcher &&
+                  TradingChart.alertsDispatcher &&
                     t.hasAlert.value() &&
                     t.getAlert({ fromCache: !0 }).done(function (t) {
                       t && t.set("selected", !0);
@@ -76583,7 +76608,7 @@ webpackJsonp(
               this.m_hoveredSource &&
                 (this.m_hoveredSource.updateAllViews(),
                 i || (i = new I()),
-                TradingView.alertsDispatcher &&
+                TradingChart.alertsDispatcher &&
                   this.m_hoveredSource.hasAlert.value() &&
                   this.m_hoveredSource
                     .getAlert({ fromCache: !0 })
@@ -76606,7 +76631,7 @@ webpackJsonp(
                       I.LIGHT_UPDATE
                     )
                   ),
-                  TradingView.alertsDispatcher &&
+                  TradingChart.alertsDispatcher &&
                     t.hasAlert.value() &&
                     t.getAlert({ fromCache: !0 }).done(function (t) {
                       t && t.set("hovered", !0);
@@ -77175,7 +77200,7 @@ webpackJsonp(
           }),
           (h.prototype._isStudyOrMainSeries = function (t) {
             return (
-              TradingView.isInherited(t.constructor, A) ||
+              TradingChart.isInherited(t.constructor, A) ||
               t === this.m_mainSeries
             );
           }),
@@ -77219,7 +77244,7 @@ webpackJsonp(
               ((e = this.paneForSource(t)),
               (i = e.dataSources().filter(function (t) {
                 return (
-                  TradingView.isInherited(t.constructor, L) &&
+                  TradingChart.isInherited(t.constructor, L) &&
                   t.showInObjectTree()
                 );
               })),
@@ -77307,10 +77332,10 @@ webpackJsonp(
                   H("drawings", "Study_Drawing_" + i),
                 o &&
                   ((r = o.state()),
-                  (s = TradingView.factoryDefaults("linetool")),
+                  (s = TradingChart.factoryDefaults("linetool")),
                   (a = i.toLowerCase()),
-                  TradingView.merge(s, TradingView.factoryDefaults(a)),
-                  (o = TradingView[i].prototype.createPropertiesObject(a, s)),
+                  TradingChart.merge(s, TradingChart.factoryDefaults(a)),
+                  (o = TradingChart[i].prototype.createPropertiesObject(a, s)),
                   o.merge(r)),
                 (l = m.create(i, this, o, null, t.mainDataSource())),
                 o || (o = l.properties()),
@@ -78531,7 +78556,7 @@ webpackJsonp(
           return "Bars Pattern";
         }),
         (o.prototype.cloneData = function (t) {
-          this._pattern = TradingView.clone(t._pattern);
+          this._pattern = TradingChart.clone(t._pattern);
         }),
         (o.prototype.mirror = function () {
           var t,
@@ -78540,18 +78565,18 @@ webpackJsonp(
             o,
             n,
             r = this._pattern,
-            s = r[0][TradingView.HIGH_PLOT],
+            s = r[0][TradingChart.HIGH_PLOT],
             a = Math.min(
-              r[0][TradingView.LOW_PLOT],
-              r[0][TradingView.HIGH_PLOT]
+              r[0][TradingChart.LOW_PLOT],
+              r[0][TradingChart.HIGH_PLOT]
             ),
             l = Math.max(
-              r[0][TradingView.LOW_PLOT],
-              r[0][TradingView.HIGH_PLOT]
+              r[0][TradingChart.LOW_PLOT],
+              r[0][TradingChart.HIGH_PLOT]
             );
           for (t = 1; t < r.length; t++)
-            (a = Math.min(a, r[t][TradingView.LOW_PLOT])),
-              (l = Math.max(l, r[t][TradingView.HIGH_PLOT]));
+            (a = Math.min(a, r[t][TradingChart.LOW_PLOT])),
+              (l = Math.max(l, r[t][TradingChart.HIGH_PLOT]));
           if (a < l)
             for (
               e = (a + l) / 2,
@@ -78562,16 +78587,18 @@ webpackJsonp(
               t < r.length;
               t++
             )
-              (r[t][TradingView.HIGH_PLOT] = i(r[t][TradingView.HIGH_PLOT])),
-                (r[t][TradingView.LOW_PLOT] = i(r[t][TradingView.LOW_PLOT])),
-                (r[t][TradingView.OPEN_PLOT] = i(r[t][TradingView.OPEN_PLOT])),
-                (r[t][TradingView.CLOSE_PLOT] = i(
-                  r[t][TradingView.CLOSE_PLOT]
+              (r[t][TradingChart.HIGH_PLOT] = i(r[t][TradingChart.HIGH_PLOT])),
+                (r[t][TradingChart.LOW_PLOT] = i(r[t][TradingChart.LOW_PLOT])),
+                (r[t][TradingChart.OPEN_PLOT] = i(
+                  r[t][TradingChart.OPEN_PLOT]
+                )),
+                (r[t][TradingChart.CLOSE_PLOT] = i(
+                  r[t][TradingChart.CLOSE_PLOT]
                 ));
-          (o = r[0][TradingView.HIGH_PLOT] - s),
+          (o = r[0][TradingChart.HIGH_PLOT] - s),
             (n =
-              r[r.length - 1][TradingView.LOW_PLOT] -
-              r[0][TradingView.HIGH_PLOT]),
+              r[r.length - 1][TradingChart.LOW_PLOT] -
+              r[0][TradingChart.HIGH_PLOT]),
             (this._points[0].price += o),
             (this._points[1].price = this._points[0].price + n),
             this.updateAllViews();
@@ -78587,8 +78614,8 @@ webpackJsonp(
               (this._pattern[t] = this._pattern[this._pattern.length - t - 1]),
               (this._pattern[this._pattern.length - t - 1] = e);
           (i =
-            this._pattern[this._pattern.length - 1][TradingView.LOW_PLOT] -
-            this._pattern[0][TradingView.HIGH_PLOT]),
+            this._pattern[this._pattern.length - 1][TradingChart.LOW_PLOT] -
+            this._pattern[0][TradingChart.HIGH_PLOT]),
             (this._points[1].price = this._points[0].price + i),
             this.updateAllViews();
         }),
@@ -78597,16 +78624,16 @@ webpackJsonp(
             e,
             i = parseInt(this.properties().mode.value(), 10);
           return i === c.LineHL2
-            ? (this._pattern[0][TradingView.HIGH_PLOT] +
-                this._pattern[0][TradingView.LOW_PLOT]) /
+            ? (this._pattern[0][TradingChart.HIGH_PLOT] +
+                this._pattern[0][TradingChart.LOW_PLOT]) /
                 2
             : ((t = {
-                0: TradingView.HIGH_PLOT,
-                1: TradingView.CLOSE_PLOT,
-                2: TradingView.OPEN_PLOT,
-                3: TradingView.OPEN_PLOT,
-                4: TradingView.HIGH_PLOT,
-                5: TradingView.LOW_PLOT,
+                0: TradingChart.HIGH_PLOT,
+                1: TradingChart.CLOSE_PLOT,
+                2: TradingChart.OPEN_PLOT,
+                3: TradingChart.OPEN_PLOT,
+                4: TradingChart.HIGH_PLOT,
+                5: TradingChart.LOW_PLOT,
               }),
               (e = t[i]),
               this._pattern[0][e]);
@@ -78616,16 +78643,18 @@ webpackJsonp(
             e,
             i = parseInt(this.properties().mode.value(), 10);
           return i === c.LineHL2
-            ? (this._pattern[this._pattern.length - 1][TradingView.HIGH_PLOT] +
-                this._pattern[this._pattern.length - 1][TradingView.LOW_PLOT]) /
+            ? (this._pattern[this._pattern.length - 1][TradingChart.HIGH_PLOT] +
+                this._pattern[this._pattern.length - 1][
+                  TradingChart.LOW_PLOT
+                ]) /
                 2
             : ((t = {
-                0: TradingView.LOW_PLOT,
-                1: TradingView.CLOSE_PLOT,
-                2: TradingView.CLOSE_PLOT,
-                3: TradingView.OPEN_PLOT,
-                4: TradingView.HIGH_PLOT,
-                5: TradingView.LOW_PLOT,
+                0: TradingChart.LOW_PLOT,
+                1: TradingChart.CLOSE_PLOT,
+                2: TradingChart.CLOSE_PLOT,
+                3: TradingChart.OPEN_PLOT,
+                4: TradingChart.HIGH_PLOT,
+                5: TradingChart.LOW_PLOT,
               }),
               (e = t[i]),
               this._pattern[this._pattern.length - 1][e]);
@@ -78656,8 +78685,8 @@ webpackJsonp(
             m = f.nearestIndex(t.index, a.NearestRight);
           if (
             (this.properties().mode.value() === c.Bars
-              ? (t.price = f.bars().valueAt(m)[TradingView.HIGH_PLOT])
-              : (t.price = f.bars().valueAt(m)[TradingView.CLOSE_PLOT]),
+              ? (t.price = f.bars().valueAt(m)[TradingChart.HIGH_PLOT])
+              : (t.price = f.bars().valueAt(m)[TradingChart.CLOSE_PLOT]),
             (i = this.priceScale().priceRange().length()),
             (t.price += 0.05 * i),
             (o = f.priceScale()),
@@ -78679,7 +78708,7 @@ webpackJsonp(
               d++
             )
               (p = this._model.mainSeries().data().valueAt(d)),
-                this._pattern.push(TradingView.clone(p));
+                this._pattern.push(TradingChart.clone(p));
             this._pattern.length > 0 &&
               ((_ = this.patternPriceDiff()),
               (this._points[1].price = this._points[0].price + _),
@@ -80931,9 +80960,10 @@ webpackJsonp(
             (e = this._model.mainSeries().bars().valueAt(t.index)),
               null !== e &&
                 ((i = this.direction()),
-                i === l.Direction.Up && e[TradingView.HIGH_PLOT] >= t.price
+                i === l.Direction.Up && e[TradingChart.HIGH_PLOT] >= t.price
                   ? this.setStatus(l.AlertStatus.Success)
-                  : i === l.Direction.Down && e[TradingView.LOW_PLOT] <= t.price
+                  : i === l.Direction.Down &&
+                    e[TradingChart.LOW_PLOT] <= t.price
                   ? this.setStatus(l.AlertStatus.Success)
                   : ((o = n(this._model.mainSeries().bars().lastIndex())),
                     t.index !== o && this.setStatus(l.AlertStatus.Failure)));
@@ -81628,7 +81658,7 @@ webpackJsonp(
               (_ = _.normalized()),
               (f = p.add(_.scaled(u))),
               (o = this.screenPointToPoint(f)),
-              (TradingView.isNaN(o.price) || TradingView.isNaN(o.index)) &&
+              (TradingChart.isNaN(o.price) || TradingChart.isNaN(o.index)) &&
                 (o = this.screenPointToPoint(p)));
           } else
             this._fakePointAdded &&
@@ -81901,7 +81931,7 @@ webpackJsonp(
         this._bars = t || [];
       }),
         (o.prototype.clone = function (t) {
-          return new o(t, this._index, TradingView.clone(this._bars));
+          return new o(t, this._index, TradingChart.clone(this._bars));
         }),
         (o.prototype.createBar = function () {
           var t,
@@ -82079,7 +82109,7 @@ webpackJsonp(
             o = [];
           return (
             i.bars().each(function (t, e) {
-              o.push(e[TradingView.HIGH_PLOT] - e[TradingView.LOW_PLOT]);
+              o.push(e[TradingChart.HIGH_PLOT] - e[TradingChart.LOW_PLOT]);
             }),
             (e =
               0 === o.length
@@ -82875,7 +82905,7 @@ webpackJsonp(
             );
           }),
           (n.prototype.paneViews = function (e) {
-            return TradingView.printing &&
+            return TradingChart.printing &&
               !t.enabled("snapshot_trading_drawings")
               ? null
               : this._model.properties().tradingProperties.showPositions.value()
@@ -82883,7 +82913,7 @@ webpackJsonp(
               : null;
           }),
           (n.prototype.priceAxisViews = function (e, i) {
-            return TradingView.printing &&
+            return TradingChart.printing &&
               !t.enabled("snapshot_trading_drawings")
               ? null
               : this._model.properties().tradingProperties.showPositions.value()
@@ -83340,7 +83370,7 @@ webpackJsonp(
             );
           }),
           (n.prototype.paneViews = function (e) {
-            return TradingView.printing &&
+            return TradingChart.printing &&
               !t.enabled("snapshot_trading_drawings")
               ? null
               : this._model.properties().tradingProperties.showOrders.value()
@@ -83348,7 +83378,7 @@ webpackJsonp(
               : null;
           }),
           (n.prototype.priceAxisViews = function (e, i) {
-            return TradingView.printing &&
+            return TradingChart.printing &&
               !t.enabled("snapshot_trading_drawings")
               ? null
               : this._model.properties().tradingProperties.showOrders.value()
@@ -83419,7 +83449,7 @@ webpackJsonp(
         r--;
 
       )
-        TradingView[n[r]] = o[n[r]];
+        TradingChart[n[r]] = o[n[r]];
       t.exports = o;
     },
     function (t, e, i) {
@@ -83759,7 +83789,7 @@ webpackJsonp(
           return e || i ? new n(n.REGULAR) : null;
         }),
         (e.PaneRendererStudyStrategyOrders =
-          TradingView.PaneRendererStudyStrategyOrders =
+          TradingChart.PaneRendererStudyStrategyOrders =
             o);
     },
     function (t, e, i) {
@@ -83803,7 +83833,7 @@ webpackJsonp(
           )
             s[r[a]]
               .listeners()
-              .subscribe(this, TradingView.Study.prototype.processHibernate);
+              .subscribe(this, TradingChart.Study.prototype.processHibernate);
         }
         var a = i(8).Point,
           l = i(32),
@@ -84339,7 +84369,7 @@ webpackJsonp(
             return !1;
           }),
           (s.prototype.stop = function () {
-            TradingView.Study.prototype.stop.call(this),
+            TradingChart.Study.prototype.stop.call(this),
               this._cache && this._cache.remove();
           }),
           (s.prototype.priceRange = function (t, i) {
@@ -84653,19 +84683,19 @@ webpackJsonp(
             if (
               !(
                 null !== (l = this._study.data().valueAt(s)) &&
-                l[TradingView.OPEN_PLOT] &&
-                l[TradingView.HIGH_PLOT] &&
-                l[TradingView.LOW_PLOT] &&
-                l[TradingView.CLOSE_PLOT]
+                l[TradingChart.OPEN_PLOT] &&
+                l[TradingChart.HIGH_PLOT] &&
+                l[TradingChart.LOW_PLOT] &&
+                l[TradingChart.CLOSE_PLOT]
               )
             )
               return;
             for (
               c = this._study.formatter(),
-                this._items[0].setValue(c.format(l[TradingView.OPEN_PLOT])),
-                this._items[1].setValue(c.format(l[TradingView.HIGH_PLOT])),
-                this._items[2].setValue(c.format(l[TradingView.LOW_PLOT])),
-                this._items[3].setValue(c.format(l[TradingView.CLOSE_PLOT])),
+                this._items[0].setValue(c.format(l[TradingChart.OPEN_PLOT])),
+                this._items[1].setValue(c.format(l[TradingChart.HIGH_PLOT])),
+                this._items[2].setValue(c.format(l[TradingChart.LOW_PLOT])),
+                this._items[3].setValue(c.format(l[TradingChart.CLOSE_PLOT])),
                 o === a.STYLE_BASELINE
                   ? ((d = this._study.barColorer()),
                     (p = d.barStyle(s, !1)),
@@ -84674,11 +84704,11 @@ webpackJsonp(
                   : i && s >= 1
                   ? ((_ = this._study.data().valueAt(s - 1)),
                     (u =
-                      _[TradingView.CLOSE_PLOT] <= l[TradingView.CLOSE_PLOT]
+                      _[TradingChart.CLOSE_PLOT] <= l[TradingChart.CLOSE_PLOT]
                         ? t
                         : e))
                   : (u =
-                      l[TradingView.OPEN_PLOT] <= l[TradingView.CLOSE_PLOT]
+                      l[TradingChart.OPEN_PLOT] <= l[TradingChart.CLOSE_PLOT]
                         ? t
                         : e),
                 f = 0;
@@ -84743,7 +84773,7 @@ webpackJsonp(
           if (null == (n = this.nearestIndex(o.lastBar(), h.NearestLeft)))
             return v;
           if (
-            ((r = this._lastNonEmptyPlotRow(TradingView.CLOSE_PLOT)),
+            ((r = this._lastNonEmptyPlotRow(TradingChart.CLOSE_PLOT)),
             (s = null !== r && o.contains(r.index)),
             (l = null !== r ? r.value : null),
             (c = e || s ? l : this.data().valueAt(n)),
@@ -84769,14 +84799,14 @@ webpackJsonp(
           ) {
             case a.STYLE_BARS:
               d.color =
-                c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]
+                c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]
                   ? _.barStyle.upColor.value()
                   : _.barStyle.downColor.value();
               break;
             case a.STYLE_CANDLES:
             case a.STYLE_HOLLOW_CANDLES:
               d.color =
-                c[TradingView.OPEN_PLOT] <= c[TradingView.CLOSE_PLOT]
+                c[TradingChart.OPEN_PLOT] <= c[TradingChart.CLOSE_PLOT]
                   ? _.candleStyle.upColor.value()
                   : _.candleStyle.downColor.value();
               break;
@@ -84920,16 +84950,16 @@ webpackJsonp(
           return this.m_data;
         }),
         (r.prototype.open = function (t) {
-          return this.bars().valueAt(t)[TradingView.OPEN_PLOT];
+          return this.bars().valueAt(t)[TradingChart.OPEN_PLOT];
         }),
         (r.prototype.high = function (t) {
-          return this.bars().valueAt(t)[TradingView.HIGH_PLOT];
+          return this.bars().valueAt(t)[TradingChart.HIGH_PLOT];
         }),
         (r.prototype.low = function (t) {
-          return this.bars().valueAt(t)[TradingView.LOW_PLOT];
+          return this.bars().valueAt(t)[TradingChart.LOW_PLOT];
         }),
         (r.prototype.close = function (t) {
-          return this.bars().valueAt(t)[TradingView.CLOSE_PLOT];
+          return this.bars().valueAt(t)[TradingChart.CLOSE_PLOT];
         }),
         (r.prototype.hl2 = function (t) {
           return (this.high(t) + this.low(t)) / 2;
@@ -85221,7 +85251,7 @@ webpackJsonp(
                             r.PlotRowSearchMode.NearestRight
                           )) &&
                         ((f = n.ensureNotNull(d.valueAt(_))[
-                          TradingView.CLOSE_PLOT
+                          TradingChart.CLOSE_PLOT
                         ]),
                         (m = l),
                         o.properties().percentage.value() &&
@@ -85235,11 +85265,11 @@ webpackJsonp(
                           ? (this._isCountdownEnabled() &&
                               b.showCountdown.value() &&
                               (v = this._countdownText()),
-                            (w = i.lastValueData(TradingView.CLOSE_PLOT, !0)),
+                            (w = i.lastValueData(TradingChart.CLOSE_PLOT, !0)),
                             w.noData ||
                               w.color === t.background ||
                               (g = w.color),
-                            (T = i.lastValueData(TradingView.CLOSE_PLOT, !1)),
+                            (T = i.lastValueData(TradingChart.CLOSE_PLOT, !1)),
                             w.noData || T.noData || (y = w.index === T.index))
                           : ((C = i.barColorer()),
                             (x = C.barStyle(p.index, !0)),
@@ -85311,10 +85341,10 @@ webpackJsonp(
             for (
               o = this._series.data().valueAt(i),
                 n = this._series.formatter(),
-                this._items[0].setValue(n.format(o[TradingView.OPEN_PLOT])),
-                this._items[1].setValue(n.format(o[TradingView.HIGH_PLOT])),
-                this._items[2].setValue(n.format(o[TradingView.LOW_PLOT])),
-                this._items[3].setValue(n.format(o[TradingView.CLOSE_PLOT])),
+                this._items[0].setValue(n.format(o[TradingChart.OPEN_PLOT])),
+                this._items[1].setValue(n.format(o[TradingChart.HIGH_PLOT])),
+                this._items[2].setValue(n.format(o[TradingChart.LOW_PLOT])),
+                this._items[3].setValue(n.format(o[TradingChart.CLOSE_PLOT])),
                 c = this._series.barColorer(),
                 h = c.barStyle(i, !1),
                 u = null != h.barBorderColor ? h.barBorderColor : h.barColor,
@@ -85626,7 +85656,7 @@ webpackJsonp(
               null !== o &&
                 ((n = this._series
                   .priceScale()
-                  .priceToCoordinate(o[TradingView.HIGH_PLOT])),
+                  .priceToCoordinate(o[TradingChart.HIGH_PLOT])),
                 (s = this._series.model().timeScale().indexToCoordinate(e)),
                 (this._point = new r(s, n)),
                 t.eod
@@ -85711,8 +85741,8 @@ webpackJsonp(
             },
             e = this._series.data().bars(),
             i =
-              r(e.last()).value[TradingView.CLOSE_PLOT] >
-              r(e.valueAt(this._lastBar))[TradingView.CLOSE_PLOT]
+              r(e.last()).value[TradingChart.CLOSE_PLOT] >
+              r(e.valueAt(this._lastBar))[TradingChart.CLOSE_PLOT]
                 ? 1
                 : -1,
             o = 0;
@@ -86214,7 +86244,7 @@ webpackJsonp(
                 ? null
                 : [
                     this.properties().inputs.displayZoneLabels.value(),
-                    1e3 * e[TradingView.TIME_PLOT],
+                    1e3 * e[TradingChart.TIME_PLOT],
                     this.properties().inputs.account_size.value(),
                     this.properties().inputs.percent_risk.value(),
                     this.properties().inputs.tickEntryOffset.value(),
@@ -86260,7 +86290,7 @@ webpackJsonp(
                 : [
                     this.properties().inputs.displayZoneLabels.value(),
                     this._symbolIntervalChanged,
-                    1e3 * e[TradingView.TIME_PLOT],
+                    1e3 * e[TradingChart.TIME_PLOT],
                   ]);
         }),
         (o.prototype.onData = function (t) {
@@ -86309,9 +86339,9 @@ webpackJsonp(
               null === o || null === n || null === r
                 ? null
                 : [
-                    1e3 * o[TradingView.TIME_PLOT],
-                    1e3 * n[TradingView.TIME_PLOT],
-                    1e3 * r[TradingView.TIME_PLOT],
+                    1e3 * o[TradingChart.TIME_PLOT],
+                    1e3 * n[TradingChart.TIME_PLOT],
+                    1e3 * r[TradingChart.TIME_PLOT],
                     s[2].price,
                     this.properties().inputs.account_size.value(),
                     this.properties().inputs.percent_risk.value(),
@@ -86911,7 +86941,7 @@ webpackJsonp(
                 this.source.selectBarMode().value() &&
                 this.source.isOnHoveredChartWidget()),
               (o =
-                TradingView.isMobile.any() &&
+                TradingChart.isMobile.any() &&
                 l.isLineTool(this.source._model.currentTool()) &&
                 !i),
               (n = o
@@ -87154,7 +87184,7 @@ webpackJsonp(
               })
             : null;
         }),
-        (e.PaneRendererCrossHair = TradingView.PaneRendererCrossHair = o);
+        (e.PaneRendererCrossHair = TradingChart.PaneRendererCrossHair = o);
     },
     function (t, e, i) {
       "use strict";
@@ -87232,7 +87262,7 @@ webpackJsonp(
               2
             );
         }),
-        (e.PaneRendererCrossHairLock = TradingView.PaneRendererCrossHairLock =
+        (e.PaneRendererCrossHairLock = TradingChart.PaneRendererCrossHairLock =
           o);
     },
     function (t, e, i) {
@@ -87438,10 +87468,10 @@ webpackJsonp(
           a.contains(e) &&
             ((l = a.valueAt(e)),
             (c = [
-              l[TradingView.OPEN_PLOT],
-              l[TradingView.HIGH_PLOT],
-              l[TradingView.LOW_PLOT],
-              l[TradingView.CLOSE_PLOT],
+              l[TradingChart.OPEN_PLOT],
+              l[TradingChart.HIGH_PLOT],
+              l[TradingChart.LOW_PLOT],
+              l[TradingChart.CLOSE_PLOT],
             ]),
             (_ = r.priceScale()),
             !_.isEmpty()))
@@ -87673,7 +87703,7 @@ webpackJsonp(
             var i, o, n;
             return this.isEmpty()
               ? 0
-              : TradingView.isInteger(t)
+              : TradingChart.isInteger(t)
               ? ((i = this.baseIndex()),
                 (o = i + this.m_rightOffset - t),
                 (n = this.m_width - (o + 0.5) * this.m_barSpacing),
@@ -88711,7 +88741,7 @@ webpackJsonp(
               (this._strokeWidth = 4),
               (this._fontSize = 14),
               (this._font = 'px "Trebuchet MS", Tahoma, Arial, sans-serif'),
-              (this._txt = "TradingView"),
+              (this._txt = "TradingChart"),
               (this._onReadyCallback = c),
               (this._upscaleRatio = N ? 1 : 2),
               (this._strokeCanv = null),
@@ -88923,13 +88953,13 @@ webpackJsonp(
                     ? ((i = '12px "Trebuchet MS", Tahoma, Arial, sans-serif'),
                       (t.font = i),
                       (o = t.measureText(this._txt).width),
-                      (this.width = o + t.measureText("TradingView").width),
+                      (this.width = o + t.measureText("TradingChart").width),
                       t.save(),
                       (t.globalAlpha = 0.7),
                       (t.fillStyle = this._colorOldGray),
                       t.fillText(this._txt, 0, 12),
                       (t.fillStyle = this._colorOldBlue),
-                      t.fillText("TradingView", o, 12),
+                      t.fillText("TradingChart", o, 12),
                       t.restore())
                     : this._needDisplay && this._imageReady
                     ? (t.save(),
@@ -89349,7 +89379,7 @@ webpackJsonp(
         f = i(919).HorizHistogramRenderer,
         m = i(920).HLinesPriceAxisView,
         g = i(380),
-        v = TradingView.Study,
+        v = TradingChart.Study,
         y = i(921),
         b = i(11),
         S = i(53).CompositeRenderer,
@@ -89759,10 +89789,10 @@ webpackJsonp(
                     this._data.push(l);
         }),
         (v.StudyPriceAxisView_hlines = m),
-        (TradingView.TriangleTextMarkRenderer = function (t, e) {
+        (TradingChart.TriangleTextMarkRenderer = function (t, e) {
           (this._data = t), (this._textCache = e);
         }),
-        (TradingView.TriangleTextMarkRenderer.prototype.fontStyle =
+        (TradingChart.TriangleTextMarkRenderer.prototype.fontStyle =
           function () {
             return (
               (this._data.bold ? "bold " : "") +
@@ -89772,7 +89802,7 @@ webpackJsonp(
               this._data.font
             );
           }),
-        (TradingView.TriangleTextMarkRenderer.prototype.draw = function (t) {
+        (TradingChart.TriangleTextMarkRenderer.prototype.draw = function (t) {
           var e, i, o, n, r, s, a;
           if (this._data) {
             switch (
@@ -89817,13 +89847,15 @@ webpackJsonp(
               default:
                 throw Error(
                   this._data.direction +
-                    " doesn't supported by TradingView.TriangleTextMarkRenderer"
+                    " doesn't supported by TradingChart.TriangleTextMarkRenderer"
                 );
             }
             t.restore();
           }
         }),
-        (TradingView.TriangleTextMarkRenderer.prototype.hitTest = function (t) {
+        (TradingChart.TriangleTextMarkRenderer.prototype.hitTest = function (
+          t
+        ) {
           var e,
             i,
             o,
@@ -89885,15 +89917,15 @@ webpackJsonp(
             default:
               throw Error(
                 this._data.direction +
-                  " doesn't supported by TradingView.TriangleTextMarkRenderer"
+                  " doesn't supported by TradingChart.TriangleTextMarkRenderer"
               );
           }
           return null;
         }),
-        (TradingView.RectangleTextMarkRenderer = function (t, e) {
+        (TradingChart.RectangleTextMarkRenderer = function (t, e) {
           (this._data = t), (this._textCache = e);
         }),
-        (TradingView.RectangleTextMarkRenderer.prototype.fontStyle =
+        (TradingChart.RectangleTextMarkRenderer.prototype.fontStyle =
           function () {
             return (
               (this._data.bold ? "bold " : "") +
@@ -89903,7 +89935,7 @@ webpackJsonp(
               this._data.font
             );
           }),
-        (TradingView.RectangleTextMarkRenderer.prototype.draw = function (t) {
+        (TradingChart.RectangleTextMarkRenderer.prototype.draw = function (t) {
           var e, i, o, n, r;
           if (this._data) {
             switch (
@@ -89935,7 +89967,7 @@ webpackJsonp(
               t.restore();
           }
         }),
-        (TradingView.RectangleTextMarkRenderer.prototype.hitTest = function (
+        (TradingChart.RectangleTextMarkRenderer.prototype.hitTest = function (
           t
         ) {
           var e,
@@ -89965,10 +89997,10 @@ webpackJsonp(
             c(t, e, i) ? new b(b.REGULAR) : null
           );
         }),
-        (TradingView.CircleShapeMarkRenderer = function (t, e) {
+        (TradingChart.CircleShapeMarkRenderer = function (t, e) {
           (this._data = t), (this._textCache = e);
         }),
-        (TradingView.CircleShapeMarkRenderer.prototype.draw = function (t) {
+        (TradingChart.CircleShapeMarkRenderer.prototype.draw = function (t) {
           var e, i, o;
           this._data &&
             ((e =
@@ -89994,7 +90026,7 @@ webpackJsonp(
             t.stroke(),
             t.restore());
         }),
-        (TradingView.CircleShapeMarkRenderer.prototype.hitTest = function (t) {
+        (TradingChart.CircleShapeMarkRenderer.prototype.hitTest = function (t) {
           var e =
             "down" === this._data.direction
               ? 1
@@ -90010,10 +90042,10 @@ webpackJsonp(
             ? new b(b.REGULAR)
             : null;
         }),
-        (TradingView.SquareShapeMarkRenderer = function (t, e) {
+        (TradingChart.SquareShapeMarkRenderer = function (t, e) {
           (this._data = t), (this._textCache = e);
         }),
-        (TradingView.SquareShapeMarkRenderer.prototype.draw = function (t) {
+        (TradingChart.SquareShapeMarkRenderer.prototype.draw = function (t) {
           var e, i, o, n, r;
           this._data &&
             ((e =
@@ -90038,7 +90070,7 @@ webpackJsonp(
             t.stroke(),
             t.fill());
         }),
-        (TradingView.SquareShapeMarkRenderer.prototype.hitTest = function (t) {
+        (TradingChart.SquareShapeMarkRenderer.prototype.hitTest = function (t) {
           var e =
               "down" === this._data.direction
                 ? 1
@@ -90058,10 +90090,10 @@ webpackJsonp(
             a = new s(Math.max(o.x, n.x), Math.max(o.y, n.y));
           return c(t, r, a) ? new b(b.REGULAR) : null;
         }),
-        (TradingView.ArrowShapeMarkRenderer = function (t, e, i) {
+        (TradingChart.ArrowShapeMarkRenderer = function (t, e, i) {
           (this._data = t), (this._textCache = e), (this._arrowDirection = i);
         }),
-        (TradingView.ArrowShapeMarkRenderer.prototype.draw = function (t) {
+        (TradingChart.ArrowShapeMarkRenderer.prototype.draw = function (t) {
           var e, i, o, n, r, s, a, l, c, h, u;
           if (this._data) {
             switch (
@@ -90123,7 +90155,7 @@ webpackJsonp(
             t.closePath(), t.fill(), t.stroke(), t.restore();
           }
         }),
-        (TradingView.ArrowShapeMarkRenderer.prototype.hitTest = function (t) {
+        (TradingChart.ArrowShapeMarkRenderer.prototype.hitTest = function (t) {
           var e,
             i,
             o,
@@ -90197,7 +90229,7 @@ webpackJsonp(
             switch (this._data[e].shape) {
               case "triangle":
                 t.append(
-                  new TradingView.TriangleTextMarkRenderer(
+                  new TradingChart.TriangleTextMarkRenderer(
                     this._data[e],
                     this._textCache[e]
                   )
@@ -90205,7 +90237,7 @@ webpackJsonp(
                 break;
               case "rectangle":
                 t.append(
-                  new TradingView.RectangleTextMarkRenderer(
+                  new TradingChart.RectangleTextMarkRenderer(
                     this._data[e],
                     this._textCache[e]
                   )
@@ -90385,7 +90417,7 @@ webpackJsonp(
             switch (this._data[e].shape) {
               case "circle":
                 t.append(
-                  new TradingView.CircleShapeMarkRenderer(
+                  new TradingChart.CircleShapeMarkRenderer(
                     this._data[e],
                     this._textCache[e]
                   )
@@ -90393,7 +90425,7 @@ webpackJsonp(
                 break;
               case "square":
                 t.append(
-                  new TradingView.SquareShapeMarkRenderer(
+                  new TradingChart.SquareShapeMarkRenderer(
                     this._data[e],
                     this._textCache[e]
                   )
@@ -90401,7 +90433,7 @@ webpackJsonp(
                 break;
               case "arrowUp":
                 t.append(
-                  new TradingView.ArrowShapeMarkRenderer(
+                  new TradingChart.ArrowShapeMarkRenderer(
                     this._data[e],
                     this._textCache[e],
                     "up"
@@ -90410,7 +90442,7 @@ webpackJsonp(
                 break;
               case "arrowDown":
                 t.append(
-                  new TradingView.ArrowShapeMarkRenderer(
+                  new TradingChart.ArrowShapeMarkRenderer(
                     this._data[e],
                     this._textCache[e],
                     "down"
@@ -90419,7 +90451,7 @@ webpackJsonp(
                 break;
               case "arrowRight":
                 t.append(
-                  new TradingView.ArrowShapeMarkRenderer(
+                  new TradingChart.ArrowShapeMarkRenderer(
                     this._data[e],
                     this._textCache[e],
                     "right"
@@ -90428,7 +90460,7 @@ webpackJsonp(
                 break;
               case "arrowLeft":
                 t.append(
-                  new TradingView.ArrowShapeMarkRenderer(
+                  new TradingChart.ArrowShapeMarkRenderer(
                     this._data[e],
                     this._textCache[e],
                     "left"
@@ -91329,10 +91361,10 @@ webpackJsonp(
         var o, n, a, l, c, h, u;
         switch ((i || (i = 0), (o = []), (n = this._study.priceScale()), t)) {
           case CanvasEx.MARKLOC_ABOVEBAR:
-            a = TradingView.HIGH_PLOT;
+            a = TradingChart.HIGH_PLOT;
             break;
           case CanvasEx.MARKLOC_BELOWBAR:
-            a = TradingView.LOW_PLOT;
+            a = TradingChart.LOW_PLOT;
         }
         for (
           l = this._study.firstValue(), i >= 1 && (i -= 1), c = -i;
@@ -91678,8 +91710,8 @@ webpackJsonp(
           (o.prototype._generateItemsForRow._onViewSorceClick = function (t) {
             var e = t.metaInfo();
             this._getPineSourceCode(e).done(function (t) {
-              TradingView.bottomWidgetBar &&
-                TradingView.bottomWidgetBar.activateScriptEditorTab(t);
+              TradingChart.bottomWidgetBar &&
+                TradingChart.bottomWidgetBar.activateScriptEditorTab(t);
             });
           }),
           (o.prototype._getPineSourceCode = function (t) {
@@ -91726,7 +91758,7 @@ webpackJsonp(
                     this.valueChanged(n, "fontWeight", a) ||
                     this.valueChanged(n, "text", l)) &&
                     i.cell
-                      .text(TradingView.clean(l, !0))
+                      .text(TradingChart.clean(l, !0))
                       .css({ color: s, "border-color": s, "font-weight": a }));
             this._chart.resizeIndicator();
           }),
@@ -92292,7 +92324,7 @@ webpackJsonp(
           !o.containsMainSeries() && !this._chart.isMaximizedPane())
         ) {
           for (s = 0, a = o.dataSources(), l = a.length; l--; )
-            if (a[l] instanceof TradingView.Study && ++s > 1) {
+            if (a[l] instanceof TradingChart.Study && ++s > 1) {
               r = !0;
               break;
             }
@@ -92578,7 +92610,7 @@ webpackJsonp(
       }
       var n = i(22),
         r = i(33);
-      (TradingView.MAMetaInfo = function () {
+      (TradingChart.MAMetaInfo = function () {
         return new r({
           id: "MASimple",
           inputs: [
@@ -92590,7 +92622,7 @@ webpackJsonp(
           palettes: {},
         });
       }),
-        (TradingView.VolumeMetaInfo = function () {
+        (TradingChart.VolumeMetaInfo = function () {
           var t = {
             id: "Volume",
             inputs: [],
@@ -92627,7 +92659,7 @@ webpackJsonp(
           };
           return new r(t);
         }),
-        (TradingView.DMMetaInfo = function () {
+        (TradingChart.DMMetaInfo = function () {
           return new r({
             id: "DM",
             inputs: [
@@ -92657,7 +92689,7 @@ webpackJsonp(
             palettes: {},
           });
         }),
-        (TradingView.RSIMetaInfo = function () {
+        (TradingChart.RSIMetaInfo = function () {
           return new r({
             id: "RSI",
             inputs: [{ id: "length", type: "integer", defval: 14 }],
@@ -92843,7 +92875,7 @@ webpackJsonp(
             (this._model = t),
             (this._sourceId = e.id()),
             (this._origPoint =
-              i instanceof W ? i.clone() : TradingView.clone(i)),
+              i instanceof W ? i.clone() : TradingChart.clone(i)),
             (this._pointIndex = o);
         }
         function C(t, e, i) {
@@ -92909,8 +92941,8 @@ webpackJsonp(
           at.call(this, "Apply Chart Theme"),
             (this._model = t),
             (this._newChartProps =
-              TradingView.factoryDefaults("chartproperties")),
-            (this._newSeriesProps = TradingView.factoryDefaults(
+              TradingChart.factoryDefaults("chartproperties")),
+            (this._newSeriesProps = TradingChart.factoryDefaults(
               "chartproperties.mainSeriesProperties"
             )),
             ["candleStyle", "hollowCandleStyle", "haStyle"].forEach(function (
@@ -93550,10 +93582,10 @@ webpackJsonp(
               e++
             )
               (i = t[e]),
-                ((TradingView.isInherited(i.constructor, it) &&
+                ((TradingChart.isInherited(i.constructor, it) &&
                   !i.isChildStudy() &&
                   i.removeByRemoveAllStudies()) ||
-                  TradingView.isInherited(i.constructor, ot)) &&
+                  TradingChart.isInherited(i.constructor, ot)) &&
                   this.removeSource(i);
             this.endUndoMacro();
           }),
@@ -93568,7 +93600,7 @@ webpackJsonp(
               i++
             )
               (o = e[i]),
-                TradingView.isInherited(o.constructor, U) &&
+                TradingChart.isInherited(o.constructor, U) &&
                   o.isActualSymbol() &&
                   o.isUserDeletable() &&
                   ((t && t !== o._constructor) || this.removeSource(o));
@@ -94413,7 +94445,7 @@ webpackJsonp(
         }),
           inherit(T, at),
           (T.prototype.setPoint = function (t) {
-            this._point = t instanceof W ? t.clone() : TradingView.clone(t);
+            this._point = t instanceof W ? t.clone() : TradingChart.clone(t);
           }),
           (T.prototype.undo = function () {
             var t = this._model.dataSourceForId(this._sourceId);
@@ -94726,7 +94758,7 @@ webpackJsonp(
                 t = this._originalSource,
                   e = t.priceScale(),
                   i = this._model.paneForSource(t),
-                  o = TradingView.className(t.constructor),
+                  o = TradingChart.className(t.constructor),
                   n = t.properties().clone(),
                   r = H.create(o, this._model, n, null, t.ownerSource()),
                   r.setOwnerSource(t.ownerSource()),
@@ -94739,7 +94771,7 @@ webpackJsonp(
                 r._fixedPoints[s] = r._fixedPoints[s].add(new W(20, 20));
               (a = t._timePoint),
                 (l = this._withoutShift
-                  ? TradingView.clone(a)
+                  ? TradingChart.clone(a)
                   : O(a, t.ownerSource())),
                 (c = t._points),
                 (h = c),
@@ -94793,7 +94825,7 @@ webpackJsonp(
               n &&
                 (h instanceof tt && (t = !1),
                 h instanceof it && (t = !h.metaInfo().is_price_study)),
-              (r = TradingView.clone(this._clipboardData.source)),
+              (r = TradingChart.clone(this._clipboardData.source)),
               delete r.state.symbol,
               t
                 ? ((s = this._model),
@@ -94843,7 +94875,7 @@ webpackJsonp(
           (F.prototype.redo = function () {
             var t, e, i, o;
             this._sourceState ||
-              ((t = TradingView.clone(this._clipboardData.source)),
+              ((t = TradingChart.clone(this._clipboardData.source)),
               (t.id = nt.guid()),
               (this._sourceState = t)),
               (e = null),
@@ -96144,7 +96176,7 @@ webpackJsonp(
                     .priceScale()
                     .properties()
                     .lockScale.subscribe(this, this.updateDateRangeButtons),
-                  !TradingView.onWidget() &&
+                  !TradingChart.onWidget() &&
                     e.enabled("go_to_date") &&
                     (this.gotoDateButton(),
                     i.onStatusChanged().subscribe(this, this.gotoDateButton)),
@@ -96251,8 +96283,8 @@ webpackJsonp(
               s = this._chartWidget,
               a = s.model().mainSeries().status();
             if (
-              a !== TradingView.Series.STATUS_LOADING &&
-              a !== TradingView.Series.STATUS_RESOLVING
+              a !== TradingChart.Series.STATUS_LOADING &&
+              a !== TradingChart.Series.STATUS_RESOLVING
             ) {
               if (
                 ((t = s._dateRangeResolutions()),
@@ -98242,7 +98274,7 @@ webpackJsonp(
             (p = d && d.id === h),
             p &&
               null !== (_ = e.valueAt(n)) &&
-              ((f = _[TradingView.LOW_PLOT]),
+              ((f = _[TradingChart.LOW_PLOT]),
               o.isPercent() &&
                 ((m = this._model.mainSeries().firstValue()),
                 (f = o.priceRange().convertToPercent(f, m))),
@@ -98283,7 +98315,7 @@ webpackJsonp(
               ? this.defaultStyle
               : (this._stylesCache || (this._stylesCache = {}),
                 this._stylesCache[o] ||
-                  ((i = TradingView.clone(
+                  ((i = TradingChart.clone(
                     "hovered" === t ? this.hoveredStyle : this.defaultStyle
                   )),
                   e.stack && (i.lollipop.incHeight = 24 * e.stack),
@@ -98866,7 +98898,7 @@ webpackJsonp(
                     r.saveDefaults(),
                     s.onToolChanged(n, r);
               }),
-              (TradingView.onWidget() && !window.is_authenticated) ||
+              (TradingChart.onWidget() && !window.is_authenticated) ||
                 !e.enabled("linetoolpropertieswidget_template_button") ||
                 ((this._templatesList = new A(n, a, {
                   buttonInner:
@@ -99030,7 +99062,7 @@ webpackJsonp(
                 {
                   button: this._createCloneButton(),
                   isVisibleForSource: function (t) {
-                    var e = TradingView.className(t.constructor);
+                    var e = TradingChart.className(t.constructor);
                     return !this.activeChartWidget()
                       .model()
                       .model()
@@ -100161,7 +100193,7 @@ webpackJsonp(
         d = i(7).getLogger("Chart.ChartApiLocal"),
         p = i(49),
         _ = i(34).Interval;
-      (TradingView.STUDY_COUNT_LIMIT = 120),
+      (TradingChart.STUDY_COUNT_LIMIT = 120),
         (JSServer.ChartApi = function (t) {
           (this._notificationHandlers = {}),
             (this._sessions = {}),
@@ -100317,7 +100349,7 @@ webpackJsonp(
         (JSServer.ChartApi.prototype.chartCreateSession = function (t, e) {}),
         (JSServer.ChartApi.prototype.chartDeleteSession = function (t) {}),
         (JSServer.ChartApi.prototype.createSession = function (t, e) {
-          (TradingView.ChartapiMessagerInstances[t] = new a(this, t)),
+          (TradingChart.ChartapiMessagerInstances[t] = new a(this, t)),
             (this._sessions[t] = e),
             (this._notificationHandlers[t] = {}),
             this.connected() &&
@@ -100349,8 +100381,8 @@ webpackJsonp(
         }),
         (JSServer.ChartApi.prototype.switchTimezone = function (t, e) {
           if (
-            TradingView.ChartapiMessagerInstances[t].timezone() !== e &&
-            (TradingView.ChartapiMessagerInstances[t].setTimezone(e),
+            TradingChart.ChartapiMessagerInstances[t].timezone() !== e &&
+            (TradingChart.ChartapiMessagerInstances[t].setTimezone(e),
             this._recentSeriesId[t])
           ) {
             var i = this;
@@ -100367,7 +100399,7 @@ webpackJsonp(
                         i._seriesIdCache[
                           i._makeSeriesKey(t, i._recentSeriesId[t])
                         ].resolution,
-                      n = TradingView.ChartapiMessagerInstances[t].lastBarTime(
+                      n = TradingChart.ChartapiMessagerInstances[t].lastBarTime(
                         i._recentSeriesId[t]
                       );
                     n &&
@@ -100402,7 +100434,7 @@ webpackJsonp(
         }),
         (JSServer.ChartApi.prototype.resolveSymbol = function (t, e, i, o, n) {
           function r(e, o) {
-            TradingView.ChartapiMessagerInstances[t].onSymbolError(e, o),
+            TradingChart.ChartapiMessagerInstances[t].onSymbolError(e, o),
               (s._symbolIdCache[s._makeSymbolKey(t, e)] = {
                 name: i,
                 status: "invalid_symbol",
@@ -100428,7 +100460,10 @@ webpackJsonp(
                   !0
                 ),
                 s._fireEvent(s._makeSymbolKey(t, e) + "_resolved", o),
-                TradingView.ChartapiMessagerInstances[t].onSymbolResolved(e, o);
+                TradingChart.ChartapiMessagerInstances[t].onSymbolResolved(
+                  e,
+                  o
+                );
             },
             function (t) {
               r(e, t);
@@ -100464,7 +100499,7 @@ webpackJsonp(
           t,
           e
         ) {
-          TradingView.ChartapiMessagerInstances[t].seriesCompleted.subscribe(
+          TradingChart.ChartapiMessagerInstances[t].seriesCompleted.subscribe(
             null,
             e,
             !0
@@ -100518,7 +100553,7 @@ webpackJsonp(
             a(s);
           }, e)),
             (this._recentSeriesId[t] = e),
-            TradingView.ChartapiMessagerInstances[t].setResolution(
+            TradingChart.ChartapiMessagerInstances[t].setResolution(
               r.Symbol.parsePeriod(n).pureResolution
             ),
             (this._seriesIdCache[t + "_" + e] = {
@@ -100549,12 +100584,12 @@ webpackJsonp(
               (s = [
                 a.plotValueToTimePointIndex(
                   i,
-                  TradingView.TIME_PLOT,
+                  TradingChart.TIME_PLOT,
                   o.FromLeft
                 ),
                 a.plotValueToTimePointIndex(
                   n,
-                  TradingView.TIME_PLOT,
+                  TradingChart.TIME_PLOT,
                   o.FromRight
                 ),
               ]),
@@ -100562,7 +100597,7 @@ webpackJsonp(
                 t.syncModel() &&
                 ((l = t.syncModel().distance(a.valueAt(s[1])[0], n)),
                 l.success && (s[1] += l.result)),
-              TradingView.ChartapiMessagerInstances[e].onSeriesTimeframeUpdate(
+              TradingChart.ChartapiMessagerInstances[e].onSeriesTimeframeUpdate(
                 c,
                 h._seriesIdCache[e + "_" + c].turnaround,
                 s[0],
@@ -100575,7 +100610,7 @@ webpackJsonp(
           var a = t.data(),
             l = !!a.plotValueToTimePointIndex(
               i,
-              TradingView.TIME_PLOT,
+              TradingChart.TIME_PLOT,
               o.FromLeft
             ),
             c = this._recentSeriesId[e],
@@ -100610,7 +100645,7 @@ webpackJsonp(
             )),
             (s = Math.max(0, l - 1 - r)),
             (a = Math.max(s, l - 1)),
-            TradingView.ChartapiMessagerInstances[t].onSeriesTimeframeUpdate(
+            TradingChart.ChartapiMessagerInstances[t].onSeriesTimeframeUpdate(
               i,
               o,
               s,
@@ -100631,7 +100666,7 @@ webpackJsonp(
             (l = this._seriesIdCache[t + "_" + e]
               ? this._seriesIdCache[t + "_" + e].resolution
               : void 0),
-            TradingView.ChartapiMessagerInstances[t].setResolution(
+            TradingChart.ChartapiMessagerInstances[t].setResolution(
               r.Symbol.parsePeriod(n).pureResolution
             ),
             (c = this),
@@ -100679,10 +100714,10 @@ webpackJsonp(
         (JSServer.ChartApi.prototype.requestMetadata = function (t, e, i) {
           this._notificationHandlers[t][e] = new h(i, e);
           var o = this.studiesAccessController.getEnabledTools();
-          TradingView.ChartapiMessagerInstances[t].onRequestMetadata(e, o);
+          TradingChart.ChartapiMessagerInstances[t].onRequestMetadata(e, o);
         }),
         (JSServer.ChartApi.prototype.isCanCreateStudy = function () {
-          return this.studyCounter < TradingView.STUDY_COUNT_LIMIT;
+          return this.studyCounter < TradingChart.STUDY_COUNT_LIMIT;
         }),
         (JSServer.ChartApi.prototype.createStudy = function (
           t,
@@ -101316,7 +101351,7 @@ webpackJsonp(
               o,
               n,
               r,
-              s = TradingView.merge({}, t),
+              s = TradingChart.merge({}, t),
               a = s.supported_resolutions;
             if (!a || 0 === a.length)
               return (s.supported_resolutions = void 0), s;
@@ -101558,7 +101593,7 @@ webpackJsonp(
               return e;
             }
             function l(i, s, a) {
-              TradingView.ChartapiMessagerInstances[o].onDataUpdate(
+              TradingChart.ChartapiMessagerInstances[o].onDataUpdate(
                 n,
                 r,
                 u._convertBarsTimeToUnix(i),
@@ -101566,11 +101601,14 @@ webpackJsonp(
                 a,
                 u._extendedRange(t, e)
               ),
-                TradingView.ChartapiMessagerInstances[o].onStudyCompleted(n, r);
+                TradingChart.ChartapiMessagerInstances[o].onStudyCompleted(
+                  n,
+                  r
+                );
             }
             var u = this;
             (s = a(s)),
-              TradingView.ChartapiMessagerInstances[o].onStudyLoading(n, r),
+              TradingChart.ChartapiMessagerInstances[o].onStudyLoading(n, r),
               u._computeStudy(
                 o,
                 i,
@@ -101583,7 +101621,7 @@ webpackJsonp(
                 },
                 function (i, s, a, l, c) {
                   var h = l ? { data: { offsets: l } } : null;
-                  TradingView.ChartapiMessagerInstances[o].onDataUpdate(
+                  TradingChart.ChartapiMessagerInstances[o].onDataUpdate(
                     n,
                     r,
                     u._convertBarsTimeToUnix(i),
@@ -101593,7 +101631,7 @@ webpackJsonp(
                   );
                 },
                 function (t) {
-                  TradingView.ChartapiMessagerInstances[o].onStudyError(n, t);
+                  TradingChart.ChartapiMessagerInstances[o].onStudyError(n, t);
                 },
                 function (t, e) {
                   var i;
@@ -101728,7 +101766,7 @@ webpackJsonp(
               return (
                 (o = a.engine.runner.host.symbolInfo.data_status),
                 void setTimeout(function () {
-                  TradingView.ChartapiMessagerInstances[e].onSeriesCompleted(
+                  TradingChart.ChartapiMessagerInstances[e].onSeriesCompleted(
                     t,
                     a.turnaround,
                     o
@@ -101756,7 +101794,7 @@ webpackJsonp(
                   },
                 ])
               : null;
-            TradingView.ChartapiMessagerInstances[t].onProjectionUpdate(
+            TradingChart.ChartapiMessagerInstances[t].onProjectionUpdate(
               e,
               i,
               o,
@@ -101795,7 +101833,7 @@ webpackJsonp(
                 type: "series",
                 turnaround: r,
               }),
-              TradingView.ChartapiMessagerInstances[i].onSeriesLoading(n, r),
+              TradingChart.ChartapiMessagerInstances[i].onSeriesLoading(n, r),
               (l = this),
               this._computeStudy(
                 i,
@@ -101839,10 +101877,10 @@ webpackJsonp(
                       1e3 * f.value[0]
                     ),
                     s &&
-                      TradingView.ChartapiMessagerInstances[
+                      TradingChart.ChartapiMessagerInstances[
                         i
                       ].onSeriesClearData(n, r),
-                    TradingView.ChartapiMessagerInstances[i].onTimescaleUpdate(
+                    TradingChart.ChartapiMessagerInstances[i].onTimescaleUpdate(
                       n,
                       r,
                       d,
@@ -101858,7 +101896,7 @@ webpackJsonp(
                         m,
                         h,
                         function (t, e) {
-                          TradingView.ChartapiMessagerInstances[
+                          TradingChart.ChartapiMessagerInstances[
                             i
                           ].onPointsetDataUpdate(t, r, e, h);
                         }
@@ -101873,10 +101911,10 @@ webpackJsonp(
                       ),
                       l._setEndOfData(i, n, r),
                       0 === d.length &&
-                        TradingView.ChartapiMessagerInstances[
+                        TradingChart.ChartapiMessagerInstances[
                           i
                         ].onSeriesClearData(n, r)),
-                    TradingView.ChartapiMessagerInstances[i].onSeriesCompleted(
+                    TradingChart.ChartapiMessagerInstances[i].onSeriesCompleted(
                       n,
                       r,
                       h.data_status
@@ -101896,7 +101934,7 @@ webpackJsonp(
                           JSON.stringify(p)
                         )
                       ),
-                      TradingView.ChartapiMessagerInstances[
+                      TradingChart.ChartapiMessagerInstances[
                         i
                       ].onTimescaleUpdate(n, r, [p], h, u),
                       a(h, u, 1e3 * p.value[0]),
@@ -101914,7 +101952,7 @@ webpackJsonp(
                         JSON.stringify(p)
                       )
                     ),
-                      TradingView.ChartapiMessagerInstances[i].onDataUpdate(
+                      TradingChart.ChartapiMessagerInstances[i].onDataUpdate(
                         n,
                         r,
                         d,
@@ -101925,12 +101963,12 @@ webpackJsonp(
                 },
                 function (t) {
                   l._logMessage("Series error: {0}".format(t)),
-                    TradingView.ChartapiMessagerInstances[i].onSeriesError(
+                    TradingChart.ChartapiMessagerInstances[i].onSeriesError(
                       n,
                       t
                     ),
                     o.enabled("clear_bars_on_series_error") &&
-                      TradingView.ChartapiMessagerInstances[
+                      TradingChart.ChartapiMessagerInstances[
                         i
                       ].onSeriesClearData(n, r);
                 },
@@ -101953,7 +101991,7 @@ webpackJsonp(
                     for (u = [], d = 0; d <= c; d++) u.push(s + 0.001 * d);
                     (p = t.lastBar.slice(0)),
                       (p[0] = p[0] / 1e3),
-                      TradingView.ChartapiMessagerInstances[
+                      TradingChart.ChartapiMessagerInstances[
                         i
                       ].onTimescaleUpdate(
                         n,
@@ -102105,7 +102143,7 @@ webpackJsonp(
                 (e.values.minmove2 = i.minmove2 || 0),
                 (e.values.fractional = i.fractional || !1),
                 o && e.v.cs && o.stop(),
-                TradingView.ChartapiMessagerInstances[t].onQuotesData(
+                TradingChart.ChartapiMessagerInstances[t].onQuotesData(
                   [t].concat([e])
                 );
             }
@@ -102208,10 +102246,10 @@ webpackJsonp(
             }
             function o(e) {
               e.snapshot
-                ? TradingView.ChartapiMessagerInstances[t].onDepthData(
+                ? TradingChart.ChartapiMessagerInstances[t].onDepthData(
                     [t].concat([i(e)])
                   )
-                : TradingView.ChartapiMessagerInstances[t].onDepthUpdate(
+                : TradingChart.ChartapiMessagerInstances[t].onDepthUpdate(
                     [t].concat([i(e)])
                   );
             }
@@ -102283,7 +102321,7 @@ webpackJsonp(
                 (t.values = {}),
                 (t.values.current_session = d),
                 (n[_] = d),
-                TradingView.ChartapiMessagerInstances[f].onQuotesData(
+                TradingChart.ChartapiMessagerInstances[f].onQuotesData(
                   [f].concat([t])
                 );
             }
@@ -102783,10 +102821,10 @@ webpackJsonp(
         function o(e, i, o) {
           function s(t) {
             return (
-              "undefined" != typeof TradingView &&
-              TradingView.ChartapiMessagerInstances
+              "undefined" != typeof TradingChart &&
+              TradingChart.ChartapiMessagerInstances
                 ? (n[t] = new a(
-                    TradingView.ChartapiMessagerInstances[e],
+                    TradingChart.ChartapiMessagerInstances[e],
                     l.pureResolution
                   ))
                 : (n[t] = new a(null, l.pureResolution)),
@@ -104208,7 +104246,7 @@ webpackJsonp(
           }),
           (y.prototype._createTradingPrimitive = function (t, e) {
             function i() {
-              var t = TradingView.CLOSE_PLOT,
+              var t = TradingChart.CLOSE_PLOT,
                 e = r(o._chartWidget.model().mainSeries().bars().last());
               return { index: e.index, price: e.value[t] };
             }

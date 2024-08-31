@@ -8648,7 +8648,7 @@ webpackJsonp([3], {
                 "Strategy input id=" + e.id + " doesn't have an internalID"
               ),
               (i[e.internalID] = o.inputs[t]));
-        return TradingView.clone(i);
+        return TradingChart.clone(i);
       }),
       (i.prototype._setStdInput = function (e, t, o) {
         var i, n, a, r, C, y, g, T, w, _, m, f;
@@ -11950,7 +11950,7 @@ webpackJsonp([3], {
                 "Change " + r + " show text"
               )
             ),
-            (i = TradingView.createTextPosEditor()),
+            (i = TradingChart.createTextPosEditor()),
             $("<td>").append(i.render()).appendTo(a),
             this.bindControl(
               new h(

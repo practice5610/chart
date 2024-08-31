@@ -68,8 +68,8 @@ export class TVChartContainer extends React.PureComponent {
         "mainSeriesProperties.showCountdown": false,
       },
     };
-    window.TradingView.onready(() => {
-      const widget = (window.tvWidget = new window.TradingView.widget(
+    window.TradingChart.onready(() => {
+      const widget = (window.tvWidget = new window.TradingChart.widget(
         widgetOptions
       ));
       widget.onChartReady(() => {

@@ -84,7 +84,7 @@ export default {
     // console.log(`Requesting bars between ${new Date(from * 1000).toISOString()} and ${new Date(to * 1000).toISOString()}`)
     const bars = Data.map((el) => {
       return {
-        time: el.time * 1000, //TradingView requires bar time in ms
+        time: el.time * 1000, //TradingChart requires bar time in ms
         low: el.low,
         high: el.high,
         open: el.open,
