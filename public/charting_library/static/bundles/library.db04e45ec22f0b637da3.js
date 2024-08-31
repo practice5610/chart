@@ -2296,7 +2296,7 @@ webpackJsonp(
       function n() {
         document.body &&
           document.body.dispatchEvent(
-            new a.CustomEvent("tradingview-i18next-initialized")
+            new a.CustomEvent("tradingchart-i18next-initialized")
           );
       }
       var r, s, a, l, c, h, u, d;
@@ -2305,7 +2305,7 @@ webpackJsonp(
         (s = i(285)),
         (a = i(572)),
         (l = { translate: r.translationFunction }),
-        window.__tradingviewI18nextInited ||
+        window.__tradingchartI18nextInited ||
           ((c = window.language || null),
           (h = o(c)),
           (c && h) ||
@@ -2323,7 +2323,7 @@ webpackJsonp(
               r.addTranslationFunctionToWindow(l.translate),
               r.addTranslationFunctionToJQuery(l.translate))
             : n(),
-          (window.__tradingviewI18nextInited = !0)),
+          (window.__tradingchartI18nextInited = !0)),
         (t.exports = l);
     },
     ,
@@ -3522,7 +3522,7 @@ webpackJsonp(
               function x() {
                 var t, e, i, o;
                 if (TradingChart.onWidget() && a.includes(window.location.host))
-                  for (t = "tradingview.", e = s.length; e--; )
+                  for (t = "tradingchart.", e = s.length; e--; )
                     (i = s.key(e)),
                       0 === i.indexOf(t) &&
                         ((o = i.replace(t, D + ".")),
@@ -3600,8 +3600,8 @@ webpackJsonp(
                   (E = 10),
                   "local" === window.environment && (M = 5e3),
                   (D = TradingChart.onWidget()
-                    ? "tradingview-widget"
-                    : "tradingview"),
+                    ? "tradingchart-widget"
+                    : "tradingchart"),
                   (V = {}),
                   (O = []),
                   (z = [
@@ -54162,7 +54162,7 @@ webpackJsonp(
           (window.changeTheme = function (t) {
             var e = d.themes[t.toLowerCase()];
             e &&
-              window.tradingViewApi
+              window.tradingchartApi
                 .themes()
                 .setStdTheme(e.name)
                 .then(function () {
@@ -54319,7 +54319,7 @@ webpackJsonp(
                   }),
                   N.body.value()[0]
                 ))),
-              (window.tradingViewApi = new z(
+              (window.tradingchartApi = new z(
                 A,
                 window.saver,
                 ChartApiInstance,
@@ -54408,7 +54408,7 @@ webpackJsonp(
                     });
               }),
               y.subscribe("chart_load_requested", function (t) {
-                window.tradingViewApi.loadChart({
+                window.tradingchartApi.loadChart({
                   json: JSON.parse(t.content),
                   extendedData: t,
                 });
@@ -54643,7 +54643,7 @@ webpackJsonp(
         predefined_items_only_may_be_starred: {},
         move_logo_to_main_pane: {},
         show_logo_on_all_charts: {},
-        link_to_tradingview: {},
+        link_to_tradingchart: {},
         logo_without_link: {},
         right_bar_stays_on_scroll: {},
         chart_content_overrides_by_defaults: {},
@@ -54898,7 +54898,7 @@ webpackJsonp(
             "lean_chart_load",
             "left_toolbar",
             "trading_watch_positions",
-            "link_to_tradingview",
+            "link_to_tradingchart",
             "pay_attention_to_ticker_not_symbol",
             "plain_studymarket",
             "predefined_items_only_may_be_starred",
@@ -55031,14 +55031,14 @@ webpackJsonp(
         (n = function () {
           o.resolve(),
             document.body.removeEventListener(
-              "tradingview-i18next-initialized",
+              "tradingchart-i18next-initialized",
               n
             );
         }),
-        window.__tradingviewI18nextInited
+        window.__tradingchartI18nextInited
           ? n()
           : document.body.addEventListener(
-              "tradingview-i18next-initialized",
+              "tradingchart-i18next-initialized",
               n
             ),
         (t.exports = o);
@@ -55669,7 +55669,7 @@ webpackJsonp(
                       chrome: {
                         logo: "/static/images/svg/google-chrome-logo.svg",
                         name: "Google Chrome",
-                        href: "https://chrome.google.com/webstore/detail/tradingview-free-quotes-a/ommjfbdmijjlbhlhnnnfkmbnkpnjpipj",
+                        href: "https://chrome.google.com/webstore/detail/tradingchart-free-quotes-a/ommjfbdmijjlbhlhnnnfkmbnkpnjpipj",
                       },
                     }),
                     (n = i(205)),
@@ -57771,7 +57771,7 @@ webpackJsonp(
           "s.test.com" === location.host ||
           "i18n.test.com" === location.host ||
           "partial.test.com" === location.host ||
-          location.host.match(/^[a-z]{2}\.tradingview\.com/) ||
+          location.host.match(/^[a-z]{2}\.tradingchart\.com/) ||
           location.host.match(/prod-[^.]+.test.com/)
           ? "battle"
           : -1 !== location.href.indexOf("test.com")
@@ -65602,7 +65602,7 @@ webpackJsonp(
           var t = 0;
           return (
             JSON.parse(urlParams.logo).image &&
-              ((t = "C"), o.enabled("link_to_tradingview") || (t = "D")),
+              ((t = "C"), o.enabled("link_to_tradingchart") || (t = "D")),
             t
           );
         }
@@ -89166,7 +89166,7 @@ webpackJsonp(
                       ? ((this._customLogoSrc = t.image),
                         (this._customLogoLink = t.link),
                         (this._needToShow = p.enabled("widget_logo")),
-                        p.enabled("link_to_tradingview")
+                        p.enabled("link_to_tradingchart")
                           ? (this._layout = O)
                           : (this._layout = R))
                       : ((this._layout = V),
