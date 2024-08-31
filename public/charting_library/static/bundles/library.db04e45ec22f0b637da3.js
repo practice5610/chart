@@ -3340,7 +3340,7 @@ webpackJsonp(
           (n = i(200).regExpEscape),
           (r = i(93).TVXWindowEvents),
           (s = i(199).TVLocalStorage),
-          (a = ["s.tradingview.com", "betacdn.tradingview.com"]),
+          (a = ["s.test.com", "betacdn.test.com"]),
           (l = window.TVSettings =
             (function () {
               function i(t) {
@@ -11393,8 +11393,8 @@ webpackJsonp(
                     ) +
                     ' <a target="_blank" href="' +
                     ("ru" === window.locale
-                      ? "http://blog.tradingview.com/?p=1530&lang=ru"
-                      : "http://blog.tradingview.com/?p=1530") +
+                      ? "http://blog.test.com/?p=1530&lang=ru"
+                      : "http://blog.test.com/?p=1530") +
                     '">' +
                     $.t("Read our blog for more info!") +
                     "</a>"),
@@ -51575,7 +51575,7 @@ webpackJsonp(
               window.urlParams.locale &&
               (r.language = urlParams.locale),
             (a = n.enabled("charting_library_base")
-              ? o.snapshotUrl || "https://www.tradingview.com/snapshot/"
+              ? o.snapshotUrl || "https://www.test.com/snapshot/"
               : "/snapshot/"),
             $.post(a, r, function (t) {
               t ? e(t) : i();
@@ -57765,16 +57765,16 @@ webpackJsonp(
     function (t, e, i) {
       "use strict";
       function o() {
-        return "www.tradingview.com" === location.host ||
-          "wwwcn.tradingview.com" === location.host ||
+        return "www.test.com" === location.host ||
+          "wwwcn.test.com" === location.host ||
           "dwq4do82y8xi7.cloudfront.net" === location.host ||
-          "s.tradingview.com" === location.host ||
-          "i18n.tradingview.com" === location.host ||
-          "partial.tradingview.com" === location.host ||
+          "s.test.com" === location.host ||
+          "i18n.test.com" === location.host ||
+          "partial.test.com" === location.host ||
           location.host.match(/^[a-z]{2}\.tradingview\.com/) ||
-          location.host.match(/prod-[^.]+.tradingview.com/)
+          location.host.match(/prod-[^.]+.test.com/)
           ? "battle"
-          : -1 !== location.href.indexOf("tradingview.com")
+          : -1 !== location.href.indexOf("test.com")
           ? "staging"
           : location.host.match(/webcharts/)
           ? "staging_local"

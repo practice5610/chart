@@ -1458,7 +1458,7 @@ webpackJsonp([2], {
         function t(e, t) {
           return TradingChart.isCmeWidget
             ? t + " from cmegroup.com via @tradingview $" + e
-            : "$" + e + " chart " + t + " via https://www.tradingview.com";
+            : "$" + e + " chart " + t + " via https://www.test.com";
         }
         function n(e) {
           var t = i();
@@ -1564,7 +1564,7 @@ webpackJsonp([2], {
             n && n(i),
               (a = ""),
               (a = s.enabled("charting_library_base")
-                ? (t.snapshotUrl ? "" : "https://www.tradingview.com/x/") + i
+                ? (t.snapshotUrl ? "" : "https://www.test.com/x/") + i
                 : window.location.protocol +
                   "//" +
                   window.location.host +
