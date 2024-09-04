@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import "./index.css";
 import Datafeed from "./api/";
 
@@ -27,47 +27,46 @@ const TIME_FRAMES = [
   { text: "1h", resolution: INTERVAL.MINUTE, description: "1 Hour" },
 ];
 
-export class TVChartContainer extends React.PureComponent {
-  static defaultProps = {
-    symbol: "BTC/USD",
-    interval: "15",
-    containerId: "tv-chart",
-    libraryPath: "/charting_library/",
-    chartsStorageUrl: "https://saveload.test.com",
-    chartsStorageApiVersion: "1.1",
-    clientId: "test.com",
-    userId: "public_user_id",
-    fullscreen: false,
-    autosize: true,
-    studiesOverrides: {},
-    theme: "Dark",
-  };
-
-  componentDidMount() {
+const TVChartContainer = ({
+  symbol = "BTC/USD",
+  interval = "15",
+  containerId = "tv-chart",
+  libraryPath = "/charting_library/",
+  chartsStorageUrl = "https://saveload.test.com",
+  chartsStorageApiVersion = "1.1",
+  clientId = "test.com",
+  userId = "public_user_id",
+  fullscreen = false,
+  autosize = true,
+  studiesOverrides = {},
+  theme = "Dark",
+}) => {
+  useEffect(() => {
     const widgetOptions = {
       debug: false,
-      symbol: this.props.symbol,
+      symbol,
       datafeed: Datafeed,
-      interval: this.props.interval,
-      container_id: this.props.containerId,
-      library_path: this.props.libraryPath,
+      interval,
+      container_id: containerId,
+      library_path: libraryPath,
       locale: "en",
       disabled_features: ["use_localstorage_for_settings"],
       enabled_features: ["study_templates", "hide_left_toolbar_by_default"],
       disabledDrawings: true,
-      charts_storage_url: this.props.chartsStorageUrl,
-      charts_storage_api_version: this.props.chartsStorageApiVersion,
-      client_id: this.props.clientId,
-      user_id: this.props.userId,
-      fullscreen: this.props.fullscreen,
+      charts_storage_url: chartsStorageUrl,
+      charts_storage_api_version: chartsStorageApiVersion,
+      client_id: clientId,
+      user_id: userId,
+      fullscreen,
       time_frames: TIME_FRAMES,
-      autosize: this.props.autosize,
-      theme: this.props.theme,
-      studies_overrides: this.props.studiesOverrides,
+      autosize,
+      theme,
+      studies_overrides: studiesOverrides,
       overrides: {
         "mainSeriesProperties.showCountdown": false,
       },
     };
+
     window.TradingChart.onready(() => {
       const widget = (window.tvWidget = new window.TradingChart.widget(
         widgetOptions
@@ -86,11 +85,22 @@ export class TVChartContainer extends React.PureComponent {
           "Light";
       });
     });
-  }
+  }, [
+    symbol,
+    interval,
+    containerId,
+    libraryPath,
+    chartsStorageUrl,
+    chartsStorageApiVersion,
+    clientId,
+    userId,
+    fullscreen,
+    autosize,
+    studiesOverrides,
+    theme,
+  ]);
 
-  render() {
-    return <div id={this.props.containerId} className={"TVChartContainer"} />;
-  }
-}
+  return <div id={containerId} className="TVChartContainer" />;
+};
 
 export default TVChartContainer;
