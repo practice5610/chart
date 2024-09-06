@@ -31,7 +31,7 @@ const TVChartContainer = ({
   symbol = "BTC/USD",
   interval = "15",
   containerId = "tv-chart",
-  libraryPath = "/charting_library/",
+  libraryPath = "../charting_library/",
   chartsStorageUrl = "https://saveload.test.com",
   chartsStorageApiVersion = "1.1",
   clientId = "test.com",
@@ -66,8 +66,9 @@ const TVChartContainer = ({
         "mainSeriesProperties.showCountdown": false,
       },
     };
-
+    console.log("cehckkk", window.TradingChart);
     window.TradingChart.onready(() => {
+      console.log("cehckkk22", window.TradingChart);
       const widget = (window.tvWidget = new window.TradingChart.widget(
         widgetOptions
       ));

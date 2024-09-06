@@ -12,5 +12,5 @@ ReactDOM.render(
       <Route path="/chart" element={<Chart />} />
     </Routes>
   </Router>,
-  document.getElementById("tv-chart")
+  document.getElementById("root")
 );

@@ -21,6 +21,7 @@ const config = {
 
 export default {
   onReady: (cb) => {
+    console.log("cehckvvv", cb);
     // console.log('=====onReady running')
     setTimeout(() => cb(config), 0);
   },
