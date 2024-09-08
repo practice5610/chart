@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./index.css";
 import Datafeed from "./api/";
-
 const INTERVAL = {
   MINUTE: "1",
   MINUTES_5: "5",
@@ -31,7 +30,7 @@ const TVChartContainer = ({
   symbol = "BTC/USD",
   interval = "15",
   containerId = "tv-chart",
-  libraryPath = "../charting_library/",
+  libraryPath = "/charting_library/",
   chartsStorageUrl = "https://saveload.test.com",
   chartsStorageApiVersion = "1.1",
   clientId = "test.com",
@@ -66,7 +65,10 @@ const TVChartContainer = ({
         "mainSeriesProperties.showCountdown": false,
       },
     };
-    console.log("cehckkk", window.TradingChart);
+    console.log(
+      "cehckkk",
+      (window.tvWidget = new window.TradingChart.widget(widgetOptions))
+    );
     window.TradingChart.onready(() => {
       console.log("cehckkk22", window.TradingChart);
       const widget = (window.tvWidget = new window.TradingChart.widget(
